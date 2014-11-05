@@ -39,6 +39,11 @@ export QT_API="pyside"
 
 # Add git status info to bash prompt using
 # github.com/magicmonty/bash-git-prompt.git
+GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
+# GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+
 source ~/dev/bash-git-prompt/gitprompt.sh
 
 setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll gb
