@@ -20,6 +20,24 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'tshirtman/vim-cython'
 Bundle 'guns/vim-clojure-static'
+Bundle 'drmikehenry/vim-extline'
+"vim-extline: The following mappings apply in Visual and Insert modes (but, notably, NOT in
+"Normal mode):
+"CTRL-L CTRL-L Auto-line update
+"CTRL-L CTRL-H Horizontal line update
+"CTRL-L CTRL-U Change to underlined title
+"CTRL-L CTRL-O Change to overlined title
+"CTRL-L CTRL-I Change to underlined and overlined title
+"CTRL-L = Force Section heading (level 1)
+"CTRL-L 1
+"CTRL-L - Force Subsection heading (level 2)
+"CTRL-L 2
+"CTRL-L ^ Force Subsubsection heading (level 3)
+"CTRL-L 3
+"CTRL-L " Force Paragraph heading (level 4)
+"CTRL-L 4
+"CTRL-L ' Force level 5 heading (level 5)
+"CTRL-L 5
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
