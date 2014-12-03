@@ -16,7 +16,7 @@ runtime macros/matchit.vim
 call vundle#begin()
 " Vim packages to automatically install/update
 Bundle 'gmarik/Vundle.vim'
-"Bundle 'klen/python-mode'
+Bundle 'klen/python-mode'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'tshirtman/vim-cython'
 Bundle 'guns/vim-clojure-static'
@@ -98,3 +98,6 @@ filetype plugin on
 " Insert date
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+
+" Disable folding in python-mode
+let g:pymode_folding = 0
