@@ -64,3 +64,7 @@ if [ -f /etc/lsb-release ]; then
     source /etc/lsb-release
     export WHEELHOUSE="/home/will/dev/wheelhouse/$DISTRIB_ID$DISTRIB_RELEASE"
 fi
+
+# Aliases for writing to / reading from clipboard
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
