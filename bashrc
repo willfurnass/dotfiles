@@ -70,3 +70,17 @@ if $(hash xclip 2>/dev/null); then
     alias setclip='xclip -selection c'
     alias getclip='xclip -selection clipboard -o'
 fi
+
+# Make easier to activate/deactivate conda virtual environments.
+function condaworkon {
+    CONDAPATH="${HOME}/miniconda3/bin"
+    if [ -d ${CONDAPATH} ]; then 
+        source "${CONDAPATH}/activate" $1
+    fi
+}
+function condadeactivate {
+    CONDAPATH="${HOME}/miniconda3/bin"
+    if [ -d ${CONDAPATH} ]; then 
+        source "${CONDAPATH}/deactivate"
+    fi
+}
