@@ -70,3 +70,8 @@ if $(hash xclip 2>/dev/null); then
     alias setclip='xclip -selection c'
     alias getclip='xclip -selection clipboard -o'
 fi
+
+CABALDIR="${HOME}/.cabal/bin"
+if [ -d ${CABALDIR} ]; then
+    export PATH=${CABALDIR}:${PATH}
+fi
