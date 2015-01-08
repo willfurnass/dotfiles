@@ -81,12 +81,15 @@ fi
 function condaworkon {
     CONDAPATH="${HOME}/miniconda3/bin"
     if [ -d ${CONDAPATH} ]; then 
+        export QT_API_OLD="${QT_API}"
         source "${CONDAPATH}/activate" $1
+        export QT_API='pyqt'
     fi
 }
 function condadeactivate {
     CONDAPATH="${HOME}/miniconda3/bin"
     if [ -d ${CONDAPATH} ]; then 
         source "${CONDAPATH}/deactivate"
+        export QT_API="${QT_API_OLD}"
     fi
 }
