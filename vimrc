@@ -21,8 +21,8 @@ Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'tshirtman/vim-cython'
 Bundle 'guns/vim-clojure-static'
 Bundle 'drmikehenry/vim-extline'
-"vim-extline: The following mappings apply in Visual and Insert modes (but, notably, NOT in
-"Normal mode):
+"vim-extline: The following mappings apply in Visual and Insert modes (but,
+"notably, NOT in Normal mode):
 "CTRL-L CTRL-L Auto-line update
 "CTRL-L CTRL-H Horizontal line update
 "CTRL-L CTRL-U Change to underlined title
