@@ -60,7 +60,7 @@ export LD_LIBRARY_PATH=$HOME/Software/lib:$LD_LIBRARY_PATH
 export PATH=$PATH:$HOME/Dropbox/bin
 
 # Dir for storing Python wheels (packages)
-if [ -f /etc/lsb-release ]; then
+if [[ -f /etc/lsb-release ]]; then
     source /etc/lsb-release
     export WHEELHOUSE="/home/will/dev/wheelhouse/$DISTRIB_ID$DISTRIB_RELEASE"
 fi
@@ -73,14 +73,14 @@ fi
 
 # Use user-installed cabal in preference to system cabal
 CABALDIR="${HOME}/.cabal/bin"
-if [ -d ${CABALDIR} ]; then
+if [[ -d ${CABALDIR} ]]; then
     export PATH=${CABALDIR}:${PATH}
 fi
 
 # Make easier to activate/deactivate conda virtual environments.
 function condaworkon {
     CONDAPATH="${HOME}/miniconda3/bin"
-    if [ -d ${CONDAPATH} ]; then 
+    if [[ -d ${CONDAPATH} ]]; then 
         export QT_API_OLD="${QT_API}"
         source "${CONDAPATH}/activate" $1
         export QT_API='pyqt'
@@ -88,7 +88,7 @@ function condaworkon {
 }
 function condadeactivate {
     CONDAPATH="${HOME}/miniconda3/bin"
-    if [ -d ${CONDAPATH} ]; then 
+    if [[ -d ${CONDAPATH} ]]; then 
         source "${CONDAPATH}/deactivate"
         export QT_API="${QT_API_OLD}"
     fi
