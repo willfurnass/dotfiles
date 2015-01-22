@@ -90,6 +90,7 @@ function condadeactivate {
     CONDAPATH="${HOME}/miniconda3/bin"
     if [[ -d ${CONDAPATH} ]]; then 
         source "${CONDAPATH}/deactivate"
+        PATH=$(python -c 'from __future__ import print_function; import os; print(":".join((p for p in os.environ["PATH"].split(":") if not "miniconda" in p)))')
         export QT_API="${QT_API_OLD}"
     fi
 }
