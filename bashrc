@@ -77,19 +77,20 @@ if [[ -d ${CABALDIR} ]]; then
     export PATH=${CABALDIR}:${PATH}
 fi
 
-# Make easier to activate/deactivate conda virtual environments.
-function condaworkon {
+# Make easier to add/remove conda bin directory from path
+function condaenable {
     CONDAPATH="${HOME}/miniconda3/bin"
-    if [[ -d ${CONDAPATH} ]]; then 
+    if [[ -d ${CONDAPATH} && ! (${PATH} == *${CONDAPATH}*) ]]; then 
         export QT_API_OLD="${QT_API}"
-        source "${CONDAPATH}/activate" $1
+        #source "${CONDAPATH}/activate" $1
+        PATH="$CONDAPATH:$PATH"
         export QT_API='pyqt'
     fi
 }
-function condadeactivate {
+function condadisable {
     CONDAPATH="${HOME}/miniconda3/bin"
-    if [[ -d ${CONDAPATH} ]]; then 
-        source "${CONDAPATH}/deactivate"
+    if [[ -d ${CONDAPATH} && ${PATH} == *${CONDAPATH}* ]]; then 
+        #source "${CONDAPATH}/deactivate"
         PATH=$(python -c 'from __future__ import print_function; import os; print(":".join((p for p in os.environ["PATH"].split(":") if not "miniconda" in p)))')
         export QT_API="${QT_API_OLD}"
     fi
