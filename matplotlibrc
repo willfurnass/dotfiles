@@ -14,3 +14,4 @@ savefig.format      : svg      # png, ps, pdf, svg
 #keymap.yscale : l                   # toggle scaling of y-axes ('log'/'linear')
 #keymap.xscale : L, k                # toggle scaling of x-axes ('log'/'linear')
 #keymap.all_axes : a                 # enable all axes
+figure.facecolor = (1, 1, 1, 1) # non-transparent white background behind figures (for when using dark Notebook themes)
