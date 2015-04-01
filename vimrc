@@ -101,3 +101,6 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
 " Disable folding in python-mode
 let g:pymode_folding = 0
+
+" Turn off Rope autoimport until pymode github issue 525 fixed
+let g:pymode_rope_autoimport = 0
