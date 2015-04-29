@@ -16,9 +16,13 @@ runtime macros/matchit.vim
 call vundle#begin()
 " Vim packages to automatically install/update
 Bundle 'gmarik/Vundle.vim'
+" Needed for vim-markdown
+Bundle 'godlygeek/tabular' 
+Bundle 'plasticboy/vim-markdown'
 Bundle 'klen/python-mode'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'tshirtman/vim-cython'
+" Useful when using Clojure
 Bundle 'guns/vim-clojure-static'
 Bundle 'drmikehenry/vim-extline'
 Bundle 'tpope/vim-fireplace'
