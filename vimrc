@@ -105,8 +105,9 @@ filetype plugin on
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
-" Disable folding in python-mode
+" Disable folding in python-mode and vim-markdown
 let g:pymode_folding = 0
+let g:vim_markdown_folding_disabled=1
 
 " Turn off Rope autoimport until pymode github issue 525 fixed
 let g:pymode_rope_autoimport = 0
