@@ -114,3 +114,6 @@ let g:pymode_rope_autoimport = 0
 
 " Allow following of links using gx
 let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
+
+" Easier way to return to normal mode 
+inoremap jk <esc>
