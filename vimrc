@@ -111,3 +111,6 @@ let g:vim_markdown_folding_disabled=1
 
 " Turn off Rope autoimport until pymode github issue 525 fixed
 let g:pymode_rope_autoimport = 0
+
+" Allow following of links using gx
+let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
