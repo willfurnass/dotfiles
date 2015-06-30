@@ -29,7 +29,7 @@ alias vmi='vim'
 setxkbmap -option compose:ralt
 
 # University of Sheffield IP for DNS fault-finding
-export UOSWEB_IP=143.167.2.101
+export UOSWEB_IP=143.167.2.102
 
 # Reduce console noise when generating PySide figs using matplotlib
 export QT_ACCESSIBILITY=0 
