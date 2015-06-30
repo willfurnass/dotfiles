@@ -16,11 +16,17 @@ runtime macros/matchit.vim
 call vundle#begin()
 " Vim packages to automatically install/update
 Bundle 'gmarik/Vundle.vim'
+" Needed for vim-markdown
+Bundle 'godlygeek/tabular' 
+Bundle 'plasticboy/vim-markdown'
 Bundle 'klen/python-mode'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'tshirtman/vim-cython'
+" Useful when using Clojure
 Bundle 'guns/vim-clojure-static'
 Bundle 'drmikehenry/vim-extline'
+Bundle 'tpope/vim-fireplace'
+Bundle 'vim-scripts/paredit.vim'
 "vim-extline: The following mappings apply in Visual and Insert modes (but,
 "notably, NOT in Normal mode):
 "CTRL-L CTRL-L Auto-line update
@@ -99,8 +105,15 @@ filetype plugin on
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
-" Disable folding in python-mode
+" Disable folding in python-mode and vim-markdown
 let g:pymode_folding = 0
+let g:vim_markdown_folding_disabled=1
 
 " Turn off Rope autoimport until pymode github issue 525 fixed
 let g:pymode_rope_autoimport = 0
+
+" Allow following of links using gx
+let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
+
+" Easier way to return to normal mode 
+inoremap jk <esc>
