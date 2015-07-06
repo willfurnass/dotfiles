@@ -3,4 +3,5 @@ Format 2
 \bind "C-M-S-e" "buffer-export"
 \bind "C-M-S-a" "command-sequence cut; ert-insert; self-insert \\ac{; paste; self-insert }; inset-toggle;"
 \bind "M-S-s" "space-insert protected"
+\bind "C-M-S-b" "buffer-switch"
 
