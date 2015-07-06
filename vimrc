@@ -117,3 +117,7 @@ let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
 
 " Easier way to return to normal mode 
 inoremap jk <esc>
+
+" Syntax highlighting for CANARY Event Detection System files
+au BufRead,BufNewFile *.edsx setfiletype xml
+au BufRead,BufNewFile *.edsy setfiletype yaml
