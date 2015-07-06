@@ -1,8 +1,6 @@
 " Vundle config
 " =============
-" Vundle used to manage Vim plugins.
-"
-" NB to install vundle:
+" Vundle used to manage Vim plugins.  To install:
 "
 " $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
@@ -49,6 +47,7 @@ Bundle 'editorconfig/editorconfig-vim'
 "CTRL-L 4
 "CTRL-L ' Force level 5 heading (level 5)
 "CTRL-L 5
+Bundle 'vim-scripts/taglist.vim'
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
@@ -97,13 +96,13 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 nnoremap <F10> :b <C-Z>
 
-" ctags setup
+" ctags setup (enabled by taglist.vim plugin; see Vundle config)
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 35
 " To show/hid tag list
-map <F4> :TlistToggle<cr>
+nnoremap <F4> :TlistToggle<cr>
 " Regenerate ctags file
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 filetype plugin on
 
 " Insert date
