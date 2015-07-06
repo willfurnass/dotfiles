@@ -2,6 +2,10 @@
 " =============
 " Vundle used to manage Vim plugins.
 "
+" NB to install vundle:
+"
+" $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
 set nocompatible " Disable Vi compatibility
 filetype off " Disable filetype detection
 " Add Vundle to Vim runtimepath
