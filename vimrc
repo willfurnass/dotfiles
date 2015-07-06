@@ -31,6 +31,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'drmikehenry/vim-extline'
 Bundle 'tpope/vim-fireplace'
 Bundle 'vim-scripts/paredit.vim'
+Bundle 'editorconfig/editorconfig-vim'
 "vim-extline: The following mappings apply in Visual and Insert modes (but,
 "notably, NOT in Normal mode):
 "CTRL-L CTRL-L Auto-line update
