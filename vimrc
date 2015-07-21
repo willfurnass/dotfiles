@@ -125,3 +125,4 @@ inoremap jk <esc>
 " Syntax highlighting for CANARY Event Detection System files
 au BufRead,BufNewFile *.edsx setfiletype xml
 au BufRead,BufNewFile *.edsy setfiletype yaml
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
