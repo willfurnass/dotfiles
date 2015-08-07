@@ -5,7 +5,9 @@ alias ]='gnome-open'
 alias grass='grass -wx'
 
 # Disable 'tap to click' on touchpad
-/usr/bin/synclient MaxTapTime=0
+if [ -f /usr/bin/synclient ] && $(xinput list | grep -q "Synaptics"); then
+    /usr/bin/synclient MaxTapTime=0
+fi
 
 # Default ctags options for C code
 alias ctags='ctags --c-kinds=cdfgmnstu'
@@ -26,7 +28,9 @@ export PROJECT_HOME=$HOME/dev
 alias vmi='vim'
 
 # Set the compose key to right alt
-setxkbmap -option compose:ralt
+if [ -f /usr/bin/setxkbmap ]; then
+    setxkbmap -option compose:ralt
+fi
 
 # University of Sheffield IP for DNS fault-finding
 export UOSWEB_IP=143.167.2.102
@@ -38,15 +42,21 @@ export QT_ACCESSIBILITY=0
 export QT_API="pyside"
 
 # Add git status info to bash prompt using
-# github.com/magicmonty/bash-git-prompt.git
-GIT_PROMPT_ONLY_IN_REPO=1
-GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
-GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
-# GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+GIT_PROMPT_DIR="${HOME}/dev/bash-git-prompt/"
+if [ ! -d "${GIT_PROMPT_DIR}" ] && $(which git > /dev/null); then
+    git clone https://github.com/magicmonty/bash-git-prompt.git "${GIT_PROMPT_DIR}" 
+fi
+if [ -d "${GIT_PROMPT_DIR}" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+    GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
+    # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+    source "${GIT_PROMPT_DIR}"/gitprompt.sh
+fi
 
-source ~/dev/bash-git-prompt/gitprompt.sh
-
-setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll gb
+if [ -f /usr/bin/setxkbmap ]; then
+    setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll gb
+fi
 
 # Add RVM (for managing ruby versions) to path
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
