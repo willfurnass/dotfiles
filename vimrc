@@ -62,7 +62,7 @@ set showmode " Show the mode that vim is in (Insert, Replace, Visual)
 set hlsearch " Highlight searches
 set bg=dark "Set background to dark
 if has('gui_running') " Set GUI font and colorscheme
-  set guifont=OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
+  set guifont=Hack\ 9,OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
   colorscheme peachpuff
 endif
 
