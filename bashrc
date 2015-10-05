@@ -105,3 +105,8 @@ function condadisable {
         export QT_API="${QT_API_OLD}"
     fi
 }
+
+# PySpark environment options
+export PYSPARK_PYTHON=python3 
+export PYSPARK_DRIVER_PYTHON=ipython 
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
