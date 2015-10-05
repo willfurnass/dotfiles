@@ -48,6 +48,8 @@ Bundle 'editorconfig/editorconfig-vim'
 "CTRL-L ' Force level 5 heading (level 5)
 "CTRL-L 5
 Bundle 'vim-scripts/taglist.vim'
+Bundle 'altercation/vim-colors-solarized'
+Plugin 'derekwyatt/vim-scala'
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
@@ -62,8 +64,8 @@ set showmode " Show the mode that vim is in (Insert, Replace, Visual)
 set hlsearch " Highlight searches
 set bg=dark "Set background to dark
 if has('gui_running') " Set GUI font and colorscheme
-  set guifont=OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
-  colorscheme peachpuff
+  set guifont=Hack\ 10,OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
+  colorscheme solarized
 endif
 
 " Movement, spacing, indents, pasting

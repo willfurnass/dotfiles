@@ -106,7 +106,7 @@ function condadisable {
     fi
 }
 
-# PySpark environment options
+# PySpark environment vars
 export PYSPARK_PYTHON=python3 
 export PYSPARK_DRIVER_PYTHON=ipython 
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
