@@ -50,7 +50,6 @@ Bundle 'derekwyatt/vim-scala'
 "CTRL-L 5
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
-Plugin 'derekwyatt/vim-scala'
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
