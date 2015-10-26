@@ -1,7 +1,11 @@
 backend      : Qt4Agg
 #backend      : GTKAgg
 #backend.qt4  : PySide
+
 savefig.format      : svg      # png, ps, pdf, svg
+nbagg.transparent : False
+figure.facecolor : (1, 1, 1)  # white background behind figures (for when using dark Notebook themes)
+
 #keymap.fullscreen : f               # toggling
 #keymap.home : h, r, home            # home or reset mnemonic
 #keymap.back : left, c, backspace    # forward / backward keys to enable
@@ -14,4 +18,3 @@ savefig.format      : svg      # png, ps, pdf, svg
 #keymap.yscale : l                   # toggle scaling of y-axes ('log'/'linear')
 #keymap.xscale : L, k                # toggle scaling of x-axes ('log'/'linear')
 #keymap.all_axes : a                 # enable all axes
-#figure.facecolor = (1, 1, 1, 1) # non-transparent white background behind figures (for when using dark Notebook themes)
