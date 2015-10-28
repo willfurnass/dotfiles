@@ -110,3 +110,5 @@ function condadisable {
 export PYSPARK_PYTHON=python3 
 export PYSPARK_DRIVER_PYTHON=ipython 
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+
+alias mypwgen='pwgen -BcnyC 12 10'
