@@ -18,9 +18,9 @@ runtime macros/matchit.vim
 call vundle#begin()
 " Vim packages to automatically install/update
 Bundle 'gmarik/Vundle.vim'
-" Needed for vim-markdown
-Bundle 'godlygeek/tabular' 
-Bundle 'plasticboy/vim-markdown'
+"Bundle 'godlygeek/tabular' " Needed for vim-markdown
+"Bundle 'plasticboy/vim-markdown'  " Try using built-in Markdown support (by
+"tpope) rather than plasticboy/vim-markdown due to issue #126 with the latter
 Bundle 'klen/python-mode'
 Bundle 'vim-scripts/MatlabFilesEdition'
 Bundle 'tshirtman/vim-cython'
@@ -135,3 +135,6 @@ autocmd FileType yml setlocal shiftwidth=2 tabstop=2
 
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
+
+" Enable syntax highlighting when using tpope/vim-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
