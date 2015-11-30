@@ -17,5 +17,5 @@
 [core]
         editor = vim
 	excludesfile = /home/will/.gitignore_global
-	autocrlf = false
+	autocrlf = input
 
