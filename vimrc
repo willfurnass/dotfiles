@@ -134,6 +134,9 @@ au BufRead,BufNewFile *.edsy setfiletype yaml
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yml setlocal shiftwidth=2 tabstop=2
 
+" Smaller shiftwidth and tabstop for Markdown
+autocmd FileType md setlocal shiftwidth=2 tabstop=2
+
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
