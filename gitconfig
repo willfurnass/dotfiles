@@ -1,21 +1,25 @@
 [user]
-	name = Will Furnass
-	email = will@thearete.co.uk
+    name = Will Furnass
+    email = will@thearete.co.uk
+
 [push]
-	default = matching
+    default = matching
+
 [color]
-	status = auto
-	branch = auto
-	ui = true
+    status = auto
+    branch = auto
+    ui = true
+
 [alias]
-      hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-      tree = log --graph --pretty=oneline --abbrev-commit  
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    tree = log --graph --pretty=oneline --abbrev-commit  
+    unstage = reset HEAD --
+    last = log -1 HEAD
 
 [diff "zip"]
     textconv = unzip -c -a
 
 [core]
-        editor = vim
-	excludesfile = /home/will/.gitignore_global
-	autocrlf = input
-
+    editor = vim
+    excludesfile = /home/will/.gitignore_global
+    autocrlf = input
