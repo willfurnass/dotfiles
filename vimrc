@@ -1,10 +1,10 @@
+set nocompatible " Disable Vi compatibility
+
 " Vundle config
 " =============
 " Vundle used to manage Vim plugins.  To install:
-"
 " $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
-set nocompatible " Disable Vi compatibility
 filetype off " Disable filetype detection
 " Add Vundle to Vim runtimepath
 set runtimepath+=~/.vim/bundle/Vundle.vim
@@ -18,20 +18,54 @@ runtime macros/matchit.vim
 call vundle#begin()
 " Vim packages to automatically install/update
 Bundle 'gmarik/Vundle.vim'
+
 "Bundle 'godlygeek/tabular' " Needed for vim-markdown
-"Bundle 'plasticboy/vim-markdown'  " Try using built-in Markdown support (by
+"Bundle 'plasticboy/vim-markdown'  " To try using built-in Markdown support (by
 "tpope) rather than plasticboy/vim-markdown due to issue #126 with the latter
+
 Bundle 'klen/python-mode'
-Bundle 'vim-scripts/MatlabFilesEdition'
+"python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
+"features like static analysis, refactoring, folding, completion,
+"documentation, and more.
+
 Bundle 'tshirtman/vim-cython'
-" Useful when using Clojure
+"syntax file for cython
+
+Bundle 'vim-scripts/MatlabFilesEdition'
+"Matlab: 
+" - syntax highlighting
+" - correct settings for matchit.vim for matching if/end and for/end blocks
+"   (using e.g. %), 
+" - correct indentation, integration of mlint (Matlab code checker) with the
+"   :make command, 
+" - tag support, 
+" - help file.
+
 Bundle 'guns/vim-clojure-static'
-Bundle 'drmikehenry/vim-extline'
+" - Augmentable syntax highlighting for Clojure and ClojureScript buffers.
+" - Configurable Clojure-specific indentation.
+" - Basic insert mode completion for special forms and public vars in
+"   clojure.core.
+" - 3rd party extensions inc. Rainbow Parentheses and Extended Syntax
+"   Highlighting
+
 Bundle 'tpope/vim-fireplace'
+"Connect to Clojure (n)REPL
+
 Bundle 'tpope/vim-salve'
+"Static Vim support for Leiningen and Boot (the latter being build tooling for
+"Clojure)
+
 Bundle 'vim-scripts/paredit.vim'
+"Structured editing of Lisp S-expressions in Vim.  Useful for Clojure coding.
+
 Bundle 'editorconfig/editorconfig-vim'
+"EditorConfig helps developers define and maintain consistent coding styles
+"between different editors and IDEs. 
+
 Bundle 'derekwyatt/vim-scala'
+
+Bundle 'drmikehenry/vim-extline'
 "vim-extline: The following mappings apply in Visual and Insert modes (but,
 "notably, NOT in Normal mode):
 "CTRL-L CTRL-L Auto-line update
@@ -40,17 +74,18 @@ Bundle 'derekwyatt/vim-scala'
 "CTRL-L CTRL-O Change to overlined title
 "CTRL-L CTRL-I Change to underlined and overlined title
 "CTRL-L = Force Section heading (level 1)
-"CTRL-L 1
-"CTRL-L - Force Subsection heading (level 2)
-"CTRL-L 2
-"CTRL-L ^ Force Subsubsection heading (level 3)
-"CTRL-L 3
-"CTRL-L " Force Paragraph heading (level 4)
-"CTRL-L 4
-"CTRL-L ' Force level 5 heading (level 5)
+"CTRL-L 1 or CTRL-L - Force Subsection heading (level 2)
+"CTRL-L 2 or CTRL-L ^ Force Subsubsection heading (level 3)
+"CTRL-L 3 or CTRL-L " Force Paragraph heading (level 4)
+"CTRL-L 4 or CTRL-L ' Force level 5 heading (level 5)
 "CTRL-L 5
+
 Bundle 'vim-scripts/taglist.vim'
+"Source code browser plugin
+
 Bundle 'altercation/vim-colors-solarized'
+"Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
+
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
