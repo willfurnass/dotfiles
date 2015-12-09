@@ -67,7 +67,7 @@ export PATH=/usr/lib/ccache:${PATH}
 # Add user-specific bin and lib dirs to path
 export PATH=$HOME/Software/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/Software/lib:$LD_LIBRARY_PATH
-export PATH=$PATH:$HOME/Dropbox/bin
+export PATH=$HOME/Dropbox/bin:$PATH
 
 # Dir for storing Python wheels (packages)
 if [[ -f /etc/lsb-release ]]; then
