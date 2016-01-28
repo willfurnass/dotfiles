@@ -17,7 +17,7 @@ div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.promp
 
 /* GLOBALS */
 body {background-color: #0c0d0e; background-color: 0C0D0E; color: #EEE; }
-img {background-color: #FFFFFF; }
+img {background-color: #FFFFFF; } 
 a {color: #3182bd;}
 
 /* INTRO PAGE */
@@ -43,6 +43,8 @@ div.output_subarea {font-weight: normal; color: #b7b8b9;}
   border: 1px  #b7b8b9 solid;
   color: #b7b8b9;
 }
+.rendered_html pre, .rendered_html code { color: #ECC; background-color: #022; }
+
 div.output_html { font-family: sans-serif; }
 table.dataframe tr {border: 1px #b7b8b9;}
 
