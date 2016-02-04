@@ -90,8 +90,9 @@ call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
 syntax on " Enable syntax highlighting
-set number " Enable line numbering by default
-:nmap <F12> :set invnumber<CR> " Toggle numbering with F12
+" Toggle numbering with F3
+noremap <F3> :set invnumber<CR>
+inoremap <F3> <C-O>:set invnumber<CR>
 
 " (G)UI settings
 set laststatus=2 " Show status line even when only one window shown
