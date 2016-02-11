@@ -178,3 +178,6 @@ set fileencoding=utf-8  " The encoding written to file.
 
 " Enable syntax highlighting when using tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown autoindent
+
+" Small tabs in HTML
+au FileType html,css setlocal shiftwidth=2 tabstop=2
