@@ -16,7 +16,7 @@ div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.promp
 */
 
 /* GLOBALS */
-body {background-color: #0c0d0e; background-color: 0C0D0E; color: #EEE; }
+body {background-color: #0c0d0e; background-color: #0C0D0E; color: #EEE; }
 img {background-color: #FFFFFF; } 
 a {color: #3182bd;}
 
