@@ -181,6 +181,3 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown autoindent
 
 " Small tabs in HTML
 au FileType html,css setlocal shiftwidth=2 tabstop=2
-
-" Use Chicken flavour of Scheme
-let b:is_chicken=1
