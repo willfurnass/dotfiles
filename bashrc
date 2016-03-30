@@ -112,4 +112,7 @@ export PYSPARK_DRIVER_PYTHON=ipython
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 alias mypwgen='pwgen -BcnyC 12 10'
+
+# Alias inc completion for todo.sh (todo.txt cli)
 alias t='todo.sh'
+complete -F _todo t  
