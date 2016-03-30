@@ -86,6 +86,8 @@ Bundle 'vim-scripts/taglist.vim'
 Bundle 'altercation/vim-colors-solarized'
 "Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
 
+Bundle 'freitass/todo.txt-vim'
+
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
