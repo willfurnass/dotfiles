@@ -23,6 +23,10 @@ inst-xmonad:
 	ln -si `pwd`/xmobarrc ${HOME}/.xmobarrc
 inst-xinitrc:
 	ln -si `pwd`/xinitrc ${HOME}/.xinitrc
+inst-todotxt:
+	mkdir -p ${HOME}/.todo
+	ln -si `pwd`/todo.cfg ${HOME}/.todo/config
+
 
 # TO ADD:
 #50-marblemouse.conf
