@@ -2,8 +2,6 @@ all: inst-ackrc inst-bashrc inst-csirc inst-gitconfig inst-jupyter-css inst-matp
 
 inst-ackrc:
 	ln -si `pwd`/ackrc ${HOME}/.ackrc
-inst-bashrc:
-	ln -si `pwd`/bashrc ${HOME}/.bashrc
 inst-csirc:
 	ln -si `pwd`/csirc ${HOME}/.csirc
 inst-gitconfig:
@@ -29,6 +27,7 @@ inst-todotxt:
 
 
 # TO ADD:
+#bashrc
 #50-marblemouse.conf
 #50-synaptics.conf
 #99-nozap.conf
