@@ -87,6 +87,41 @@ Bundle 'altercation/vim-colors-solarized'
 "Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
 
 Bundle 'freitass/todo.txt-vim'
+"todo.txt management
+"localleader is \ by default
+"<localleader>s Sort the file
+"<localleader>s+ Sort the file on +Projects
+"<localleader>s@ Sort the file on @Contexts
+"<localleader>sd Sort the file on dates
+"<localleader>sdd Sort the file on due dates
+"<localleader>j Decrease the priority of the current line
+"<localleader>k Increase the priority of the current line
+"<localleader>a Add the priority (A) to the current line
+"<localleader>b Add the priority (B) to the current line
+"<localleader>c Add the priority (C) to the current line
+"<localleader>d Set current task's creation date to the current date
+"date<tab> (Insert mode) Insert the current date
+"<localleader>x Mark current task as done
+"<localleader>X Mark all tasks as done
+"<localleader>D Move completed tasks to done.txt
+
+Bundle 'tpope/vim-surround'
+"Add, change and delete 'surroundings' (parentheses, brackets, quotes, XML
+"tags, and more)
+" cs"' change double to single quotes
+" cs'<q> change single quotes to html tag quotes
+" cst" change html tag pair to double quotes
+" ds" delete quotes
+" ysiw] surround unsurrounded word in square brackets
+" cs]{ change surroundings from [] to {} (use { if want extra space)
+" yssb or yss) wrap line in parentheses
+" ds{ds) revert to original text
+" ysiw<em> emphasise word
+" Visual mode: select text then e.g. S<p class="important">
+
+Bundle 'tpope/vim-repeat'
+"Enable repeating supported plugin maps with "."
+"Allows repeating of e.g. surround.vim commands
 
 call vundle#end()
 
