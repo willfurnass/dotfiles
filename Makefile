@@ -10,6 +10,8 @@ inst-jupyter-css:
 	ln -si `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
 inst-matplotlibrc:
 	ln -si `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
+inst-tmux:
+	ln -si `pwd`/tmux.conf ${HOME}/.tmux.conf
 inst-vim:
 	ln -si `pwd`/vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
