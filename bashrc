@@ -1,3 +1,5 @@
+export EDITOR=vim
+
 # Quick way of opening file using default Gnome app
 alias ]='gnome-open'
 
