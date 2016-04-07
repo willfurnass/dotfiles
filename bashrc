@@ -115,6 +115,7 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 alias mypwgen='pwgen -BcnyC 12 10'
 
-# Alias inc completion for todo.sh (todo.txt cli)
+# Alias for todo.txt CLI
 alias t='todo.sh'
+# completion for todo.sh (todo.txt cli)
 complete -F _todo t  
