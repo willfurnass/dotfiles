@@ -8,6 +8,8 @@ inst-gitconfig:
 	ln -si `pwd`/gitconfig ${HOME}/.gitconfig
 inst-jupyter-css:
 	ln -si `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
+inst-marblemouse:
+	sudo ln -si `pwd`/50-marblemouse.conf /usr/share/X11/xorg.conf.d/
 inst-matplotlibrc:
 	ln -si `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
 inst-tmux:
@@ -30,7 +32,6 @@ inst-todotxt:
 
 # TO ADD:
 #bashrc
-#50-marblemouse.conf
 #50-synaptics.conf
 #99-nozap.conf
 #lyx_user.bind
