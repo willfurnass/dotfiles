@@ -218,3 +218,6 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown autoindent
 
 " Small tabs in HTML
 au FileType html,css setlocal shiftwidth=2 tabstop=2
+
+" Show size of visual selection
+set showcmd
