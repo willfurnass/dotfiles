@@ -119,3 +119,6 @@ alias mypwgen='pwgen -BcnyC 12 10'
 alias t='todo.sh'
 # completion for todo.sh (todo.txt cli)
 complete -F _todo t  
+
+# Abbreviate long paths in prompt
+PROMPT_DIRTRIM=3
