@@ -195,14 +195,30 @@ filetype plugin on
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 
-" Disable folding in python-mode and vim-markdown
-let g:pymode_folding = 0
+" Disable folding in vim-markdown
 let g:vim_markdown_folding_disabled=1
 
 " Turn off Rope autoimport until pymode github issue 525 fixed
 let g:pymode_rope_autoimport = 0
 " Not doing the trick, so disable Rope alltogether
 let g:pymode_rope = 0
+
+" Other Python Mode options
+"   Trim unused white spaces on save
+let g:pymode_trim_whitespaces = 1
+" let g:pymode_python = 'python3'
+let g:pymode_indent = 1
+let g:pymode_folding = 1
+let g:pymode_motion = 1
+"   Show docs for current word by pydoc using 'K'
+let g:pymode_doc = 1
+"   Automatic virtualenv detection
+let g:pymode_virtualenv = 1
+"   Run current buffer/selection with '<leader>r'
+let g:pymode_run = 1
+"   Insert/remove breakpoint with '<leader>b'
+let g:pymode_breakpoint = 1
+
 
 " Allow following of links using gx
 let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
