@@ -23,6 +23,15 @@ Bundle 'gmarik/Vundle.vim'
 "Bundle 'plasticboy/vim-markdown'  " To try using built-in Markdown support (by
 "tpope) rather than plasticboy/vim-markdown due to issue #126 with the latter
 
+" Preview markdown files in an (automatically opened) browser tab
+Bundle 'suan/vim-instant-markdown'
+" Do not always update the display in realtime; only refresh if no keys
+" pressed for a while, left insert mode a while ago or file is saved
+let g:instant_markdown_slow = 1
+" Do not automatically launch a preview browser tab when open a markdown file;
+" instead manually trigger the preview with :InstantMarkdownPreview
+let g:instant_markdown_autostart = 0
+
 Bundle 'klen/python-mode'
 "python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 "features like static analysis, refactoring, folding, completion,
