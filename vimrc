@@ -191,9 +191,11 @@ nnoremap <F4> :TlistToggle<cr>
 nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 filetype plugin on
 
-" Insert date
+" Insert date and time (F5) or just date (F6)
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
+nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
+inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " Disable folding in vim-markdown
 let g:vim_markdown_folding_disabled=1
