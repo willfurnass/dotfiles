@@ -23,8 +23,8 @@ Bundle 'gmarik/Vundle.vim'
 "Bundle 'plasticboy/vim-markdown'  " To try using built-in Markdown support (by
 "tpope) rather than plasticboy/vim-markdown due to issue #126 with the latter
 
-" Preview markdown files in an (automatically opened) browser tab
 Bundle 'suan/vim-instant-markdown'
+" Preview markdown files in an (automatically opened) browser tab
 " Do not always update the display in realtime; only refresh if no keys
 " pressed for a while, left insert mode a while ago or file is saved
 let g:instant_markdown_slow = 1
@@ -199,6 +199,9 @@ nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
+
+nnoremap <F7> :setlocal spell! spelllang=en_gb<CR>
+inoremap <F7> :setlocal spell! spelllang=en_gb<CR>
 
 " Enable folding in vim-markdown
 "let g:vim_markdown_folding_disabled=1
