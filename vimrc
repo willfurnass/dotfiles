@@ -200,8 +200,9 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 
+" Toggle automatic spell checking
 nnoremap <F7> :setlocal spell! spelllang=en_gb<CR>
-inoremap <F7> :setlocal spell! spelllang=en_gb<CR>
+inoremap <F7> <Esc>:setlocal spell! spelllang=en_gb<CR>a
 
 " Enable folding in vim-markdown
 "let g:vim_markdown_folding_disabled=1
