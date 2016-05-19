@@ -32,6 +32,9 @@ let g:instant_markdown_slow = 1
 " instead manually trigger the preview with :InstantMarkdownPreview
 let g:instant_markdown_autostart = 0
 
+Bundle 'nelstrom/vim-markdown-folding'
+" Markdown folding
+
 Bundle 'klen/python-mode'
 "python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 "features like static analysis, refactoring, folding, completion,
@@ -197,8 +200,8 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 
-" Disable folding in vim-markdown
-let g:vim_markdown_folding_disabled=1
+" Enable folding in vim-markdown
+"let g:vim_markdown_folding_disabled=1
 
 " Turn off Rope autoimport until pymode github issue 525 fixed
 let g:pymode_rope_autoimport = 0
