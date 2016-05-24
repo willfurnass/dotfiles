@@ -135,6 +135,18 @@ Bundle 'tpope/vim-repeat'
 "Enable repeating supported plugin maps with "."
 "Allows repeating of e.g. surround.vim commands
 
+Bundle 'embear/vim-foldsearch'
+"Fold all but lines matching a pattern
+"Useful for filtering when viewing todo.txt
+" :Fs Show lines which contain the word under the cursor.
+" :Fp Show the lines that contain the given regular expression.
+" :FS Show the lines that contain spelling errors.
+" :Fl Fold again with the last used pattern
+" :Fc Show or modify current context lines around matching pattern.
+" :Fi Increment context by one line.
+" :Fd Decrement context by one line.
+" :Fe Set modified fold options to their previous value and end foldsearch.
+
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
