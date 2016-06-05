@@ -267,3 +267,6 @@ au FileType html,css setlocal shiftwidth=2 tabstop=2
 
 " Show size of visual selection
 set showcmd
+
+" Enable hidden buffers so can switch buffers without saving
+set hidden
