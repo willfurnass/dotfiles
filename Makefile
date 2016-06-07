@@ -1,4 +1,4 @@
-all: inst-ackrc inst-bashrc inst-csirc inst-gitconfig inst-jupyter-css inst-matplotlibrc inst-vim inst-xmonad inst-xinitrc
+all: inst-ackrc inst-csirc inst-gitconfig inst-jupyter-css inst-matplotlibrc inst-vim inst-xinitrc
 
 inst-ackrc:
 	ln -si `pwd`/ackrc ${HOME}/.ackrc
@@ -19,10 +19,6 @@ inst-vim:
 	mkdir -p ${HOME}/.vim
 	ln -si `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
 	ln -si `pwd`/vim-syntax ${HOME}/.vim/syntax
-inst-xmonad:
-	mkdir -p ${HOME}/.xmonad
-	ln -si `pwd`/xmonad.hs ${HOME}/.xmonad/xmonad.hs
-	ln -si `pwd`/xmobarrc ${HOME}/.xmobarrc
 inst-xinitrc:
 	ln -si `pwd`/xinitrc ${HOME}/.xinitrc
 inst-todotxt:
