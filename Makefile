@@ -1,6 +1,6 @@
 CP = cp --backup=numbered --one-file-system --verbose --update --interactive
 
-all: inst-ackrc inst-csirc inst-gitconfig inst-jupyter-css inst-marblemouse inst-matplotlibrc inst-mpd inst-todotxt inst-tmux inst-vim inst-xinitrc 
+all: inst-ackrc inst-csirc inst-gitconfig inst-jupyter-css inst-marblemouse inst-matplotlibrc inst-mpd inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
 
 inst-ackrc:
 	 $(CP) `pwd`/ackrc ${HOME}/.ackrc
@@ -34,6 +34,10 @@ inst-vim:
 	mkdir -p ${HOME}/.vim
 	$(CP) -rT `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
 	$(CP) -rT `pwd`/vim-syntax ${HOME}/.vim/syntax
+inst-weechat:
+	mkdir -p ${HOME}/.weechat/
+	$(CP) `pwd`/weechat/irc.conf ${HOME}/.weechat/
+	$(CP) `pwd`/weechat/weechat.conf ${HOME}/.weechat/
 inst-xinitrc:
 	$(CP) `pwd`/xinitrc ${HOME}/.xinitrc
 
