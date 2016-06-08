@@ -18,9 +18,11 @@ inst-matplotlibrc:
 	$(CP) `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
 inst-mpd:
 	mkdir -p ${HOME}/.config/mpd
-	$(CP) `pwd`/mpd.conf ${HOME}/.config/mpd/mpd.conf
+	$(CP) `pwd`/mpd/mpd.conf ${HOME}/.config/mpd/mpd.conf
 	mkdir -p ${HOME}/.mpdscribble
-	$(CP) `pwd`/mpdscribble.conf.anon ${HOME}/.mpdscribble/mpdscribble.conf.anon
+	$(CP) `pwd`/mpd/mpdscribble.conf.anon ${HOME}/.mpdscribble/mpdscribble.conf.anon
+	mkdir -p ${HOME}/.ncmpcpp/
+	$(CP) `pwd`/mpd/ncmpcpp_config ${HOME}/.ncmpcpp/config
 inst-todotxt:
 	mkdir -p ${HOME}/.todo
 	$(CP) `pwd`/todo.cfg ${HOME}/.todo/config
