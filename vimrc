@@ -147,6 +147,8 @@ Bundle 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
+Bundle 'weynhamz/vim-plugin-minibufexpl'
+
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
@@ -270,3 +272,7 @@ set showcmd
 
 " Enable hidden buffers so can switch buffers without saving
 set hidden
+
+" Enable fast buffer switching
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
