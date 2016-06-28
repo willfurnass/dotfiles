@@ -149,6 +149,19 @@ Bundle 'embear/vim-foldsearch'
 
 Bundle 'weynhamz/vim-plugin-minibufexpl'
 
+Bundle 'wchrisbra/Recover.vim'
+"Diff (and allow merging) of on-disk file and version recovered from swap file
+"By default this plugin is enabled. To disable it, use :RecoverPluginDisable
+"To enable this plugin again, use :RecoverPluginEnable
+"If you are finished, you can close the diff version and close the window, by
+"issuing :diffoff! and :close in the window, that contains the on-disk version
+"of the file. Be sure to save the recovered version of your file and
+"afterwards you can safely remove the swap file.
+"In the recovered window, the command :FinishRecovery deletes the swapfile
+"closes the diff window and finishes everything up. Alternatively you can also
+"use the command :RecoveryPluginFinish
+"For help: ':h RecoverPlugin-manual'
+
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
