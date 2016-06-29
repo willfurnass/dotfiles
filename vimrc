@@ -149,7 +149,7 @@ Bundle 'embear/vim-foldsearch'
 
 Bundle 'weynhamz/vim-plugin-minibufexpl'
 
-Bundle 'wchrisbra/Recover.vim'
+Bundle 'chrisbra/Recover.vim'
 "Diff (and allow merging) of on-disk file and version recovered from swap file
 "By default this plugin is enabled. To disable it, use :RecoverPluginDisable
 "To enable this plugin again, use :RecoverPluginEnable
