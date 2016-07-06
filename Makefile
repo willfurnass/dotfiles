@@ -1,6 +1,6 @@
 CP = cp --backup=numbered --one-file-system --verbose --update --interactive
 
-all: inst-ackrc inst-csirc inst-gitconfig inst-jupyter-css inst-marblemouse inst-matplotlibrc inst-mpd inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
+all: inst-ackrc inst-csirc inst-gitconfig inst-jupyter-css inst-marblemouse inst-matplotlibrc inst-mpd inst-rprofile inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
 
 inst-ackrc:
 	 $(CP) `pwd`/ackrc ${HOME}/.ackrc
@@ -23,6 +23,8 @@ inst-mpd:
 	$(CP) `pwd`/mpd/mpdscribble.conf.anon ${HOME}/.mpdscribble/mpdscribble.conf.anon
 	mkdir -p ${HOME}/.ncmpcpp/
 	$(CP) `pwd`/mpd/ncmpcpp_config ${HOME}/.ncmpcpp/config
+inst-rprofile:
+	$(CP) `pwd`/RProfile ${HOME}/.RProfile
 inst-todotxt:
 	mkdir -p ${HOME}/.todo
 	$(CP) `pwd`/todo.cfg ${HOME}/.todo/config
