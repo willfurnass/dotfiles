@@ -162,6 +162,10 @@ Bundle 'chrisbra/Recover.vim'
 "use the command :RecoveryPluginFinish
 "For help: ':h RecoverPlugin-manual'
 
+Bundle 'Rip-Rip/clang_complete'
+" Autocomplete C/C++ code using clang.
+" NB need to be clear about namespaces.
+
 call vundle#end()
 
 filetype plugin indent on " Enable per-filetype indentation
