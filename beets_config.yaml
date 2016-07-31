@@ -1,0 +1,6 @@
+directory: ~/Music
+library: ~/Music/beets_library.blb
+import:
+  copy: no
+  write: no
+plugins: fetchart web 
