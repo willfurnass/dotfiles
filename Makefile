@@ -31,14 +31,14 @@ inst-rprofile:
 inst-todotxt:
 	mkdir -p ${HOME}/.todo
 	$(SYM) `pwd`/todo.cfg ${HOME}/.todo/config
-	$(SYM) -rT `pwd`/todo.actions.d ${HOME}/.todo.actions.d
+	$(SYM) `pwd`/todo.actions.d ${HOME}/.todo.actions.d
 inst-tmux:
 	$(SYM) `pwd`/tmux.conf ${HOME}/.tmux.conf
 inst-vim:
 	$(SYM) `pwd`/vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
-	$(SYM) -rT `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
-	$(SYM) -rT `pwd`/vim-syntax ${HOME}/.vim/syntax
+	$(SYM) `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
+	$(SYM) `pwd`/vim-syntax ${HOME}/.vim/syntax
 	$(SYM) `pwd`/vim-after ${HOME}/.vim/after
 	$(SYM) `pwd`/vim-autoload ${HOME}/.vim/autoload
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
