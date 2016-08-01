@@ -4,3 +4,15 @@ import:
   copy: no
   write: no
 plugins: fetchart web 
+paths:
+  default: $albumartist/$album%aunique{}/$track-$title
+  singleton: Non-Album/$artist/$title
+replace:
+    '[\\/]': _
+    '^\.': _
+    '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '\.$': _
+    '\s+$': ''
+    '^\s+': ''
+    '\s+': '_'
