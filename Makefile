@@ -40,6 +40,7 @@ inst-vim:
 	$(CP) -rT `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
 	$(CP) -rT `pwd`/vim-syntax ${HOME}/.vim/syntax
 	$(CP) -rT `pwd`/vim-after ${HOME}/.vim/after
+	$(CP) -rT `pwd`/vim-autoload ${HOME}/.vim/autoload
 inst-weechat:
 	mkdir -p ${HOME}/.weechat/
 	$(CP) `pwd`/weechat/irc.conf ${HOME}/.weechat/

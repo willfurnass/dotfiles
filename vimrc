@@ -1,13 +1,5 @@
-set nocompatible " Disable Vi compatibility
+set nocompatible 
 
-" Vundle config
-" =============
-" Vundle used to manage Vim plugins.  To install:
-" $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"
-filetype off " Disable filetype detection
-" Add Vundle to Vim runtimepath
-set runtimepath+=~/.vim/bundle/Vundle.vim
 " Make % match more than just single chars.  Can match words and regexes.
 " Also, matching treats strings and comments (as recognized by the
 " syntax highlighting mechanism) intelligently.
@@ -15,15 +7,20 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 " Ada, ASP with VBS, Csh, DTD, Essbase, Fortran, HTML, JSP
 " (same as HTML), LaTeX, Lua, Pascal, SGML, Shell, Tcsh, Vim, XML. 
 runtime macros/matchit.vim
-call vundle#begin()
-" Vim packages to automatically install/update
-Bundle 'gmarik/Vundle.vim'
 
-"Bundle 'godlygeek/tabular' " Needed for vim-markdown
-"Bundle 'plasticboy/vim-markdown'  " To try using built-in Markdown support (by
-"tpope) rather than plasticboy/vim-markdown due to issue #126 with the latter
+" Vim plug config
+"""""""""""""""""
+" Install with:
+"   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<Paste>
+call plug#begin()
 
-Bundle 'suan/vim-instant-markdown'
+"Plug 'godlygeek/tabular', { 'for', 'markdown' } " Needed for vim-markdown
+"Plug 'plasticboy/vim-markdown', { 'for', 'markdown' }  " To try using 
+" built-in Markdown support (by tpope) rather than 
+" plasticboy/vim-markdown due to issue #126 with the latter
+
+Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 " Preview markdown files in an (automatically opened) browser tab
 " Do not always update the display in realtime; only refresh if no keys
 " pressed for a while, left insert mode a while ago or file is saved
@@ -32,18 +29,18 @@ let g:instant_markdown_slow = 1
 " instead manually trigger the preview with :InstantMarkdownPreview
 let g:instant_markdown_autostart = 0
 
-Bundle 'nelstrom/vim-markdown-folding'
+Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 " Markdown folding
 
-Bundle 'klen/python-mode'
+Plug 'klen/python-mode'
 "python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 "features like static analysis, refactoring, folding, completion,
 "documentation, and more.
 
-Bundle 'tshirtman/vim-cython'
+Plug 'tshirtman/vim-cython'
 "syntax file for cython
 
-Bundle 'vim-scripts/MatlabFilesEdition'
+Plug 'vim-scripts/MatlabFilesEdition'
 "Matlab: 
 " - syntax highlighting
 " - correct settings for matchit.vim for matching if/end and for/end blocks
@@ -53,7 +50,7 @@ Bundle 'vim-scripts/MatlabFilesEdition'
 " - tag support, 
 " - help file.
 
-Bundle 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 " - Augmentable syntax highlighting for Clojure and ClojureScript buffers.
 " - Configurable Clojure-specific indentation.
 " - Basic insert mode completion for special forms and public vars in
@@ -61,23 +58,23 @@ Bundle 'guns/vim-clojure-static'
 " - 3rd party extensions inc. Rainbow Parentheses and Extended Syntax
 "   Highlighting
 
-Bundle 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 "Connect to Clojure (n)REPL
 
-Bundle 'tpope/vim-salve'
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
 "Static Vim support for Leiningen and Boot (the latter being build tooling for
 "Clojure)
 
-Bundle 'vim-scripts/paredit.vim'
+Plug 'vim-scripts/paredit.vim'
 "Structured editing of Lisp S-expressions in Vim.  Useful for Clojure coding.
 
-Bundle 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 "EditorConfig helps developers define and maintain consistent coding styles
 "between different editors and IDEs. 
 
-Bundle 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala'
 
-Bundle 'drmikehenry/vim-extline'
+Plug 'drmikehenry/vim-extline'
 "vim-extline: The following mappings apply in Visual and Insert modes (but,
 "notably, NOT in Normal mode):
 "CTRL-L CTRL-L Auto-line update
@@ -92,13 +89,13 @@ Bundle 'drmikehenry/vim-extline'
 "CTRL-L 4 or CTRL-L ' Force level 5 heading (level 5)
 "CTRL-L 5
 
-Bundle 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/taglist.vim'
 "Source code browser plugin
 
-Bundle 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 "Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
 
-Bundle 'freitass/todo.txt-vim'
+Plug 'freitass/todo.txt-vim'
 "todo.txt management
 "localleader is \ by default
 "<localleader>s Sort the file
@@ -117,7 +114,7 @@ Bundle 'freitass/todo.txt-vim'
 "<localleader>X Mark all tasks as done
 "<localleader>D Move completed tasks to done.txt
 
-Bundle 'tpope/vim-surround'
+Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 "Add, change and delete 'surroundings' (parentheses, brackets, quotes, XML
 "tags, and more)
 " cs"' change double to single quotes
@@ -130,12 +127,11 @@ Bundle 'tpope/vim-surround'
 " ds{ds) revert to original text
 " ysiw<em> emphasise word
 " Visual mode: select text then e.g. S<p class="important">
-
-Bundle 'tpope/vim-repeat'
-"Enable repeating supported plugin maps with "."
+"
+"The dependency vim-repeat allows repeating of supported plugin maps with ".".
 "Allows repeating of e.g. surround.vim commands
 
-Bundle 'embear/vim-foldsearch'
+Plug 'embear/vim-foldsearch'
 "Fold all but lines matching a pattern
 "Useful for filtering when viewing todo.txt
 " :Fs Show lines which contain the word under the cursor.
@@ -147,9 +143,9 @@ Bundle 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
-Bundle 'weynhamz/vim-plugin-minibufexpl'
+Plug 'weynhamz/vim-plugin-minibufexpl'
 
-Bundle 'chrisbra/Recover.vim'
+Plug 'chrisbra/Recover.vim'
 "Diff (and allow merging) of on-disk file and version recovered from swap file
 "By default this plugin is enabled. To disable it, use :RecoverPluginDisable
 "To enable this plugin again, use :RecoverPluginEnable
@@ -162,11 +158,16 @@ Bundle 'chrisbra/Recover.vim'
 "use the command :RecoveryPluginFinish
 "For help: ':h RecoverPlugin-manual'
 
-Bundle 'Rip-Rip/clang_complete'
+Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'c++' ] }
 " Autocomplete C/C++ code using clang.
 " NB need to be clear about namespaces.
 
-call vundle#end()
+" Add plugins to &runtimepath
+call plug#end()
+
+
+
+
 
 filetype plugin indent on " Enable per-filetype indentation
 syntax on " Enable syntax highlighting
@@ -216,7 +217,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 nnoremap <F10> :b <C-Z>
 
-" ctags setup (enabled by taglist.vim plugin; see Vundle config)
+" ctags setup (enabled by taglist.vim plugin; see Plug config)
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 35
 " To show/hid tag list
