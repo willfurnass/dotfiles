@@ -41,6 +41,8 @@ inst-vim:
 	ln -siTn -rT `pwd`/vim-syntax ${HOME}/.vim/syntax
 	ln -siTn `pwd`/vim-after ${HOME}/.vim/after
 	ln -siTn `pwd`/vim-autoload ${HOME}/.vim/autoload
+	ln -siTn ${HOME}/.vim ${HOME}/.config/nvim
+	ln -siTn ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 inst-weechat:
 	mkdir -p ${HOME}/.weechat/
 	$(CP) `pwd`/weechat/irc.conf ${HOME}/.weechat/
