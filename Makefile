@@ -35,12 +35,12 @@ inst-todotxt:
 inst-tmux:
 	$(CP) `pwd`/tmux.conf ${HOME}/.tmux.conf
 inst-vim:
-	$(CP) `pwd`/vimrc ${HOME}/.vimrc
+	ln -siTn `pwd`/vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
-	$(CP) -rT `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
-	$(CP) -rT `pwd`/vim-syntax ${HOME}/.vim/syntax
-	$(CP) -rT `pwd`/vim-after ${HOME}/.vim/after
-	$(CP) -rT `pwd`/vim-autoload ${HOME}/.vim/autoload
+	ln -siTn -rT `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
+	ln -siTn -rT `pwd`/vim-syntax ${HOME}/.vim/syntax
+	ln -siTn `pwd`/vim-after ${HOME}/.vim/after
+	ln -siTn `pwd`/vim-autoload ${HOME}/.vim/autoload
 inst-weechat:
 	mkdir -p ${HOME}/.weechat/
 	$(CP) `pwd`/weechat/irc.conf ${HOME}/.weechat/
