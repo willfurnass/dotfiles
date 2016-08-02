@@ -1,6 +1,7 @@
-SYM = ln --symbolic --no-target-directory --no-dereference --interactive 
+SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: inst-ackrc inst-beets inst-csirc inst-gitconfig inst-jupyter-css inst-marblemouse inst-matplotlibrc inst-mpd inst-rprofile inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
+all: inst-ackrc inst-beets inst-csirc inst-gitconfig inst-jupyter-css inst-matplotlibrc inst-mpd inst-rprofile inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
+#inst-marblemouse 
 
 inst-ackrc:
 	 $(SYM) `pwd`/ackrc ${HOME}/.ackrc
@@ -14,8 +15,8 @@ inst-gitconfig:
 inst-jupyter-css:
 	mkdir -p ${HOME}/.jupyter/custom
 	$(SYM) `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
-inst-marblemouse:
-	sudo $(SYM) `pwd`/50-marblemouse.conf /usr/share/X11/xorg.conf.d/
+#inst-marblemouse:
+#	sudo $(SYM) `pwd`/50-marblemouse.conf /usr/share/X11/xorg.conf.d/
 inst-matplotlibrc:
 	mkdir -p ${HOME}/.config/matplotlib/
 	$(SYM) `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
