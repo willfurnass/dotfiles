@@ -7,7 +7,6 @@ Dotfiles, inc files for:
 * csi
 * git
 * jupyter (custom CSS)
-* Marble Mouse button mappings
 * matplotlibrc
 * mpd
 * R
@@ -17,4 +16,11 @@ Dotfiles, inc files for:
 * weechat
 * xinitrc
 
-Install using `make` (`sudo` privileges needed for installing Marble Mouse X config).
+## Installation
+
+Run `make`.  This creates many symlinks after first creating backups of the symlink targets.
+
+## To do
+
+* bashrc
+* Xorg server config files (possibly move elsewhere).
