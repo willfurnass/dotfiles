@@ -1,1 +1,2 @@
 mpd_host = "/home/will/.config/mpd/socket"
+mpd_music_dir = "/home/will/Music"
