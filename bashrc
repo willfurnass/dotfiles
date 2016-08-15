@@ -115,10 +115,14 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 alias mypwgen='pwgen -BcnyC 12 10'
 
+alias nv=nvim
+
 # Alias for todo.txt CLI
-alias t='todo.sh'
+alias t='nvim ${HOME}/Dropbox/todotxt/{todo.txt,waiting.txt,parked.txt,sdm.txt,done.txt} || vim ${HOME}/Dropbox/todotxt/{todo.txt,waiting.txt,parked.txt,sdm.txt,done.txt}'
 # completion for todo.sh (todo.txt cli)
 complete -F _todo t  
 
 # Abbreviate long paths in prompt
 PROMPT_DIRTRIM=3
+
+alias m=ncmpcpp
