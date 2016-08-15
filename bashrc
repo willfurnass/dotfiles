@@ -126,3 +126,6 @@ complete -F _todo t
 PROMPT_DIRTRIM=3
 
 alias m=ncmpcpp
+
+# Disable Ansible's use of cowsay
+export ANSIBLE_NOCOWS=1
