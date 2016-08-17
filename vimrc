@@ -34,6 +34,9 @@ autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent
 " Support for highlighting Github-style Markdown's fenced code blocks
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
+" Folding in Markdown; disable by default
+autocmd FileType markdown setlocal nofoldenable
+
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 " Preview markdown files in an (automatically opened) browser tab
 " Do not always update the display in realtime; only refresh if no keys
@@ -42,10 +45,6 @@ let g:instant_markdown_slow = 1
 " Do not automatically launch a preview browser tab when open a markdown file;
 " instead manually trigger the preview with :InstantMarkdownPreview
 let g:instant_markdown_autostart = 0
-
-Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
-" Folding in Markdown; disable by default
-let g:vim_markdown_folding_disabled=1
 
 """ Python """
 
