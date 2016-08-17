@@ -22,16 +22,17 @@ call plug#begin()
 
 " Ensure files with a variety of extensions all recognised as Markdown
 au BufNewFile,BufReadPost *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown 
-" Enable syntax highlighting and indentation for Markdown
-autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent 
-" Smaller shiftwidth and tabstop for Markdown
-autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 "Plug 'godlygeek/tabular', { 'for', 'markdown' } " Needed for vim-markdown
 "Plug 'plasticboy/vim-markdown', { 'for', 'markdown' }  " To try using 
 " built-in Markdown support (by tpope) rather than 
 " plasticboy/vim-markdown due to issue #126 with the latter
+ 
+" Enable syntax highlighting and indentation for Markdown
+autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent 
+
+" Support for highlighting Github-style Markdown's fenced code blocks
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 " Preview markdown files in an (automatically opened) browser tab
@@ -43,7 +44,8 @@ let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
-" Markdown folding
+" Folding in Markdown; disable by default
+let g:vim_markdown_folding_disabled=1
 
 """ Python """
 
@@ -51,6 +53,27 @@ Plug 'klen/python-mode'
 "python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 "features like static analysis, refactoring, folding, completion,
 "documentation, and more.
+
+" Turn off Rope autoimport until pymode github issue 525 fixed
+let g:pymode_rope_autoimport = 0
+" Not doing the trick, so disable Rope alltogether
+let g:pymode_rope = 0
+
+" Other Python Mode options
+"   Trim unused white spaces on save
+let g:pymode_trim_whitespaces = 1
+" let g:pymode_python = 'python3'
+let g:pymode_indent = 1
+let g:pymode_folding = 1
+let g:pymode_motion = 1
+"   Show docs for current word by pydoc using 'K'
+let g:pymode_doc = 1
+"   Automatic virtualenv detection
+let g:pymode_virtualenv = 1
+"   Run current buffer/selection with '<leader>r'
+let g:pymode_run = 1
+"   Insert/remove breakpoint with '<leader>b'
+let g:pymode_breakpoint = 1
 
 Plug 'tshirtman/vim-cython'
 "syntax file for cython
@@ -118,6 +141,15 @@ Plug 'drmikehenry/vim-extline'
 Plug 'vim-scripts/taglist.vim'
 "Source code browser plugin
 
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 35
+"
+" Binding to show/hide tag list
+nnoremap <F4> :TlistToggle<cr>
+"
+" Binding to regenerate ctags file
+nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
 """ Colour scheme """
 
 Plug 'altercation/vim-colors-solarized'
@@ -176,10 +208,18 @@ Plug 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
-""" Buffer overview """
+""" Buffer management """
 
 Plug 'weynhamz/vim-plugin-minibufexpl'
+" Simple buffer overview
 
+" Enable hidden buffers so can switch buffers without saving
+set hidden
+
+" Enable fast buffer switching
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+ 
 """ Recovery of swap files """
 
 Plug 'chrisbra/Recover.vim'
@@ -245,21 +285,6 @@ inoremap <right> <nop>
 " Enable parsing of vim modelines at the top of source files
 set modeline
 
-" Buffer management
-" Switch buffers using F10
-set wildchar=<Tab> wildmenu wildmode=full
-set wildcharm=<C-Z>
-nnoremap <F10> :b <C-Z>
-
-" ctags setup (enabled by taglist.vim plugin; see Plug config)
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 35
-" To show/hid tag list
-nnoremap <F4> :TlistToggle<cr>
-" Regenerate ctags file
-nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-filetype plugin on
-
 " Insert date and time (F5) or just date (F6)
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
@@ -269,31 +294,6 @@ inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 " Toggle automatic spell checking
 nnoremap <F7> :setlocal spell! spelllang=en_gb<CR>
 inoremap <F7> <Esc>:setlocal spell! spelllang=en_gb<CR>a
-
-" Enable folding in vim-markdown
-"let g:vim_markdown_folding_disabled=1
-
-" Turn off Rope autoimport until pymode github issue 525 fixed
-let g:pymode_rope_autoimport = 0
-" Not doing the trick, so disable Rope alltogether
-let g:pymode_rope = 0
-
-" Other Python Mode options
-"   Trim unused white spaces on save
-let g:pymode_trim_whitespaces = 1
-" let g:pymode_python = 'python3'
-let g:pymode_indent = 1
-let g:pymode_folding = 1
-let g:pymode_motion = 1
-"   Show docs for current word by pydoc using 'K'
-let g:pymode_doc = 1
-"   Automatic virtualenv detection
-let g:pymode_virtualenv = 1
-"   Run current buffer/selection with '<leader>r'
-let g:pymode_run = 1
-"   Insert/remove breakpoint with '<leader>b'
-let g:pymode_breakpoint = 1
-
 
 " Allow following of links using gx
 let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
@@ -307,19 +307,8 @@ au BufRead,BufNewFile *.edsy setfiletype yaml
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yml setlocal shiftwidth=2 tabstop=2
 
-
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
-" Small tabs in HTML
-"au FileType html,css setlocal shiftwidth=2 tabstop=2
-
 " Show size of visual selection
 set showcmd
-
-" Enable hidden buffers so can switch buffers without saving
-set hidden
-
-" Enable fast buffer switching
-nnoremap <leader>n :bn<cr>
-nnoremap <leader>p :bp<cr>
