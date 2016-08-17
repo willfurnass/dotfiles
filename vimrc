@@ -1,5 +1,8 @@
 set nocompatible 
 
+filetype plugin indent on " Enable per-filetype indentation
+syntax on " Enable syntax highlighting
+
 " Make % match more than just single chars.  Can match words and regexes.
 " Also, matching treats strings and comments (as recognized by the
 " syntax highlighting mechanism) intelligently.
@@ -14,6 +17,16 @@ runtime macros/matchit.vim
 "   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<Paste>
 call plug#begin()
+
+""" Markdown """
+
+" Ensure files with a variety of extensions all recognised as Markdown
+au BufNewFile,BufReadPost *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown 
+" Enable syntax highlighting and indentation for Markdown
+autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent 
+" Smaller shiftwidth and tabstop for Markdown
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 "Plug 'godlygeek/tabular', { 'for', 'markdown' } " Needed for vim-markdown
 "Plug 'plasticboy/vim-markdown', { 'for', 'markdown' }  " To try using 
@@ -32,6 +45,8 @@ let g:instant_markdown_autostart = 0
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 " Markdown folding
 
+""" Python """
+
 Plug 'klen/python-mode'
 "python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 "features like static analysis, refactoring, folding, completion,
@@ -40,8 +55,9 @@ Plug 'klen/python-mode'
 Plug 'tshirtman/vim-cython'
 "syntax file for cython
 
+""" Matlab """
+
 Plug 'vim-scripts/MatlabFilesEdition'
-"Matlab: 
 " - syntax highlighting
 " - correct settings for matchit.vim for matching if/end and for/end blocks
 "   (using e.g. %), 
@@ -49,6 +65,8 @@ Plug 'vim-scripts/MatlabFilesEdition'
 "   :make command, 
 " - tag support, 
 " - help file.
+
+""" Clojure """
 
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 " - Augmentable syntax highlighting for Clojure and ClojureScript buffers.
@@ -68,11 +86,17 @@ Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim'
 "Structured editing of Lisp S-expressions in Vim.  Useful for Clojure coding.
 
+""" Editorconfig """
+
 Plug 'editorconfig/editorconfig-vim'
 "EditorConfig helps developers define and maintain consistent coding styles
 "between different editors and IDEs. 
 
+""" Scala """
+
 Plug 'derekwyatt/vim-scala'
+
+""" Underlining / headings """
 
 Plug 'drmikehenry/vim-extline'
 "vim-extline: The following mappings apply in Visual and Insert modes (but,
@@ -89,14 +113,19 @@ Plug 'drmikehenry/vim-extline'
 "CTRL-L 4 or CTRL-L ' Force level 5 heading (level 5)
 "CTRL-L 5
 
+""" Tag browsing """
+
 Plug 'vim-scripts/taglist.vim'
 "Source code browser plugin
+
+""" Colour scheme """
 
 Plug 'altercation/vim-colors-solarized'
 "Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
 
+""" Todo.txt """
+
 Plug 'freitass/todo.txt-vim'
-"todo.txt management
 "localleader is \ by default
 "<localleader>s Sort the file
 "<localleader>s+ Sort the file on +Projects
@@ -113,6 +142,8 @@ Plug 'freitass/todo.txt-vim'
 "<localleader>x Mark current task as done
 "<localleader>X Mark all tasks as done
 "<localleader>D Move completed tasks to done.txt
+
+""" Enclosing characters/strings """
 
 Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 "Add, change and delete 'surroundings' (parentheses, brackets, quotes, XML
@@ -131,6 +162,8 @@ Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 "The dependency vim-repeat allows repeating of supported plugin maps with ".".
 "Allows repeating of e.g. surround.vim commands
 
+""" Folding """
+
 Plug 'embear/vim-foldsearch'
 "Fold all but lines matching a pattern
 "Useful for filtering when viewing todo.txt
@@ -143,7 +176,11 @@ Plug 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
+""" Buffer overview """
+
 Plug 'weynhamz/vim-plugin-minibufexpl'
+
+""" Recovery of swap files """
 
 Plug 'chrisbra/Recover.vim'
 "Diff (and allow merging) of on-disk file and version recovered from swap file
@@ -158,6 +195,8 @@ Plug 'chrisbra/Recover.vim'
 "use the command :RecoveryPluginFinish
 "For help: ':h RecoverPlugin-manual'
 
+""" Autocompletion for C/C++ """
+
 Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'c++' ] }
 " Autocomplete C/C++ code using clang.
 " NB need to be clear about namespaces.
@@ -166,11 +205,6 @@ Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'c++' ] }
 call plug#end()
 
 
-
-
-
-filetype plugin indent on " Enable per-filetype indentation
-syntax on " Enable syntax highlighting
 " Toggle numbering with F3
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
@@ -273,17 +307,12 @@ au BufRead,BufNewFile *.edsy setfiletype yaml
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yml setlocal shiftwidth=2 tabstop=2
 
-" Smaller shiftwidth and tabstop for Markdown
-autocmd FileType md setlocal shiftwidth=2 tabstop=2
 
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
-" Enable syntax highlighting and indentation when using tpope/vim-markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown autoindent formatoptions-=or nocindent
-
 " Small tabs in HTML
-au FileType html,css setlocal shiftwidth=2 tabstop=2
+"au FileType html,css setlocal shiftwidth=2 tabstop=2
 
 " Show size of visual selection
 set showcmd
