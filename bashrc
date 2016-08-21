@@ -129,3 +129,5 @@ alias m=ncmpcpp
 
 # Disable Ansible's use of cowsay
 export ANSIBLE_NOCOWS=1
+
+export WWW_HOME='https://duckduckgo.com'

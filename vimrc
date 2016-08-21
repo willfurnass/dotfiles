@@ -1,5 +1,8 @@
 set nocompatible 
 
+filetype plugin indent on " Enable per-filetype indentation
+syntax on " Enable syntax highlighting
+
 " Make % match more than just single chars.  Can match words and regexes.
 " Also, matching treats strings and comments (as recognized by the
 " syntax highlighting mechanism) intelligently.
@@ -15,10 +18,24 @@ runtime macros/matchit.vim
 "   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim<Paste>
 call plug#begin()
 
+""" Markdown """
+
+" Ensure files with a variety of extensions all recognised as Markdown
+au BufNewFile,BufReadPost *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown 
+
 "Plug 'godlygeek/tabular', { 'for', 'markdown' } " Needed for vim-markdown
 "Plug 'plasticboy/vim-markdown', { 'for', 'markdown' }  " To try using 
 " built-in Markdown support (by tpope) rather than 
 " plasticboy/vim-markdown due to issue #126 with the latter
+ 
+" Enable syntax highlighting and indentation for Markdown
+autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent 
+
+" Support for highlighting Github-style Markdown's fenced code blocks
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
+" Folding in Markdown; disable by default
+autocmd FileType markdown setlocal nofoldenable
 
 Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
 " Preview markdown files in an (automatically opened) browser tab
@@ -29,19 +46,40 @@ let g:instant_markdown_slow = 1
 " instead manually trigger the preview with :InstantMarkdownPreview
 let g:instant_markdown_autostart = 0
 
-Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
-" Markdown folding
+""" Python """
 
 Plug 'klen/python-mode'
 "python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 "features like static analysis, refactoring, folding, completion,
 "documentation, and more.
 
+" Turn off Rope autoimport until pymode github issue 525 fixed
+let g:pymode_rope_autoimport = 0
+" Not doing the trick, so disable Rope alltogether
+let g:pymode_rope = 0
+
+" Other Python Mode options
+"   Trim unused white spaces on save
+let g:pymode_trim_whitespaces = 1
+" let g:pymode_python = 'python3'
+let g:pymode_indent = 1
+let g:pymode_folding = 1
+let g:pymode_motion = 1
+"   Show docs for current word by pydoc using 'K'
+let g:pymode_doc = 1
+"   Automatic virtualenv detection
+let g:pymode_virtualenv = 1
+"   Run current buffer/selection with '<leader>r'
+let g:pymode_run = 1
+"   Insert/remove breakpoint with '<leader>b'
+let g:pymode_breakpoint = 1
+
 Plug 'tshirtman/vim-cython'
 "syntax file for cython
 
+""" Matlab """
+
 Plug 'vim-scripts/MatlabFilesEdition'
-"Matlab: 
 " - syntax highlighting
 " - correct settings for matchit.vim for matching if/end and for/end blocks
 "   (using e.g. %), 
@@ -49,6 +87,8 @@ Plug 'vim-scripts/MatlabFilesEdition'
 "   :make command, 
 " - tag support, 
 " - help file.
+
+""" Clojure """
 
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 " - Augmentable syntax highlighting for Clojure and ClojureScript buffers.
@@ -68,11 +108,17 @@ Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'vim-scripts/paredit.vim'
 "Structured editing of Lisp S-expressions in Vim.  Useful for Clojure coding.
 
+""" Editorconfig """
+
 Plug 'editorconfig/editorconfig-vim'
 "EditorConfig helps developers define and maintain consistent coding styles
 "between different editors and IDEs. 
 
+""" Scala """
+
 Plug 'derekwyatt/vim-scala'
+
+""" Underlining / headings """
 
 Plug 'drmikehenry/vim-extline'
 "vim-extline: The following mappings apply in Visual and Insert modes (but,
@@ -89,14 +135,28 @@ Plug 'drmikehenry/vim-extline'
 "CTRL-L 4 or CTRL-L ' Force level 5 heading (level 5)
 "CTRL-L 5
 
+""" Tag browsing """
+
 Plug 'vim-scripts/taglist.vim'
 "Source code browser plugin
+
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_WinWidth = 35
+"
+" Binding to show/hide tag list
+nnoremap <F4> :TlistToggle<cr>
+"
+" Binding to regenerate ctags file
+nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
+""" Colour scheme """
 
 Plug 'altercation/vim-colors-solarized'
 "Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
 
+""" Todo.txt """
+
 Plug 'freitass/todo.txt-vim'
-"todo.txt management
 "localleader is \ by default
 "<localleader>s Sort the file
 "<localleader>s+ Sort the file on +Projects
@@ -113,6 +173,8 @@ Plug 'freitass/todo.txt-vim'
 "<localleader>x Mark current task as done
 "<localleader>X Mark all tasks as done
 "<localleader>D Move completed tasks to done.txt
+
+""" Enclosing characters/strings """
 
 Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 "Add, change and delete 'surroundings' (parentheses, brackets, quotes, XML
@@ -131,6 +193,8 @@ Plug 'tpope/vim-surround' | Plug 'tpope/vim-repeat'
 "The dependency vim-repeat allows repeating of supported plugin maps with ".".
 "Allows repeating of e.g. surround.vim commands
 
+""" Folding """
+
 Plug 'embear/vim-foldsearch'
 "Fold all but lines matching a pattern
 "Useful for filtering when viewing todo.txt
@@ -143,7 +207,19 @@ Plug 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
+""" Buffer management """
+
 Plug 'weynhamz/vim-plugin-minibufexpl'
+" Simple buffer overview
+
+" Enable hidden buffers so can switch buffers without saving
+set hidden
+
+" Enable fast buffer switching
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+ 
+""" Recovery of swap files """
 
 Plug 'chrisbra/Recover.vim'
 "Diff (and allow merging) of on-disk file and version recovered from swap file
@@ -158,6 +234,8 @@ Plug 'chrisbra/Recover.vim'
 "use the command :RecoveryPluginFinish
 "For help: ':h RecoverPlugin-manual'
 
+""" Autocompletion for C/C++ """
+
 Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'c++' ] }
 " Autocomplete C/C++ code using clang.
 " NB need to be clear about namespaces.
@@ -166,11 +244,6 @@ Plug 'Rip-Rip/clang_complete', { 'for': ['c', 'c++' ] }
 call plug#end()
 
 
-
-
-
-filetype plugin indent on " Enable per-filetype indentation
-syntax on " Enable syntax highlighting
 " Toggle numbering with F3
 noremap <F3> :set invnumber<CR>
 inoremap <F3> <C-O>:set invnumber<CR>
@@ -211,21 +284,6 @@ inoremap <right> <nop>
 " Enable parsing of vim modelines at the top of source files
 set modeline
 
-" Buffer management
-" Switch buffers using F10
-set wildchar=<Tab> wildmenu wildmode=full
-set wildcharm=<C-Z>
-nnoremap <F10> :b <C-Z>
-
-" ctags setup (enabled by taglist.vim plugin; see Plug config)
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 35
-" To show/hid tag list
-nnoremap <F4> :TlistToggle<cr>
-" Regenerate ctags file
-nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-filetype plugin on
-
 " Insert date and time (F5) or just date (F6)
 nnoremap <F5> "=strftime("%Y-%m-%d %H:%M")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
@@ -235,31 +293,6 @@ inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 " Toggle automatic spell checking
 nnoremap <F7> :setlocal spell! spelllang=en_gb<CR>
 inoremap <F7> <Esc>:setlocal spell! spelllang=en_gb<CR>a
-
-" Enable folding in vim-markdown
-"let g:vim_markdown_folding_disabled=1
-
-" Turn off Rope autoimport until pymode github issue 525 fixed
-let g:pymode_rope_autoimport = 0
-" Not doing the trick, so disable Rope alltogether
-let g:pymode_rope = 0
-
-" Other Python Mode options
-"   Trim unused white spaces on save
-let g:pymode_trim_whitespaces = 1
-" let g:pymode_python = 'python3'
-let g:pymode_indent = 1
-let g:pymode_folding = 1
-let g:pymode_motion = 1
-"   Show docs for current word by pydoc using 'K'
-let g:pymode_doc = 1
-"   Automatic virtualenv detection
-let g:pymode_virtualenv = 1
-"   Run current buffer/selection with '<leader>r'
-let g:pymode_run = 1
-"   Insert/remove breakpoint with '<leader>b'
-let g:pymode_breakpoint = 1
-
 
 " Allow following of links using gx
 let g:netrw_browsex_viewer = "/usr/bin/x-www-browser"
@@ -273,24 +306,8 @@ au BufRead,BufNewFile *.edsy setfiletype yaml
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 autocmd FileType yml setlocal shiftwidth=2 tabstop=2
 
-" Smaller shiftwidth and tabstop for Markdown
-autocmd FileType md setlocal shiftwidth=2 tabstop=2
-
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
-" Enable syntax highlighting and indentation when using tpope/vim-markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown autoindent formatoptions-=or nocindent
-
-" Small tabs in HTML
-au FileType html,css setlocal shiftwidth=2 tabstop=2
-
 " Show size of visual selection
 set showcmd
-
-" Enable hidden buffers so can switch buffers without saving
-set hidden
-
-" Enable fast buffer switching
-nnoremap <leader>n :bn<cr>
-nnoremap <leader>p :bp<cr>
