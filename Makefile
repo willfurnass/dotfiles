@@ -27,8 +27,8 @@ inst-mpd:
 	$(SYM) `pwd`/mpd/mpd.conf ${HOME}/.config/mpd/mpd.conf
 	mkdir -p ${HOME}/.config/mpdscribble
 	$(SYM) `pwd`/mpd/mpdscribble.conf.anon ${HOME}/.config/mpdscribble/mpdscribble.conf.anon
-	mkdir -p ${HOME}/.ncmpcpp/
-	$(SYM) `pwd`/mpd/ncmpcpp_config ${HOME}/.ncmpcpp/config
+	mkdir -p ${HOME}/.config/ncmpcpp/
+	$(SYM) `pwd`/mpd/ncmpcpp_config ${HOME}/.config/ncmpcpp/config
 inst-rprofile:
 	$(SYM) `pwd`/RProfile ${HOME}/.RProfile
 inst-todotxt:
