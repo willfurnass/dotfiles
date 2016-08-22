@@ -131,3 +131,5 @@ alias m=ncmpcpp
 export ANSIBLE_NOCOWS=1
 
 export WWW_HOME='https://duckduckgo.com'
+
+alias mp3bitrate='mp3info -r a -p "%f %r\n"'
