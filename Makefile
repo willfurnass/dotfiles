@@ -36,6 +36,11 @@ inst-todotxt:
 	$(SYM) `pwd`/todo.cfg ${HOME}/.todo/config
 	$(SYM) `pwd`/todo.actions.d ${HOME}/.todo.actions.d
 inst-tmux:
+	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	pushd ~/.tmux/plugins/tpm \
+	    && git fetch --prune --all \
+	    && git merge --ff-only origin/master \
+	    && popd
 	$(SYM) `pwd`/tmux.conf ${HOME}/.tmux.conf
 inst-vim:
 	$(SYM) `pwd`/vimrc ${HOME}/.vimrc
