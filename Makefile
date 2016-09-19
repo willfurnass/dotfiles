@@ -1,13 +1,19 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: inst-abcde inst-ackrc inst-beets inst-csirc inst-gitconfig inst-jupyter-css inst-matplotlibrc inst-mpd inst-rprofile inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
+all: inst-abcde inst-ackrc inst-bash inst-beets inst-csirc inst-gitconfig inst-jupyter-css inst-matplotlibrc inst-mpd inst-rprofile inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
 #inst-marblemouse 
 
 inst-abcde:
 	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
 inst-ackrc:
 	 $(SYM) `pwd`/ackrc ${HOME}/.ackrc
+inst-bash:
+	[[ -d ${HOME}/dev/bash-git-prompt/ ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/dev/bash-git-prompt/ 
+	pushd ${HOME}/dev/bash-git-prompt/ \
+	    && git fetch --prune --all \
+	    && git merge --ff-only origin/master \
+	    && popd
 inst-beets:
 	mkdir -p ${HOME}/.config/beets
 	$(SYM) `pwd`/beets_config.yaml ${HOME}/.config/beets/config.yaml
