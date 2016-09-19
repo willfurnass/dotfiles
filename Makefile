@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
 all: inst-abcde inst-ackrc inst-beets inst-csirc inst-gitconfig inst-jupyter-css inst-matplotlibrc inst-mpd inst-rprofile inst-todotxt inst-tmux inst-vim inst-weechat inst-xinitrc 
