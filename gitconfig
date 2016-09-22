@@ -25,3 +25,4 @@
     editor = vim
     excludesfile = /home/will/.gitignore_global
     autocrlf = input
+    fileMode = false
