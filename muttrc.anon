@@ -98,3 +98,5 @@ macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/
 # GnuPG bootstrap
 source ~/.mutt/gpg.rc
 set crypt_autosign = yes
+
+source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
