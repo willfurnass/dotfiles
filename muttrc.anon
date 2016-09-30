@@ -1,12 +1,23 @@
 # Me
 set from = 'XXX'
 set realname = 'XXX'
+set use_from = yes
 
 # My credentials
 set imap_user = 'XXX'
-set imap_pass = 'XXX'
 set smtp_url = 'smtp://XXX@smtp.gmail.com:587/'
-set smtp_pass = 'XXX' # use the same password as for IMAP
+# Password management 
+# (see https://wiki.archlinux.org/index.php/mutt#Passwords_management)
+source "gpg -dq $HOME/.muttpw.gpg |"
+# Here .muttpw contained 
+#     set my_pw_personal = "XXX"
+# where XXX is an application-specific IMAP+SMTP password and was encrypted with 
+#     gpg -e -r 'myemailaddr' ~/.muttpw
+# to produce .muttpw.gpg
+# The plaintext was then shredded using 
+#     shred -xu ~/.muttpw
+set imap_pass=$my_pw_personal
+set smtp_pass=$my_pw_personal
 set ssl_starttls=yes
 set ssl_force_tls=yes
 
