@@ -80,6 +80,21 @@ set imap_check_subscribed
 # Speed up folders switch
 set sleep_time = 0
 
+# HTML rendering using elinks
+# Need the following in ~/.mutt/mailcap: text/html; elinks -dump ; copiousoutput;
+set mailcap_path   = ~/.mutt/mailcap
+# see the formatted content directly, and any url links within the email can be
+# displayed with Ctrl+b (if have urlview installed)
+auto_view text/html
+# Prefer plain text if available
+alternative_order text/plain text/html
+# Some HTML mails may not display correctly in a text-based web browser. As a
+# fallback solution, you can bind a key to open a graphical browser in such
+# cases. The following macro will open the HTML mail selected from the
+# attachment view in the web browser defined in the environment. (Feel free to
+# adapt the ~/.cache/mutt/ folder). 
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
 # GnuPG bootstrap
 source ~/.mutt/gpg.rc
 set crypt_autosign = yes
