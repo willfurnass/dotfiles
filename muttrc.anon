@@ -50,6 +50,14 @@ macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+# Address book using goobook; first need to 
+# $ goobook config-template > ~/.goobookrc
+# $ goobook authenticate
+set query_command="goobook query '%s'"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
+# When composing an email message within mutt, Tab will now search your Google
+# contacts. While viewing messages a will add the sender to Google contacts. 
 
 # Etc
 set move = no # Stop asking to move read messages to mbox!
