@@ -26,19 +26,21 @@ set folder = 'imaps://imap.gmail.com:993'
 set spoolfile = '+INBOX'
 set postponed ='+[Gmail]/Drafts'
 set trash = '+[Gmail]/Trash'
-# Do not need to set 'record' to 'Sent Mail' if using the GMail SMTP server as it handles saving the sent mail
+# Do not need to set 'record' to 'Sent Mail' if using the GMail SMTP server as
+# it handles saving the sent mail
 #set record = "+[Gmail]/Sent Mail"
-set record = ""
+unset record
 
 # Where to put the stuff
-set header_cache =~/.mutt/cache/headers
-set message_cachedir =~/.mutt/cache/bodies
-set certificate_file =~/.mutt/certificates
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
 
 # Sidebar
 set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
+set sidebar_width = 40
 
 # Key bindings
 bind editor <space> noop
@@ -54,7 +56,7 @@ set move = no # Stop asking to move read messages to mbox!
 set sort = 'reverse-threads'
 # Browse embedded URLs (need 'urlview' program; show list of urls using ctrl-u)
 macro pager \cu |urlview\n
-set editor = "vim"
+set editor=`echo \$EDITOR`
 set mail_check = 30
 set imap_keepalive = 900
 set imap_check_subscribed
