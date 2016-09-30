@@ -1,0 +1,54 @@
+# Me
+set from = 'XXX'
+set realname = 'XXX'
+
+# My credentials
+set imap_user = 'XXX'
+set imap_pass = 'XXX'
+set smtp_url = 'smtp://XXX@smtp.gmail.com:587/'
+set smtp_pass = 'XXX' # use the same password as for IMAP
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# My mailboxes
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Gmail]/Drafts'
+set trash = '+[Gmail]/Trash'
+# Do not need to set 'record' to 'Sent Mail' if using the GMail SMTP server as it handles saving the sent mail
+#set record = "+[Gmail]/Sent Mail"
+set record = ""
+
+# Where to put the stuff
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+# Sidebar
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+# Key bindings
+bind editor <space> noop
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+# Etc
+set move = no # Stop asking to move read messages to mbox!
+set sort = 'reverse-threads'
+# Browse embedded URLs (need 'urlview' program; show list of urls using ctrl-u)
+macro pager \cu |urlview\n
+set editor = "vim"
+set mail_check = 30
+set imap_keepalive = 900
+set imap_check_subscribed
+set query_command="goobook query '%s'"
+
+# GnuPG bootstrap
+source ~/.mutt/gpg.rc
+set crypt_autosign = yes
