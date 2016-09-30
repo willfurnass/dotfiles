@@ -19,6 +19,9 @@ export PAGER='less'
 # ... and enable colour output (output ANSI "color" escape sequences)
 export LESS='-R'
 
+# Use vi/less bindings for info
+alias info='info --vi-keys'
+
 # Uncomment to enable anti-aliased fonts in Maple
 # export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 
