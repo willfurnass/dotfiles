@@ -3,11 +3,6 @@ export EDITOR=vim
 # Quick way of opening file using default Gnome app
 alias ]='gnome-open'
 
-# Disable 'tap to click' on touchpad
-if [[ -f /usr/bin/synclient ]] && $(xinput list | grep -q "Synaptics"); then
-    /usr/bin/synclient MaxTapTime=0
-fi
-
 # Default ctags options for C code
 alias ctags='ctags --c-kinds=cdfgmnstu'
 
@@ -29,9 +24,18 @@ export PROJECT_HOME=$HOME/dev
 # Correct typo when try to start vim using vmi
 alias vmi='vim'
 
-# Set the compose key to right alt
-if [[ -f /usr/bin/setxkbmap ]]; then
-    setxkbmap -option compose:ralt
+# Settings if running X
+if [[ -n ${DISPLAY+x} ]]; then
+    if [[ -f /usr/bin/setxkbmap ]]; then
+        # Set the compose key to right alt
+        setxkbmap -option compose:ralt
+        # ???
+        setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll gb
+    fi
+    # Disable 'tap to click' on touchpad
+    if [[ -f /usr/bin/synclient ]] && $(xinput list | grep -q "Synaptics"); then
+        /usr/bin/synclient MaxTapTime=0
+    fi
 fi
 
 # University of Sheffield IP for DNS fault-finding
@@ -51,10 +55,6 @@ if [[ -d ${GIT_PROMPT_DIR} ]]; then
     GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
     # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
     source "${GIT_PROMPT_DIR}"/gitprompt.sh
-fi
-
-if [[ -f /usr/bin/setxkbmap ]]; then
-    setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll gb
 fi
 
 # Add RVM (for managing ruby versions) to path
