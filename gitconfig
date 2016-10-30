@@ -24,5 +24,22 @@
 [core]
     editor = vim
     excludesfile = /home/will/.gitignore_global
+    # autocrlf = input: This means that Git will process all text files and
+    # make sure that CRLF is replaced with LF when writing that file to the object
+    # database. It will not, however, do the reverse. When you read files back out of
+    # the object database and write them into the working directory they will still
+    # have LFs to denote the end of line. This setting is generally used on
+    # Unix/Linux/OS X to prevent CRLFs from getting written into the repository. The
+    # idea being that if you pasted code from a web browser and accidentally got
+    # CRLFs into one of your files, Git would make sure they were replaced with LFs
+    # when you wrote to the object database.
     autocrlf = input
+    # filemode: if false, the executable bit differences between the index and
+    # the working copy are ignored; useful on broken filesystems like FAT.
     fileMode = false
+    # preloadindex: Enable parallel index preload for operations like git diff.
+    # This can speed up operations like git diff and git status especially on
+    # filesystems like NFS that have weak caching semantics and thus relatively
+    # high IO latencies. With this set to true, git will do the index
+    # comparison to the filesystem data in parallel, allowing overlapping IO's.
+    preloadindex = true
