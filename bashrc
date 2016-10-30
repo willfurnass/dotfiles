@@ -3,9 +3,6 @@ export EDITOR=vim
 # Quick way of opening file using default Gnome app
 alias ]='gnome-open'
 
-# Set default GRASS GIS UI to the wx version
-alias grass='grass -wx'
-
 # Disable 'tap to click' on touchpad
 if [[ -f /usr/bin/synclient ]] && $(xinput list | grep -q "Synaptics"); then
     /usr/bin/synclient MaxTapTime=0
