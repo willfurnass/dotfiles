@@ -11,8 +11,8 @@ function is_prog_on_path () {
 # PATHS
 #######
 # Add user-specific bin and lib dirs to path
-[[ -d $HOME/Software/bin ]] && export PATH=$HOME/Software/bin:$PATH
-[[ -d $HOME/Software/lib ]] && export LD_LIBRARY_PATH=$HOME/Software/lib:$LD_LIBRARY_PATH
+[[ -d $HOME/bin ]] && export PATH=$HOME/bin:$PATH
+[[ -d $HOME/lib ]] && export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 [[ -d $HOME/Dropbox/bin  ]] && export PATH=$HOME/Dropbox/bin:$PATH
 
 ########
