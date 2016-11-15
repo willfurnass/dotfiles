@@ -9,7 +9,7 @@ inst-abcde:
 inst-ackrc:
 	 $(SYM) `pwd`/ackrc ${HOME}/.ackrc
 inst-bash:
-	[[ -d ${HOME}/dev/bash-git-prompt/ ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/dev/bash-git-prompt/ 
+	[[ -d ${HOME}/dev/bash-git-prompt/ ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/dev/bash-git-prompt/ 
 	pushd ${HOME}/dev/bash-git-prompt/ \
 	    && git fetch --prune --all \
 	    && git merge --ff-only origin/master \
@@ -56,6 +56,7 @@ inst-vim:
 	$(SYM) `pwd`/vim-syntax ${HOME}/.vim/syntax
 	$(SYM) `pwd`/vim-after ${HOME}/.vim/after
 	$(SYM) `pwd`/vim-autoload ${HOME}/.vim/autoload
+	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 inst-weechat:
