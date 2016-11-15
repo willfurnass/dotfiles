@@ -3,7 +3,7 @@ function is_prog_on_path () {
         echo "Bash function usage: is_prog_on_path <some_program_name> # to determine if some_program_name is on path" 1>&2
         exit 1
     fi
-    hash $1 > /dev/null
+    hash $1 &> /dev/null
     return $?
 }
 
