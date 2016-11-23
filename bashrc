@@ -195,3 +195,10 @@ export WWW_HOME='https://duckduckgo.com'
 #########
 # Disable Ansible's use of cowsay
 export ANSIBLE_NOCOWS=1
+
+#########
+# Tcl
+#########
+if is_prog_on_path rlwrap && is_prog_on_path tclsh; then
+    alias tclsh='rlwrap -c tclsh'
+fi
