@@ -23,6 +23,7 @@ call plug#begin()
 " Status/tabline that supports many other plugins
 """""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""
 " Git wrapper
