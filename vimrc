@@ -91,6 +91,9 @@ let g:pymode_run = 1
 "   Insert/remove breakpoint with '<leader>b'
 let g:pymode_breakpoint = 1
 
+" virtualenv support
+Plug 'jmcantrell/vim-virtualenv'
+
 " Syntax file for cython
 Plug 'tshirtman/vim-cython'
 
