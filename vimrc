@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""
 " Disable vi compatibility
 """"""""""""""""""""""""""
-set nocompatible 
+set nocompatible
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting and per-filetype indentation
@@ -16,7 +16,7 @@ syntax on
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
-endif 
+endif
 call plug#begin()
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -40,13 +40,13 @@ Plug 'mhinz/vim-signify'
 """"""""""
 " Markdown
 """"""""""
-" NB using built-in Markdown support (by tpope) rather than 
+" NB using built-in Markdown support (by tpope) rather than
 " plasticboy/vim-markdown due to issue #126 with the latter
- 
+
 " Ensure files with a variety of extensions all recognised as Markdown
-au BufNewFile,BufReadPost *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown 
+au BufNewFile,BufReadPost *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 " Enable syntax highlighting and indentation for Markdown
-autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent 
+autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent
 
 " Support for highlighting Github-style Markdown's fenced code blocks
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
@@ -104,10 +104,10 @@ Plug 'tshirtman/vim-cython'
 Plug 'vim-scripts/MatlabFilesEdition'
 " - syntax highlighting
 " - correct settings for matchit.vim for matching if/end and for/end blocks
-"   (using e.g. %), 
+"   (using e.g. %),
 " - correct indentation, integration of mlint (Matlab code checker) with the
-"   :make command, 
-" - tag support, 
+"   :make command,
+" - tag support,
 " - help file.
 
 """""""""
@@ -129,7 +129,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " the latter being build tooling for Clojure
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 
-"Structured editing of Lisp S-expressions in Vim.  
+"Structured editing of Lisp S-expressions in Vim.
 Plug 'vim-scripts/paredit.vim'
 " Useful for Clojure coding.
 
@@ -137,7 +137,7 @@ Plug 'vim-scripts/paredit.vim'
 " Editorconfig
 """"""""""""""
 " EditorConfig helps developers define and maintain consistent coding styles
-" between different editors and IDEs. 
+" between different editors and IDEs.
 Plug 'editorconfig/editorconfig-vim'
 
 """""""
@@ -252,7 +252,7 @@ set hidden
 " Enable fast buffer switching
 nnoremap <leader>n :bn<cr>
 nnoremap <leader>p :bp<cr>
- 
+
 """"""""""""""""""""""""
 " Recovery of swap files
 """"""""""""""""""""""""
@@ -285,7 +285,7 @@ Plug 'vim-scripts/matchit.zip'
 " syntax highlighting mechanism) intelligently.
 " The default ftplugins include settings for several languages:
 " Ada, ASP with VBS, Csh, DTD, Essbase, Fortran, HTML, JSP
-" (same as HTML), LaTeX, Lua, Pascal, SGML, Shell, Tcsh, Vim, XML. 
+" (same as HTML), LaTeX, Lua, Pascal, SGML, Shell, Tcsh, Vim, XML.
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -301,8 +301,8 @@ inoremap <F3> <C-O>:set invnumber<CR>
 " (G)UI settings
 """"""""""""""""
 set laststatus=2 " Show status line even when only one window shown
-set ruler " Display the cursor position on the last line of the screen or in 
-          "the status line of a window
+set ruler " Display the cursor position on the last line of the screen or in
+          " the status line of a window
 set showmode " Show the mode that vim is in (Insert, Replace, Visual)
 set hlsearch " Highlight searches
 set bg=dark " Set background to dark
