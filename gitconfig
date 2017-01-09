@@ -3,7 +3,8 @@
     email = will@thearete.co.uk
 
 [push]
-    default = matching
+    # Push just the current branch rather than all branches
+    default = simple
 
 [color]
     status = auto
