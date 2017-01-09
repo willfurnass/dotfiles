@@ -367,3 +367,9 @@ set fileencoding=utf-8  " The encoding written to file.
 " Show size of visual selection
 """""""""""""""""""""""""""""""
 set showcmd
+
+""""""""""""""
+" Puppet style 
+""""""""""""""
+" (https://docs.puppet.com/guides/style_guide.html#parameter-defaults)
+autocmd FileType puppet setlocal shiftwidth=2 softtabstop=2 expandtab
