@@ -18,6 +18,7 @@
     last = log -1 HEAD
     co = checkout
     ci = commit
+    fpa = fetch --prune --all
 
 [diff "zip"]
     textconv = unzip -c -a
