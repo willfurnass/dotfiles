@@ -202,3 +202,15 @@ export ANSIBLE_NOCOWS=1
 if is_prog_on_path rlwrap && is_prog_on_path tclsh; then
     alias tclsh='rlwrap -c tclsh'
 fi
+
+######
+# GREP
+######
+# Enable coloured output
+alias grep='grep --color=auto'
+
+######
+# DIFF
+######
+# Enable coloured output
+alias diff='diff --color=auto'
