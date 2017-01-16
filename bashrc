@@ -214,3 +214,8 @@ alias grep='grep --color=auto'
 ######
 # Enable coloured output
 alias diff='diff --color=auto'
+
+#############
+# KRITA HiDPI
+export KRITA_HIDPI=ON
+#############
