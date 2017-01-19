@@ -49,6 +49,8 @@ tmux:
 	    && git merge --ff-only origin/master \
 	    && popd
 	$(SYM) `pwd`/tmux.conf ${HOME}/.tmux.conf
+	${HOME}/.tmux/plugins/tpm/bin/install_plugins
+	${HOME}/.tmux/plugins/tpm/bin/update_plugins all
 vim:
 	$(SYM) `pwd`/vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
