@@ -59,6 +59,7 @@ inst-vim:
 	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
+	type -f pip |> /dev/null && pip list --user | grep -q neovim || pip install --user neovim
 inst-weechat:
 	mkdir -p ${HOME}/.weechat/
 	$(SYM) `pwd`/weechat/irc.conf ${HOME}/.weechat/irc.conf
