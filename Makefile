@@ -9,8 +9,8 @@ abcde:
 ackrc:
 	 $(SYM) `pwd`/ackrc ${HOME}/.ackrc
 bash:
-	[[ -d ${HOME}/dev/bash-git-prompt/ ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/dev/bash-git-prompt/ 
-	pushd ${HOME}/dev/bash-git-prompt/ \
+	[[ -d ${HOME}/.bash-git-prompt/ ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
+	pushd ${HOME}/.bash-git-prompt/ \
 	    && git fetch --prune --all \
 	    && git merge --ff-only origin/master \
 	    && popd

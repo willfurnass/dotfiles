@@ -124,7 +124,7 @@ export UOSWEB_IP=143.167.2.102
 # GIT
 #####
 # Add git status info to bash prompt using
-GIT_PROMPT_DIR="${HOME}/dev/bash-git-prompt/"
+GIT_PROMPT_DIR="${HOME}/.bash-git-prompt/"
 if [[ -d ${GIT_PROMPT_DIR} ]]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
