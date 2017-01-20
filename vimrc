@@ -287,6 +287,14 @@ Plug 'vim-scripts/matchit.zip'
 " Ada, ASP with VBS, Csh, DTD, Essbase, Fortran, HTML, JSP
 " (same as HTML), LaTeX, Lua, Pascal, SGML, Shell, Tcsh, Vim, XML.
 
+""""""""""""""""
+" Puppet support
+""""""""""""""""
+" Formatting based on the latest Puppetlabs Style Guide
+" Syntax highlighting
+" Automatic => alignment (can disable with let g:puppet_align_hashes = 0)
+Plug 'rodjek/vim-puppet'
+
 " Add plugins to &runtimepath
 call plug#end()
 
