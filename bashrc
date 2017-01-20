@@ -153,8 +153,8 @@ alias ctags='ctags --c-kinds=cdfgmnstu'
 
 # Aliases for writing to / reading from clipboard
 if is_prog_on_path xclip; then 
-    alias setclip='xclip -selection c'
-    alias getclip='xclip -selection clipboard -o'
+    alias getclip='xclip -selection clipboard -in'
+    alias setclip='xclip -selection clipboard -out'
 fi
 
 # Use user-installed cabal in preference to system cabal
