@@ -2,7 +2,6 @@ SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
 all: abcde ackrc bash beets csirc gitconfig jupyter-css matplotlibrc mpd rprofile todotxt tmux vim weechat xinitrc 
-#marblemouse 
 
 abcde:
 	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
@@ -24,8 +23,6 @@ gitconfig:
 jupyter-css:
 	mkdir -p ${HOME}/.jupyter/custom
 	$(SYM) `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
-#marblemouse:
-#	sudo $(SYM) `pwd`/50-marblemouse.conf /usr/share/X11/xorg.conf.d/
 matplotlibrc:
 	mkdir -p ${HOME}/.config/matplotlib/
 	$(SYM) `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
