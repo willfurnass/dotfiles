@@ -52,15 +52,17 @@ macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 # Sidebar: Ctrl-n, Ctrl-p to select next, previous folder.
 # Sidebar: Ctrl-o to open selected folder.
-# bind index,pager \CP sidebar-prev
-# bind index,pager \CN sidebar-next
-# bind index,pager \CO sidebar-open
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+# Reply to all:
+bind index,pager a group-reply
 
 # Address book using goobook; first need to 
 # $ goobook config-template > ~/.goobookrc
 # $ goobook authenticate
 set query_command="goobook query '%s'"
-macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+macro index,pager A "<pipe-message>goobook add<return>" "add sender to google contacts"
 bind editor <Tab> complete-query
 # When composing an email message within mutt, Tab will now search your Google
 # contacts. While viewing messages a will add the sender to Google contacts. 
@@ -87,7 +89,7 @@ set mailcap_path   = ~/.mutt/mailcap
 # displayed with Ctrl+b (if have urlview installed)
 auto_view text/html
 # Prefer plain text if available
-alternative_order text/plain text/html
+#alternative_order text/plain text/html
 # Some HTML mails may not display correctly in a text-based web browser. As a
 # fallback solution, you can bind a key to open a graphical browser in such
 # cases. The following macro will open the HTML mail selected from the
@@ -98,7 +100,7 @@ macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/
 # GnuPG bootstrap
 source ~/.mutt/gpg.rc
 set pgp_use_gpg_agent = yes
-set pgp_sign_as = XXX
+set pgp_sign_as = 
 set pgp_timeout = 3600
 set crypt_autosign = yes
 set crypt_replyencrypt = yes
