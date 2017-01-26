@@ -125,13 +125,14 @@ export UOSWEB_IP=143.167.2.102
 #####
 # Add git status info to bash prompt using
 GIT_PROMPT_DIR="${HOME}/.bash-git-prompt/"
-if [[ -d ${GIT_PROMPT_DIR} ]]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
-    GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
-    # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
-    source "${GIT_PROMPT_DIR}/gitprompt.sh"
-fi
+if [[ ! -d ${GIT_PROMPT_DIR} ]]; then
+    git clone https://github.com/magicmonty/bash-git-prompt.git ${GIT_PROMPT_DIR}
+fi 
+GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
+# GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+source "${GIT_PROMPT_DIR}/gitprompt.sh"
 
 # Use 'hub' (https://github.com/github/hub) for interacting with GitHub from command-line
 is_prog_on_path hub && eval $(hub alias -s)
