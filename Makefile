@@ -37,7 +37,7 @@ mpd:
 mutt:
 	mkdir -p ${HOME}/.mutt
 	$(SYM) `pwd`/mutt/muttrc.anon ${HOME}/.mutt/muttrc.anon
-	$(SYM) `pwd`/mutt/mutt_mailcap ${HOME}/.mutt/mutt_mailcap
+	$(SYM) `pwd`/mutt/mailcap ${HOME}/.mutt/mailcap
 	$(SYM) `pwd`/mutt/gpg.rc ${HOME}/.mutt/gpg.rc
 	$(SYM) `pwd`/mutt/mutt-colors-solarized-dark-256.muttrc ${HOME}/.mutt/mutt-colors-solarized-dark-256.muttrc 
 	$(SYM) `pwd`/mutt/goobookrc ${HOME}/.goobookrc
