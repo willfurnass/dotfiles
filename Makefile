@@ -31,6 +31,7 @@ mpd:
 	$(SYM) `pwd`/mpd/mpd.conf ${HOME}/.config/mpd/mpd.conf
 	mkdir -p ${HOME}/.config/mpdscribble
 	$(SYM) `pwd`/mpd/mpdscribble.conf.anon ${HOME}/.config/mpdscribble/mpdscribble.conf.anon
+	$(SYM) ${HOME}/.config/mpdscribble ${HOME}/.mpdscribble
 	mkdir -p ${HOME}/.config/ncmpcpp/
 	$(SYM) `pwd`/mpd/ncmpcpp_config ${HOME}/.config/ncmpcpp/config
 rprofile:
