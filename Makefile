@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ackrc bash beets csirc gitconfig jupyter-css matplotlibrc mpd rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ackrc bash beets csirc gitconfig jupyter-css matplotlibrc mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
@@ -34,6 +34,13 @@ mpd:
 	$(SYM) ${HOME}/.config/mpdscribble ${HOME}/.mpdscribble
 	mkdir -p ${HOME}/.config/ncmpcpp/
 	$(SYM) `pwd`/mpd/ncmpcpp_config ${HOME}/.config/ncmpcpp/config
+mutt:
+	mkdir -p ${HOME}/.mutt
+	$(SYM) `pwd`/mutt/muttrc.anon ${HOME}/.mutt/muttrc.anon
+	$(SYM) `pwd`/mutt/mutt_mailcap ${HOME}/.mutt/mutt_mailcap
+	$(SYM) `pwd`/mutt/gpg.rc ${HOME}/.mutt/gpg.rc
+	$(SYM) `pwd`/mutt/mutt-colors-solarized-dark-256.muttrc ${HOME}/.mutt/mutt-colors-solarized-dark-256.muttrc 
+	$(SYM) `pwd`/mutt/goobookrc ${HOME}/.goobookrc
 rprofile:
 	$(SYM) `pwd`/RProfile ${HOME}/.RProfile
 todotxt:
