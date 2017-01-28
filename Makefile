@@ -36,11 +36,15 @@ mpd:
 	$(SYM) `pwd`/mpd/ncmpcpp_config ${HOME}/.config/ncmpcpp/config
 mutt:
 	mkdir -p ${HOME}/.mutt
+	mkdir -p ${HOME}/.mutt/cache
+	mkdir -p ${HOME}/.mutt/cache/bodies
+	mkdir -p ${HOME}/.mutt/cache/headers
 	$(SYM) `pwd`/mutt/muttrc.anon ${HOME}/.mutt/muttrc.anon
 	$(SYM) `pwd`/mutt/mailcap ${HOME}/.mutt/mailcap
 	$(SYM) `pwd`/mutt/gpg.rc ${HOME}/.mutt/gpg.rc
 	$(SYM) `pwd`/mutt/mutt-colors-solarized-dark-256.muttrc ${HOME}/.mutt/mutt-colors-solarized-dark-256.muttrc 
 	$(SYM) `pwd`/mutt/goobookrc ${HOME}/.goobookrc
+	$(SYM) `pwd`/mutt/msmtprc.anon ${HOME}/.msmtprc.anon
 rprofile:
 	$(SYM) `pwd`/RProfile ${HOME}/.RProfile
 todotxt:

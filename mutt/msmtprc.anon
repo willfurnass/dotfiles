@@ -1,0 +1,24 @@
+# vim:filetype=msmtp
+# Adapted from https://pbrisbin.com/posts/two_accounts_in_mutt/
+# File mode must be 0600
+
+# shared defaults since both are gmail accounts
+defaults
+host smtp.gmail.com
+port 587
+protocol smtp
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+account personal
+from username@gmail.com
+user username@gmail.com
+passwordeval "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg | grep my_pw_personal | cut -d\' -f2"
+
+#'account work
+#'from work-username@gmail.com
+#'user work-username@gmail.com
+#'password secret
+
+account default : personal

@@ -4,8 +4,6 @@ set realname = 'XXX'
 set use_from = yes
 
 # My credentials
-set imap_user = 'XXX'
-set smtp_url = 'smtp://XXX@smtp.gmail.com:587/'
 # Password management 
 # (see https://wiki.archlinux.org/index.php/mutt#Passwords_management)
 source "gpg -dq $HOME/.muttpw.gpg |"
@@ -16,8 +14,9 @@ source "gpg -dq $HOME/.muttpw.gpg |"
 # to produce .muttpw.gpg
 # The plaintext was then shredded using 
 #     shred -xu ~/.muttpw
+set imap_user = 'XXX'
 set imap_pass=$my_pw_personal
-set smtp_pass=$my_pw_personal
+set sendmail = "/usr/bin/msmtp -a personal"
 set ssl_starttls=yes
 set ssl_force_tls=yes
 
@@ -101,7 +100,7 @@ source ~/.mutt/gpg.rc
 set pgp_use_gpg_agent = yes
 set pgp_sign_as = 
 set pgp_timeout = 3600
-set crypt_autosign = yes
+set crypt_autosign = no
 set crypt_replyencrypt = yes
 
 source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
