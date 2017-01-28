@@ -43,15 +43,17 @@ set mail_check_stats
 set sidebar_width = 40
 
 # Key bindings
+# Ensure the editor accepts IMAP folders with spaces in their names
 bind editor <space> noop
+# Gmail-friendly navigation:
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-# Sidebar: Ctrl-n, Ctrl-p to select next, previous folder.
-# Sidebar: Ctrl-o to open selected folder.
+# Sidebar: 
+# Ctrl-n, Ctrl-p to select next, previous folder; Ctrl-o to open selected folder
 bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
@@ -66,9 +68,6 @@ macro index,pager A "<pipe-message>goobook add<return>" "add sender to google co
 bind editor <Tab> complete-query
 # When composing an email message within mutt, Tab will now search your Google
 # contacts. While viewing messages a will add the sender to Google contacts. 
-
-# GnuPG 
-source ~/.mutt/gpg.rc
 
 # Etc
 set move = no # Stop asking to move read messages to mbox!
