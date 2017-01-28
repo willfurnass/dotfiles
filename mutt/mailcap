@@ -1,1 +1,3 @@
-text/html; elinks -dump ; copiousoutput;
+# mailcap - metamail capabilities file
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+*/*; xdg-open "%s"
