@@ -93,8 +93,9 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 ############
 # GNOME-OPEN
 ############
-# Quick way of opening file using default Gnome app
-alias ]='gnome-open'
+# Quick way of opening file using default apps 
+# (see ~/.config/mimetypes.list to customise
+alias ]='xdg-open'
 
 #######
 # CTAGS
