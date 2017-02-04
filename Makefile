@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ackrc bash beets csirc gitconfig jupyter-css matplotlibrc mpd mutt rprofile todotxt tmux vim weechat xinitrc Xresources
+all: abcde ackrc bash beets csirc gitconfig irssi jupyter-css matplotlibrc mpd mutt rprofile todotxt tmux vim weechat xinitrc Xresources
 
 abcde:
 	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
@@ -20,6 +20,12 @@ csirc:
 	$(SYM) `pwd`/csirc ${HOME}/.csirc
 gitconfig:
 	$(SYM) `pwd`/gitconfig ${HOME}/.gitconfig
+irssi:
+	mkdir -m 700 -p ${HOME}/.irssi/certs
+	find `pwd`/irssi/config -type f -exec chmod 600 {} \;
+	find `pwd`/irssi/config -type d -exec chmod 700 {} \;
+	$(SYM) `pwd`/irssi/config ${HOME}/.irssi/config
+	$(SYM) `pwd`/irssi/default.theme ${HOME}/.irssi/default.theme
 jupyter-css:
 	mkdir -p ${HOME}/.jupyter/custom
 	$(SYM) `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
