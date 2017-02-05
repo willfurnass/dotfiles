@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ackrc bash beets csirc gitconfig irssi jupyter-css matplotlibrc mpd mutt rprofile todotxt tmux vim weechat xinitrc Xresources
+all: abcde ackrc bash beets csirc gitconfig irssi jupyter-css matplotlibrc mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
@@ -83,9 +83,9 @@ weechat:
 	$(SYM) `pwd`/weechat/weechat.conf ${HOME}/.weechat/weechat.conf
 xinitrc:
 	$(SYM) `pwd`/xinitrc ${HOME}/.xinitrc
-Xresources:
-	$(SYM) `pwd`/Xresources ${HOME}/.Xresources
-	type -a xrdb &> /dev/null && xrdb ${HOME}/.Xresources
+#Xresources:
+#	$(SYM) `pwd`/Xresources ${HOME}/.Xresources
+#	type -a xrdb &> /dev/null && xrdb ${HOME}/.Xresources
 
 
 # TO ADD:
