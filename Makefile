@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ackrc bash beets csirc gitconfig irssi jupyter-css matplotlibrc mpd mutt rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ackrc bash beets csirc gitconfig irssi jupyter-css matplotlibrc mimeapps mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
@@ -32,6 +32,9 @@ jupyter-css:
 matplotlibrc:
 	mkdir -p ${HOME}/.config/matplotlib/
 	$(SYM) `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
+mimeapps:
+	mkdir -p ${HOME}/.config/
+	$(SYM) `pwd`/mimeapps.list ${HOME}/.config/mimeapps.list
 mpd:
 	mkdir -p ${HOME}/.config/mpd
 	$(SYM) `pwd`/mpd/mpd.conf ${HOME}/.config/mpd/mpd.conf
