@@ -2,3 +2,4 @@
 image/png=gimp.desktop;
 image/jpeg=gimp.desktop;
 application/pdf=evince.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop;
