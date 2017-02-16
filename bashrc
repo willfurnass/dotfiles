@@ -221,3 +221,16 @@ alias diff='diff --color=auto'
 # KRITA HiDPI
 export KRITA_HIDPI=ON
 #############
+
+##############################
+# Allocate and use x MB of RAM
+##############################
+function memalloc () {
+    if [[ $# -ne 1 ]]; then
+        echo "usage: memalloc X, where X is the number of MB to allocate" >2
+        exit 1
+    fi
+    n_MB=$1
+    yes | tr \\n x | head -c $(($n_MB * 1024 * 1024)) | grep n
+}
+
