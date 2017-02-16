@@ -225,6 +225,7 @@ export KRITA_HIDPI=ON
 ##############################
 # Allocate and use x MB of RAM
 ##############################
+# Inspired by http://unix.stackexchange.com/a/254976
 function memalloc () {
     if [[ $# -ne 1 ]]; then
         echo "usage: memalloc X, where X is the number of MB to allocate" >2
