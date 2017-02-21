@@ -16,7 +16,7 @@ source "gpg -dq $HOME/.muttpw.gpg |"
 #     shred -xu ~/.muttpw
 set imap_user = 'XXX'
 set imap_pass=$my_pw_personal
-set sendmail = "/usr/bin/msmtp -a personal"
+set sendmail = "/usr/bin/msmtp -a persgm"
 set ssl_starttls=yes
 set ssl_force_tls=yes
 

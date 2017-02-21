@@ -11,14 +11,14 @@ auth on
 tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 
-account personal
+account persgm
 from username@gmail.com
 user username@gmail.com
 passwordeval "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg | grep my_pw_personal | cut -d\' -f2"
 
-#'account work
-#'from work-username@gmail.com
-#'user work-username@gmail.com
-#'password secret
+account workgm
+from work-username@gmail.com
+user work-username@gmail.com
+password secret
 
-account default : personal
+account default : persgm
