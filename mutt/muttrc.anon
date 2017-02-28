@@ -9,14 +9,14 @@ set use_from = yes
 #source "gpg -dq $HOME/.muttpw.gpg |"
 source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg |"
 # Here $HOME/.muttpw contained 
-#     set my_pw_personal = "XXX"
+#     set my_persgm_passwd = "XXX"
 # where XXX is an application-specific IMAP+SMTP password and was encrypted with 
 #     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.muttpw.gpg
 # to produce $HOME/.muttpw.gpg
 # The plaintext was then shredded using 
 #     shred --exact --remove $HOME/.muttpw
 set imap_user = 'XXX'
-set imap_pass=$my_pw_personal
+set imap_pass=$my_persgm_passwd
 set sendmail = "/usr/bin/msmtp -a persgm"
 set ssl_starttls=yes
 set ssl_force_tls=yes
