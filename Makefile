@@ -23,6 +23,7 @@ gitconfig:
 i3: 
 	mkdir -p ${HOME}/.config
 	$(SYM) `pwd`/i3 ${HOME}/.config/i3
+	$(SYM) `pwd`/i3status ${HOME}/.config/i3status
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;
