@@ -11,13 +11,20 @@ general {
         interval = 5
 }
 
-order += "ipv6"
-order += "disk /"
+order += "taskwarrior"
 order += "wireless _first_"
-order += "ethernet _first_"
-order += "battery all"
+order += "sysdata"
 order += "load"
+order += "disk /"
+order += "disk /home"
+order += "battery all"
+order += "xrandr"
+order += "pomodoro"
 order += "tztime local"
+
+taskwarrior {
+        format = "TW: {task}"
+}
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
@@ -31,17 +38,21 @@ ethernet _first_ {
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = "P: %status %percentage %remaining"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%Y-%m-%d %H:%M"
 }
 
 load {
-        format = "%1min"
+        format = "L: %1min"
 }
 
 disk "/" {
-        format = "%avail"
+        format = "R: %avail"
+}
+
+disk "/home" {
+        format = "H: %avail"
 }
