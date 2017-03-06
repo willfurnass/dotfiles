@@ -147,6 +147,11 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# rofi bindings
+bindsym F9  exec rofi -show run    -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym F10 exec rofi -show drun   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym F12 exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -166,8 +171,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Dropbox
+# Startup apps
 exec --no-startup-id dropbox-cli start
-
-# NetworkManager
+exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet 
