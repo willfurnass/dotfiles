@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ack bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mpd mutt rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ack bash beets csi git i3 i3status irssi jupyter-css matplotlib mimeapps mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 stow abcde
@@ -22,9 +22,9 @@ git:
 gpg-agent:
 	stow gpg-agent
 i3: 
-	mkdir -p ${HOME}/.config
-	$(SYM) `pwd`/i3 ${HOME}/.config/i3
-	$(SYM) `pwd`/i3status ${HOME}/.config/i3status
+	stow i3
+i3status: 
+	stow i3status
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;
@@ -35,8 +35,7 @@ jupyter-css:
 	mkdir -p ${HOME}/.jupyter/custom
 	$(SYM) `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
 matplotlib:
-	mkdir -p ${HOME}/.config/matplotlib/
-	$(SYM) `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
+	stow matplotlib
 mimeapps:
 	mkdir -p ${HOME}/.config/
 	$(SYM) `pwd`/mimeapps.list ${HOME}/.config/mimeapps.list
@@ -91,8 +90,8 @@ weechat:
 	$(SYM) `pwd`/weechat/weechat.conf ${HOME}/.weechat/weechat.conf
 xinitrc:
 	stow xinitrc
-#Xresources:
-#	stow Xresources
+Xresources:
+	stow Xresources
 
 
 # TO ADD:
