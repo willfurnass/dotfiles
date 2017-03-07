@@ -32,8 +32,7 @@ irssi:
 	$(SYM) `pwd`/irssi/config ${HOME}/.irssi/config
 	$(SYM) `pwd`/irssi/default.theme ${HOME}/.irssi/default.theme
 jupyter-css:
-	mkdir -p ${HOME}/.jupyter/custom
-	$(SYM) `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
+	stow jupyter-css
 matplotlib:
 	stow matplotlib
 mimeapps:
