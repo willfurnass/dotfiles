@@ -6,9 +6,12 @@ Dotfiles, inc files for:
 * beets
 * csi
 * git
+* i3
+* irssi
 * jupyter (custom CSS)
 * matplotlibrc
 * mpd
+* mutt
 * R
 * todo.txt
 * tmux
@@ -18,7 +21,7 @@ Dotfiles, inc files for:
 
 ## Installation
 
-Run `make`.  This creates many symlinks after first creating backups of the symlink targets.
+Install GNU Stow then run `make`.  This creates many symlinks after first creating backups of the symlink targets.
 
 ## To do
 

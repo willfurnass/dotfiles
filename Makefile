@@ -1,12 +1,12 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ackrc bash beets csirc gitconfig i3 irssi jupyter-css matplotlibrc mimeapps mpd mutt rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ack bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
-	 $(SYM) `pwd`/abcde.conf ${HOME}/.abcde.conf
-ackrc:
-	 $(SYM) `pwd`/ackrc ${HOME}/.ackrc
+	 stow abcde
+ack:
+	 stow ack
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/ ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
 	pushd ${HOME}/.bash-git-prompt/ \
@@ -14,12 +14,11 @@ bash:
 	    && git merge --ff-only origin/master \
 	    && popd
 beets:
-	mkdir -p ${HOME}/.config/beets
-	$(SYM) `pwd`/beets_config.yaml ${HOME}/.config/beets/config.yaml
-csirc:
-	$(SYM) `pwd`/csirc ${HOME}/.csirc
-gitconfig:
-	$(SYM) `pwd`/gitconfig ${HOME}/.gitconfig
+	stow beets
+csi:
+	stow csi
+git:
+	stow git
 i3: 
 	mkdir -p ${HOME}/.config
 	$(SYM) `pwd`/i3 ${HOME}/.config/i3
@@ -33,7 +32,7 @@ irssi:
 jupyter-css:
 	mkdir -p ${HOME}/.jupyter/custom
 	$(SYM) `pwd`/jupyter_notebook_theme.css ${HOME}/.jupyter/custom/custom.css
-matplotlibrc:
+matplotlib:
 	mkdir -p ${HOME}/.config/matplotlib/
 	$(SYM) `pwd`/matplotlibrc ${HOME}/.config/matplotlib/matplotlibrc
 mimeapps:
@@ -89,10 +88,9 @@ weechat:
 	$(SYM) `pwd`/weechat/irc.conf ${HOME}/.weechat/irc.conf
 	$(SYM) `pwd`/weechat/weechat.conf ${HOME}/.weechat/weechat.conf
 xinitrc:
-	$(SYM) `pwd`/xinitrc ${HOME}/.xinitrc
+	stow xinitrc
 #Xresources:
-#	$(SYM) `pwd`/Xresources ${HOME}/.Xresources
-#	type -a xrdb &> /dev/null && xrdb ${HOME}/.Xresources
+#	stow Xresources
 
 
 # TO ADD:
