@@ -37,8 +37,7 @@ jupyter-css:
 matplotlib:
 	stow matplotlib
 mimeapps:
-	mkdir -p ${HOME}/.config/
-	$(SYM) `pwd`/mimeapps.list ${HOME}/.config/mimeapps.list
+	stow mimeapps
 mpd:
 	mkdir -p ${HOME}/.config/mpd
 	$(SYM) `pwd`/mpd/mpd.conf ${HOME}/.config/mpd/mpd.conf
