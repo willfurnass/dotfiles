@@ -19,6 +19,8 @@ csi:
 	stow csi
 git:
 	stow git
+gpg-agent:
+	stow gpg-agent
 i3: 
 	mkdir -p ${HOME}/.config
 	$(SYM) `pwd`/i3 ${HOME}/.config/i3
