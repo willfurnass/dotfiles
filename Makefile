@@ -59,9 +59,7 @@ mutt:
 R:
 	stow R
 todotxt:
-	mkdir -p ${HOME}/.todo
-	$(SYM) `pwd`/todo.cfg ${HOME}/.todo/config
-	$(SYM) `pwd`/todo.actions.d ${HOME}/.todo.actions.d
+	stow todotxt
 tmux:
 	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	pushd ~/.tmux/plugins/tpm \
