@@ -7,6 +7,12 @@ function is_prog_on_path () {
     return $?
 }
 
+###############
+# TERMINAL TYPE
+###############
+# Fix 'Unknown terminal type' err when ssh from rxvt terminal
+export TERM='xterm-256color'
+
 #######
 # PATHS
 #######
