@@ -19,6 +19,7 @@
     co = checkout
     ci = commit
     fpa = fetch --prune --all
+    mffo = merge --ff-only
 
 [diff "zip"]
     textconv = unzip -c -a
