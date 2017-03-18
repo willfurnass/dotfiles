@@ -56,6 +56,7 @@ mutt:
 	$(SYM) `pwd`/mutt/mutt-colors-solarized-dark-256.muttrc ${HOME}/.mutt/mutt-colors-solarized-dark-256.muttrc 
 	$(SYM) `pwd`/mutt/goobookrc ${HOME}/.goobookrc
 	$(SYM) `pwd`/mutt/msmtprc.anon ${HOME}/.msmtprc.anon
+	stow extract_url
 R:
 	stow R
 todotxt:

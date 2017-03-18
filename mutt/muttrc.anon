@@ -72,8 +72,11 @@ bind editor <Tab> complete-query
 # Etc
 set move = no # Stop asking to move read messages to mbox!
 set sort = 'reverse-threads'
-# Browse embedded URLs (need 'urlview' program; show list of urls using ctrl-u)
-macro pager \cu |urlview\n
+# Browse embedded URLs (need 'extract_url' program; show list of urls using ctrl-u)
+macro index,pager \cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
+<enter-command> unset pipe_decode<enter>\
+<pipe-message>extract_url<enter>\
+<enter-command> set pipe_decode=\$my_pdsave<enter>" "get URLs"
 set editor=`echo \$EDITOR`
 set mail_check = 30
 set imap_keepalive = 900
