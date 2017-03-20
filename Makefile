@@ -76,9 +76,7 @@ vim:
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 	type -f pip |> /dev/null && pip list --user | grep -q neovim || pip install --user neovim
 weechat:
-	mkdir -p ${HOME}/.weechat/
-	$(SYM) `pwd`/weechat/irc.conf ${HOME}/.weechat/irc.conf
-	$(SYM) `pwd`/weechat/weechat.conf ${HOME}/.weechat/weechat.conf
+	stow weechat
 xinitrc:
 	stow xinitrc
 Xresources:
