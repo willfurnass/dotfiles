@@ -61,16 +61,11 @@ export PROJECT_HOME=$HOME/dev
 # Reduce console noise when generating PySide figs using matplotlib
 export QT_ACCESSIBILITY=0 
 
-# Python bindings to Qt4: use PySide rather than PyQt4
-export QT_API="pyside"
-
 # Make easier to add/remove conda bin directory from path
 function condaenable {
     CONDAPATH="${HOME}/miniconda3/bin"
     if [[ -d ${CONDAPATH} && ! (${PATH} == *${CONDAPATH}*) ]]; then 
-        export QT_API_OLD="${QT_API}"
         PATH="$CONDAPATH:$PATH"
-        export QT_API='pyqt'
     fi
 }
 function condadisable {
@@ -78,7 +73,6 @@ function condadisable {
     if [[ -d ${CONDAPATH} && ${PATH} == *${CONDAPATH}* ]]; then 
         #source "${CONDAPATH}/deactivate"
         PATH=$(python -c 'from __future__ import print_function; import os; print(":".join((p for p in os.environ["PATH"].split(":") if not "miniconda" in p)))')
-        export QT_API="${QT_API_OLD}"
     fi
 }
 # Activate / deactivate conda envs
