@@ -1,29 +1,31 @@
 # dotfiles
 
-Dotfiles, inc files for:
+Inc files for:
 
-* ack
-* beets
-* csi
+* abcde (CD ripper)
+* ack (grep-like search tool)
+* beets (music database manager)
+* csi (Chicken Scheme)
+* extract_url (used by Mutt)
 * git
-* i3
-* irssi
+* gpg-agent
+* i3 (window manager) 
+* i3status (status bar for i3)
+* irssi (IRC client)
 * jupyter (custom CSS)
-* matplotlibrc
-* mpd
-* mutt
+* lyx (key bindings for LaTeX-like editor)
+* matplotlib (Pyton plotting library)
+* mimeapps
+* mpd (music playing daemon)
+* mutt (mail client)
 * R
-* todo.txt
-* tmux
+* tmux (terminal multiplexer)
+* todotxt
 * vim
-* weechat
+* weechat (IRC client)
 * xinitrc
+* Xresources
 
 ## Installation
 
-Install GNU Stow then run `make`.  This creates many symlinks after first creating backups of the symlink targets.
-
-## To do
-
-* bashrc
-* Xorg server config files (possibly move elsewhere).
+Install GNU Stow then run `make`.  
