@@ -54,14 +54,17 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 " Folding in Markdown; disable by default
 autocmd FileType markdown setlocal nofoldenable
 
-Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
-" Preview markdown files in an (automatically opened) browser tab
-" Do not always update the display in realtime; only refresh if no keys
-" pressed for a while, left insert mode a while ago or file is saved
-let g:instant_markdown_slow = 1
-" Do not automatically launch a preview browser tab when open a markdown file;
-" instead manually trigger the preview with :InstantMarkdownPreview
-let g:instant_markdown_autostart = 0
+" Vim plugin for Godown Markdown Previewer
+Plug 'davinche/godown-vim', { 'for': 'markdown' }
+let g:godown_autorun = 0
+" launch the Godown server and preview your markdown
+":GodownPreview
+" stop the Godown server
+":GodownKill
+" Toggle the Godown server
+":GodownToggle
+" Live Preview
+":GodownLiveToggle
 
 """"""""
 " Python
