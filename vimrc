@@ -69,7 +69,11 @@ let g:godown_autorun = 0
 """"""""
 " Python
 """"""""
-Plug 'klen/python-mode'
+" See https://github.com/python-mode/python-mode/pull/602 for why
+" python-mode can't be enabled in vimdiff
+if !&diff
+    Plug 'klen/python-mode'
+endif
 " python-mode includes pylint, rope, pydoc, pyflakes, pep8, and mccabe for
 " features like static analysis, refactoring, folding, completion,
 " documentation, and more.
