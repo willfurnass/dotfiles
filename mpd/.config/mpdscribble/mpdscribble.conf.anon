@@ -1,0 +1,16 @@
+[mpdscribble]
+host = /home/will/.config/mpd/socket
+log = /home/will/.config/mpdscribble/mpdscribble.log
+verbose = 2
+
+[last.fm]
+url = http://post.audioscrobbler.com/
+username = XXX
+password = XXX
+journal = /home/will/.config/mpdscribble/lastfm.journal
+
+t[libre.fm]
+url = http://turtle.libre.fm/
+username = XXX
+password = XXX
+journal = /home/will/.config/mpdscribble/librefm.journal
