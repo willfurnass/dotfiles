@@ -175,3 +175,9 @@ bindsym XF86AudioPrev exec playerctl previous
 exec --no-startup-id dropbox-cli start
 exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet 
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --start --components=gpg,pkcs11,secrets,ssh
+
+#exec --no-startup-id xrandr --output eDP-1 --dpi 282 
+
+# Ensure KeePassX 2 is always floating
+for_window [class="Keepassx2" instance="keepassx2"] floating enable
