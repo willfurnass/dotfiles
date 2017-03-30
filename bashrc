@@ -235,3 +235,15 @@ function memalloc () {
     yes | tr \\n x | head -c $(($n_MB * 1024 * 1024)) | grep n
 }
 
+###############
+# Is port open?
+###############
+function porty () {
+    if [[ $# -ne 2 ]]; then
+        echo "Check if a port is open using: porty hostname port" >2
+        exit 1
+    fi
+    _host=$1 
+    _port=$2 
+    timeout 1 bash -c "cat < /dev/null > /dev/tcp/${_host}/${_port}" 2>/dev/null && echo "port ${_port} is open" || echo "port ${_port} is closed"
+}
