@@ -31,6 +31,8 @@ let g:airline_theme='solarized'
 " Git wrapper
 """""""""""""
 Plug 'tpope/vim-fugitive'
+" If fugitive.vim is the Git, rhubarb.vim is the Hub. 
+Plug 'tpope/vim-rhubarb'
 
 """"""""""""""""""""
 "Git per-line status
