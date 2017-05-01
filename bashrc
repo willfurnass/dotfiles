@@ -90,12 +90,16 @@ export PYSPARK_PYTHON=python3
 export PYSPARK_DRIVER_PYTHON=ipython 
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
-############
-# GNOME-OPEN
-############
+########################
+# OPEN USING DEFAULT APP
+########################
 # Quick way of opening file using default apps 
 # (see ~/.config/mimetypes.list to customise
-alias ]='xdg-open'
+if is_prog_on_path gio; then
+    alias ]='gio open'
+elif is_prog_on_path xdg-open; then
+    alias ]='xdg-open'
+fi
 
 #######
 # CTAGS
@@ -234,6 +238,11 @@ function memalloc () {
     n_MB=$1
     yes | tr \\n x | head -c $(($n_MB * 1024 * 1024)) | grep n
 }
+
+####################
+# Firefox HiDPI mode
+####################
+alias firefox-hidpi='GDK_SCALE=2 GDK_DPI_SCALE=1 firefox'
 
 ###############
 # Is port open?
