@@ -233,7 +233,7 @@ export KRITA_HIDPI=ON
 function memalloc () {
     if [[ $# -ne 1 ]]; then
         echo "usage: memalloc X, where X is the number of MB to allocate" >2
-        exit 1
+        return -1
     fi
     n_MB=$1
     yes | tr \\n x | head -c $(($n_MB * 1024 * 1024)) | grep n
@@ -250,7 +250,7 @@ alias firefox-hidpi='GDK_SCALE=2 GDK_DPI_SCALE=1 firefox'
 function porty () {
     if [[ $# -ne 2 ]]; then
         echo "Check if a port is open using: porty hostname port" >2
-        exit 1
+        return -1
     fi
     _host=$1 
     _port=$2 
