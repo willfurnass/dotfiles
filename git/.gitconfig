@@ -18,7 +18,7 @@
     last = log -1 HEAD
     co = checkout
     ci = commit
-    fpa = fetch --prune --all
+    fpa = fetch --prune --all --tags
     mffo = merge --ff-only
 
 [diff "zip"]
