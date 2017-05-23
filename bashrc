@@ -256,3 +256,15 @@ function porty () {
     _port=$2 
     timeout 1 bash -c "cat < /dev/null > /dev/tcp/${_host}/${_port}" 2>/dev/null && echo "port ${_port} is open" || echo "port ${_port} is closed"
 }
+
+#########################
+# Reverse DNS using drill
+#########################
+function drill_rdns () {
+    if [[ $# -ne 1 ]]; then
+        echo "Reverse DNS lookup using drill.  Usage: drill_rns some_ip_address" >2
+        return -1
+    fi
+    _ipaddr=$1
+    drill -x $_ipaddr | grep PTR | tac | head -n 1 | cut -d '' -f5
+}
