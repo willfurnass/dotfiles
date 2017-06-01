@@ -138,6 +138,11 @@ GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
 GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
 # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
 source "${GIT_PROMPT_DIR}/gitprompt.sh"
+GIT_SUBREPO_DIR="${HOME}/.git_subrepo_dir/"
+if [[ ! -d ${GIT_SUBREPO_DIR} ]]; then
+    git clone https://github.com/ingydotnet/git-subrepo  ${GIT_SUBREPO_DIR}
+fi 
+source "${GIT_SUBREPO_DIR}/.rc"
 
 # Use 'hub' (https://github.com/github/hub) for interacting with GitHub from command-line
 is_prog_on_path hub && eval $(hub alias -s)
