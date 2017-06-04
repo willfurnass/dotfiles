@@ -40,16 +40,11 @@ mimeapps:
 mpd:
 	stow mpd
 mutt:
-	mkdir -p ${HOME}/.mutt
-	mkdir -p ${HOME}/.mutt/cache
-	mkdir -p ${HOME}/.mutt/cache/bodies
-	mkdir -p ${HOME}/.mutt/cache/headers
-	$(SYM) `pwd`/mutt/muttrc.anon ${HOME}/.mutt/muttrc.anon
-	$(SYM) `pwd`/mutt/mailcap ${HOME}/.mutt/mailcap
-	$(SYM) `pwd`/mutt/gpg.rc ${HOME}/.mutt/gpg.rc
-	$(SYM) `pwd`/mutt/mutt-colors-solarized-dark-256.muttrc ${HOME}/.mutt/mutt-colors-solarized-dark-256.muttrc 
-	$(SYM) `pwd`/mutt/goobookrc ${HOME}/.goobookrc
-	$(SYM) `pwd`/mutt/msmtprc.anon ${HOME}/.msmtprc.anon
+	mkdir -p ${HOME}/.mutt/cache/persgm/headers
+	mkdir -p ${HOME}/.mutt/cache/persgm/bodies
+	mkdir -p ${HOME}/.mutt/cache/workgm/headers
+	mkdir -p ${HOME}/.mutt/cache/workgm/bodies
+	stow mutt
 	stow extract_url
 R:
 	stow R

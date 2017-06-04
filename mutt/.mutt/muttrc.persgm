@@ -1,0 +1,60 @@
+# Password management 
+# (see https://wiki.archlinux.org/index.php/mutt#Passwords_management)
+source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg |"
+# $HOME/.muttpw.gpg is an encrypted file containing
+#     set my_persgm_user = "YYY"
+#     set my_persgm_passwd = "XXX"
+#     set my_persgm_from = "ZZZ"
+# where 
+#
+#     XXX is the IMAP and SMTP username
+#     YYY is the IMAP and SMTP password
+#     ZZZ is an email alias
+#
+# This file was encrypted with:
+#
+#     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.muttpw.gpg
+#
+# to produce $HOME/.muttpw.gpg
+# 
+# The plaintext was then shredded using 
+#     shred --exact --remove $HOME/.muttpw
+
+# Me
+set from = $my_persgm_from
+set use_from = yes
+
+# My credentials
+set imap_user = $my_persgm_user
+set imap_pass=$my_persgm_passwd
+set smtp_url = smtps://$my_persgm_user@smtp.gmail.com
+set smtp_pass = $my_persgm_passwd
+set record=""
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# My mailboxes
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Google Mail]/Drafts'
+set trash = '+[Google Mail]/Bin'
+# Do not need to set 'record' to 'Sent Mail' if using the GMail SMTP server as
+# it handles saving the sent mail
+#set record = "+[Google Mail]/Sent Mail"
+unset record
+
+# Where to put the stuff
+set header_cache = ~/.mutt/cache/persgm/headers
+set message_cachedir = ~/.mutt/cache/persgm/bodies
+set certificate_file = ~/.mutt/certificates
+
+# Key bindings
+# Gmail-friendly navigation:
+macro index,pager y "<save-message>=[Google Mail]/All Mail<enter><enter>" "Archive"
+#macro index,pager d "<save-message>=[Google Mail]/Bin<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Google Mail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
+
+source ~/.mutt/muttrc.common

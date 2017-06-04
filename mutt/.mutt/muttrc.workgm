@@ -1,0 +1,57 @@
+# Password management 
+# (see https://wiki.archlinux.org/index.php/mutt#Passwords_management)
+source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg |"
+# $HOME/.muttpw.gpg is an encrypted file containing
+#     set my_workgm_user = "YYY"
+#     set my_workgm_passwd = "XXX"
+# where 
+#
+#     XXX is the IMAP and SMTP username
+#     YYY is the IMAP and SMTP password
+#
+# This file was encrypted with:
+#
+#     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.muttpw.gpg
+# to produce $HOME/.muttpw.gpg
+# The plaintext was then shredded using 
+#     shred --exact --remove $HOME/.muttpw
+
+# Me
+set from = $my_workgm_user
+set use_from = yes
+set signature="~/.mutt/workgm_sig"
+
+# My credentials
+set imap_user = $my_workgm_user
+set imap_pass=$my_workgm_passwd
+set smtp_url = smtps://$my_workgm_user@smtp.gmail.com
+set smtp_pass = $my_workgm_passwd
+set record=""
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# My mailboxes
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Gmail]/Drafts'
+set trash = '+[Gmail]/Bin'
+# Do not need to set 'record' to 'Sent Mail' if using the GMail SMTP server as
+# it handles saving the sent mail
+#set record = "+[Gmail]/Sent Mail"
+unset record
+
+# Where to put the stuff
+set header_cache = ~/.mutt/cache/workgm/headers
+set message_cachedir = ~/.mutt/cache/workgm/bodies
+set certificate_file = ~/.mutt/certificates
+
+# Key bindings
+# Gmail-friendly navigation:
+macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+#macro index,pager d "<save-message>=[Gmail]/Bin<enter><enter>" "Trash"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+
+source ~/.mutt/muttrc.common
