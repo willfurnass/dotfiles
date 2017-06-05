@@ -46,17 +46,18 @@ bind editor <space> noop
 
 set mailcap_path   = ~/.mutt/mailcap
 
-# HTML rendering using elinks
-# Need the following in ~/.mutt/mailcap: text/html; elinks -dump ; copiousoutput;
-# see the formatted content directly, and any url links within the email can be
+# HTML rendering / link extraction
+# 
+# See the formatted content directly, and any url links within the email can be
 # displayed with Ctrl+b (if have urlview installed)
+# (requires corresponding entries in mailcap file)
 auto_view text/html
+# Prefer plain text if available
+alternative_order text/plain text/html
 # NEW STUFF FOR TESTING
 macro index \cB |w3m\n "call w3m to extract URLs out of a message"
 macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
 # NEW STUFF FOR TESTING
-# Prefer plain text if available
-#alternative_order text/plain text/html
 # Some HTML mails may not display correctly in a text-based web browser. As a
 # fallback solution, you can bind a key to open a graphical browser in such
 # cases. The following macro will open the HTML mail selected from the
