@@ -273,3 +273,10 @@ function drill_rdns () {
     _ipaddr=$1
     drill -x $_ipaddr | grep PTR | tac | head -n 1 | cut -d '' -f5
 }
+
+##############
+# Mutt aliases
+##############
+for acc in persgm workgm; do 
+    alias ${acc}="mutt -F ${HOME}/.mutt/muttrc.${acc}"
+done
