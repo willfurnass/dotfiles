@@ -18,6 +18,7 @@ Inc files for:
 * mimeapps
 * mpd (music playing daemon)
 * mutt (mail client)
+* newsbeuter (feed reader)
 * R
 * tmux (terminal multiplexer)
 * todotxt

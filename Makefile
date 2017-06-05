@@ -46,6 +46,8 @@ mutt:
 	mkdir -p ${HOME}/.mutt/cache/workgm/bodies
 	stow mutt
 	stow extract_url
+newsbeuter:
+	stow newsbeuter
 R:
 	stow R
 todotxt:
