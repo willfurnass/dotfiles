@@ -13,7 +13,7 @@ source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg |
 #
 # This file was encrypted with:
 #
-#     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.muttpw.gpg
+#     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.muttpw
 #
 # to produce $HOME/.muttpw.gpg
 # 
