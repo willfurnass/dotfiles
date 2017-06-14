@@ -35,7 +35,8 @@ URxvt.visualBell: true
 URxvt.url-launcher: xdg-open
 
 !URxvt.perl-ext-common: default,tabbed,clipboard
-URxvt.perl-ext-common: default,clipboard
+! clipboard works on Arch, selection-to-clipboard works on Mint
+URxvt.perl-ext-common: default,clipboard,selection-to-clipboard
 
 ! Disable 'Keycap Picture Insert Mode' when press Ctrl-Shift
 ! (NB mode is used for inserting unicode characters):
