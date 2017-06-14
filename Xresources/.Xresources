@@ -1,7 +1,8 @@
 ! Load a resource file (such as the conventional .Xresources), replacing any current settings:
 ! $ xrdb ~/.Xresources
-!  Load a resource file, and merge with the current settings:
-!  $ xrdb -merge ~/.Xresources
+!
+! Load a resource file, and merge with the current settings:
+! $ xrdb -merge ~/.Xresources
 
 ! By default, when shell output appears the scrollback view will automatically jump to the bottom of the buffer to display new output. If in cases where you want to see previous output (e.g., compiler messages), set the following options in ~/.Xresources:
 ! do not scroll with output
@@ -24,10 +25,6 @@ URxvt.secondaryScroll: 0
 !Xft.dpi:          220
 URxvt.font:       xft:DejaVuSansMono:size=10
 URxvt.italicFont: xft:DejaVuSansMono:size=10
-Xft.antialias:    true
-Xft.rgba:         rgb
-Xft.hinting:      true
-Xft.hintstyle:    hintfull
 
 URxvt.depth: 32
 URxvt.internalBorder: 3
@@ -55,43 +52,4 @@ URxvt.keysym.C-A-V:   perl:clipboard:paste_escaped
 ! By default the distance between characters can feel too wide. The spacing can be reduced by one pixel as such:
 URxvt.letterSpace: -1
 
-! Solarized Dark color scheme
-*background: #002b36
-*foreground: #839496
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
-
-!! black dark/light
-*color0: #073642
-*color8: #002b36
-
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
+#include ".Xresources.d/colours"

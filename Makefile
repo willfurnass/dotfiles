@@ -77,6 +77,7 @@ weechat:
 xinitrc:
 	stow xinitrc
 Xresources:
+	mkdir ${HOME}/.Xresources.d
 	stow Xresources
 
 

@@ -1,3 +1,5 @@
+xrdb ~/.Xresources
+
 # Needed for running qmon (Sun Grid Engine)
 if [[ -d /usr/share/fonts/X11/100dpi ]]; then
     # Paths in Ubuntu
@@ -9,5 +11,5 @@ elif [[ -d /usr/share/fonts/100dpi ]]; then
     FontPath /usr/share/fonts/75dpi
 fi
 
-/sbin/lspci | grep -q GeForce && xrandr --setprovideroutputsource modesetting NVIDIA-0
-/sbin/lspci | grep -q GeForce && xrandr --auto
+#/sbin/lspci | grep -q GeForce && xrandr --setprovideroutputsource modesetting NVIDIA-0
+#/sbin/lspci | grep -q GeForce && xrandr --auto
