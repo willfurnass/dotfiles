@@ -1,9 +1,12 @@
 # Password management 
 # (see https://wiki.archlinux.org/index.php/mutt#Passwords_management)
-source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg |"
-# $HOME/.muttpw.gpg is an encrypted file containing
+source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.mutt/workgm_creds.gpg |"
+#
+# $HOME/.mutt/workgm_creds.gpg is an encrypted file containing
+#
 #     set my_workgm_user = "YYY"
 #     set my_workgm_passwd = "XXX"
+#
 # where 
 #
 #     XXX is the IMAP and SMTP username
@@ -11,10 +14,13 @@ source "gpg2 --quiet --for-your-eyes-only --no-tty --decrypt $HOME/.muttpw.gpg |
 #
 # This file was encrypted with:
 #
-#     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.muttpw.gpg
-# to produce $HOME/.muttpw.gpg
+#     gpg2 --encrypt --recipient 'myemailaddr' $HOME/.mutt/workgm_creds
+#
+# to produce $HOME/.mutt/workgm_creds.gpg
+#
 # The plaintext was then shredded using 
-#     shred --exact --remove $HOME/.muttpw
+#
+#     shred --exact --remove $HOME/.mutt/workgm_creds
 
 # Me
 set from = $my_workgm_user
