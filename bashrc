@@ -27,6 +27,7 @@ export TERM='xterm-256color'
 if is_prog_on_path nvim; then
     export EDITOR=nvim
     alias vi=nvim
+    alias vimdiff='nvim -d'
 elif is_prog_on_path vim; then
     export EDITOR=vim
     alias vi=vim
