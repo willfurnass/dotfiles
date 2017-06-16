@@ -53,12 +53,12 @@ R:
 todotxt:
 	stow todotxt
 tmux:
+	stow tmux
 	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	pushd ~/.tmux/plugins/tpm \
 	    && git fetch --prune --all \
 	    && git merge --ff-only origin/master \
 	    && popd
-	$(SYM) `pwd`/tmux.conf ${HOME}/.tmux.conf
 	${HOME}/.tmux/plugins/tpm/bin/install_plugins
 	${HOME}/.tmux/plugins/tpm/bin/update_plugins all
 vim:
