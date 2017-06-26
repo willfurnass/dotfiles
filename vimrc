@@ -404,3 +404,12 @@ set showcmd
 """"""""""""""
 " (https://docs.puppet.com/guides/style_guide.html#parameter-defaults)
 autocmd FileType puppet setlocal shiftwidth=2 softtabstop=2 expandtab
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+" autocomplete filenames in similar way to bash
+"""""""""""""""""""""""""""""""""""""""""""""""
+" When you type the first tab hit will complete as much as possible, the
+" second tab hit will provide a list, the third and subsequent tabs will cycle
+" through completion options so you can complete the file without further keys
+set wildmode=longest,list,full
+set wildmenu
