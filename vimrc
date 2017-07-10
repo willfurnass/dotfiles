@@ -81,6 +81,13 @@ let g:godown_autorun = 0
 ":GodownToggle
 " Live Preview
 ":GodownLiveToggle
+"
+" Plugin for generating ToCs for Markdown docs
+Plug 'mzlogin/vim-markdown-toc'
+":GenTocGFM - Generate table of contents in GFM link style.
+":GenTocRedcarpet - Generate table of contents in Redcarpet link style. 
+let g:vmt_auto_update_on_save = 0
+let g:vmt_dont_insert_fence = 0
 
 """"""""
 " Python
