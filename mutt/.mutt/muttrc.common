@@ -63,7 +63,7 @@ macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
 # cases. The following macro will open the HTML mail selected from the
 # attachment view in the web browser defined in the environment. (Feel free to
 # adapt the ~/.cache/mutt/ folder). 
-macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && xdg-open ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
 
 # GnuPG bootstrap
 source ~/.mutt/gpg.rc
