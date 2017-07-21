@@ -281,3 +281,17 @@ function drill_rdns () {
 for acc in persgm workgm; do 
     alias ${acc}="mutt -F ${HOME}/.mutt/muttrc.${acc}"
 done
+
+######################################
+# Get env var value for particular PID
+######################################
+env_var_for_pid() {
+    if [[ $# -ne 2 ]]; then
+        echo "Get value of env var defined for process when process started; usage: env_var_for_pid <process_id> <env_var_name>" 1>&2
+        return -1
+    fi
+    local -r _pid=$1
+    local -r _var=$2
+    xargs --null --max-args=1 echo < /proc/${_pid}/environ | awk -F= "/^${_var}=/ {print \$2}"
+}
+
