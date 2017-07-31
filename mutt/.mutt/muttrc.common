@@ -1,6 +1,7 @@
 set realname = 'Will Furnass'
 
 # Etc
+set text_flowed # if line ends with space then is soft line break else is hard line break
 set index_format = "%4C %Z %{%b %d %R}  %-15.15L %M %s"
 folder-hook . "exec collapse-all"
 set move = no # Stop asking to move read messages to mbox!
