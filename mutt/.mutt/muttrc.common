@@ -1,11 +1,19 @@
 set realname = 'Will Furnass'
 
+# Threading
+folder-hook . "exec collapse-all"
+set sort = 'reverse-threads'
+set sort_browser="reverse-date"  # how to sort entries in the file browser
+set sort_aux="last-date-received" # how threads are sorted in relation to other threads, and how the branches of the thread trees are sorted
+unset collapse_unread  # when unset, Mutt will not collapse a thread if it contains any unread messages.
+bind index - collapse-thread 
+bind index _ collapse-all
+set strict_threads = 'yes' # group threads using ``In-Reply-To'' and ``References'' (not just subject)
+
 # Etc
 set text_flowed # use 'format=flowed' (RFC 3676): if line ends with space then is soft line break else is hard line break. NB Mutt doesn’t insert the quoted text as f=f into replies, so you have to manually massage it into f=f
-set index_format = "%4C %Z %{%b %d %R}  %-15.15L %M %s"
-folder-hook . "exec collapse-all"
 set move = no # Stop asking to move read messages to mbox!
-set sort = 'reverse-threads'
+set index_format = "%4C %Z %{%b %d %R}  %-15.15L %M %s"
 # Browse embedded URLs (need 'extract_url' program; show list of urls using ctrl-u)
 macro index,pager \cu "<enter-command> set my_pdsave=\$pipe_decode<enter>\
 <enter-command> unset pipe_decode<enter>\
@@ -56,8 +64,9 @@ auto_view text/html
 # Prefer plain text if available
 alternative_order text/plain text/html
 # NEW STUFF FOR TESTING
-macro index \cB |w3m\n "call w3m to extract URLs out of a message"
-macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
+#macro index \cB |w3m\n "call w3m to extract URLs out of a message"
+#macro pager \cB |w3m\n "call w3m to extract URLs out of a message"
+macro index,pager \cb ": unset wait_key; set pipe_decode\n|w3m\n: set wait_key; unset pipe_decode\n" "call w3m to extract URLs out of a message"
 # NEW STUFF FOR TESTING
 # Some HTML mails may not display correctly in a text-based web browser. As a
 # fallback solution, you can bind a key to open a graphical browser in such

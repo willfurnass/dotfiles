@@ -1,6 +1,7 @@
 # mailcap - metamail capabilities file
-#text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
 text/html;  /usr/bin/firefox %s >/dev/null 2>&1; needsterminal
-text/html;  elinks -dump %s; nametemplate=%s.html; copiousoutput
+#text/html;  elinks -dump %s; nametemplate=%s.html; copiousoutput
+#text/html; elinks -dump %s -eval 'set document.codepage.assume = "%{charset}"' -eval 'set document.dump.width = 66'; nametemplate=%s.html; copiousoutput
 application/*; xdg-open %s; copiousoutput;
 image/*; display %s

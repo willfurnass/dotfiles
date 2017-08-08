@@ -34,11 +34,20 @@ servers = (
     autoconnect = "yes";
   },
   #{ address = "localhost"; chatnet = "bitlbee"; autoconnect = "yes"; }
+  {
+    address = "rse-uos.irc.slack.com";
+    chatnet = "rseuosslack";
+    port = "6667";
+    use_tls = "yes";
+    tls_verify = "no";
+    autoconnect = "yes";
+  }
 );
 
 chatnets = {
   freenode = { type = "IRC"; nick = "will_f"; };
   #bitlbee = { type = "IRC"; };
+  rseuosslack = { type = "IRC"; nick = "willfurnass"; };
 };
 
 channels = (

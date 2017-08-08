@@ -22,7 +22,7 @@ URxvt.secondaryScroll: 0
 ! DPI of Ilyama HD monitor at work
 !Xft.dpi:          92
 ! DPI of Dell XPS 15 9550 4K display
-!Xft.dpi:          220
+Xft.dpi:          220
 URxvt.font:       xft:DejaVuSansMono:size=10
 URxvt.italicFont: xft:DejaVuSansMono:size=10
 
