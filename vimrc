@@ -420,3 +420,9 @@ autocmd FileType puppet setlocal shiftwidth=2 softtabstop=2 expandtab
 " through completion options so you can complete the file without further keys
 set wildmode=longest,list,full
 set wildmenu
+
+""""""""""""""""""""""""""""""""""""""""""""""
+" Mutt: wrap paragraphs using soft line breaks
+""""""""""""""""""""""""""""""""""""""""""""""
+" Useful if using format=flowed (RFC 3676) in vim
+au BufRead /tmp/mutt-* set fo+=w
