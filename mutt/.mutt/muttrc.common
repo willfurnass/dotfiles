@@ -28,15 +28,6 @@ set sleep_time = 0
 
 source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
 
-# Address book using goobook; first need to 
-# $ goobook config-template > ~/.goobookrc
-# $ goobook authenticate
-set query_command="goobook query '%s'"
-macro index,pager A "<pipe-message>goobook add<return>" "add sender to google contacts"
-bind editor <Tab> complete-query
-# When composing an email message within mutt, Tab will now search your Google
-# contacts. While viewing messages a will add the sender to Google contacts. 
-
 # Sidebar
 set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"

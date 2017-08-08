@@ -61,4 +61,12 @@ macro index ga "<change-folder>=[Google Mail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Google Mail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Google Mail]/Drafts<enter>" "Go to drafts"
 
+# Account-specific address book using goobook; first need to 
+# $ goobook -c ~/.mutt/goobookrc_persgm authenticate
+set query_command="goobook -c ~/.mutt/goobookrc_persgm query '%s'"
+macro index,pager A "<pipe-message>goobook -c ~/.mutt/goobookrc_persgm add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
+# When composing an email message within mutt, Tab will now search your Google
+# contacts. While viewing messages a will add the sender to Google contacts. 
+
 source ~/.mutt/muttrc.common
