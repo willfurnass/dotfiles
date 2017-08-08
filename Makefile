@@ -40,10 +40,10 @@ mimeapps:
 mpd:
 	stow mpd
 mutt:
-	mkdir -p ${HOME}/.mutt/cache/persgm/headers
-	mkdir -p ${HOME}/.mutt/cache/persgm/bodies
-	mkdir -p ${HOME}/.mutt/cache/workgm/headers
-	mkdir -p ${HOME}/.mutt/cache/workgm/bodies
+	mkdir -m 700 -p ${HOME}/.mutt/cache/persgm/headers
+	mkdir -m 700 -p ${HOME}/.mutt/cache/persgm/bodies
+	mkdir -m 700 -p ${HOME}/.mutt/cache/workgm/headers
+	mkdir -m 700 -p ${HOME}/.mutt/cache/workgm/bodies
 	stow mutt
 	stow extract_url
 newsbeuter:
