@@ -225,7 +225,7 @@ alias grep='grep --color=auto'
 # DIFF
 ######
 # Enable coloured output
-alias diff='diff --color=auto'
+grep -iq arch /etc/issue && alias diff='diff --color=auto'
 
 #############
 # KRITA HiDPI
