@@ -11,5 +11,7 @@ elif [[ -d /usr/share/fonts/100dpi ]]; then
     FontPath /usr/share/fonts/75dpi
 fi
 
+[ -f ~/.fehbg ] && ~/.fehbg & 
+
 #/sbin/lspci | grep -q GeForce && xrandr --setprovideroutputsource modesetting NVIDIA-0
 #/sbin/lspci | grep -q GeForce && xrandr --auto
