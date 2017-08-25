@@ -50,6 +50,10 @@ newsbeuter:
 	stow newsbeuter
 R:
 	stow R
+ssh-agent:
+	stow ssh-agent
+	systemctl --user daemon-reload
+	systemctl --user start ssh-agent.service && systemctl --user enable ssh-agent.service
 todotxt:
 	stow todotxt
 tmux:

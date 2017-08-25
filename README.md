@@ -20,6 +20,7 @@ Inc files for:
 * mutt (mail client)
 * newsbeuter (feed reader)
 * R
+* ssh-agent
 * tmux (terminal multiplexer)
 * todotxt
 * vim
