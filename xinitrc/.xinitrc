@@ -11,7 +11,11 @@ elif [[ -d /usr/share/fonts/100dpi ]]; then
     FontPath /usr/share/fonts/75dpi
 fi
 
+# Set wallpaper
 [ -f ~/.fehbg ] && ~/.fehbg & 
+
+# Disable tap to click on trackpad
+synclient TapButton1=1
 
 #/sbin/lspci | grep -q GeForce && xrandr --setprovideroutputsource modesetting NVIDIA-0
 #/sbin/lspci | grep -q GeForce && xrandr --auto
