@@ -185,7 +185,7 @@ exec --no-startup-id autocutsel
 exec --no-startup-id autocutsel -selection PRIMARY
 
 exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96
-exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 1920x0
+exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --dpi 96
 
 # Ensure KeePassX 2 is always floating
 for_window [class="Keepassx2" instance="keepassx2"] floating enable
