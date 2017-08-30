@@ -10,14 +10,9 @@ elif [ -d /usr/share/fonts/100dpi ]; then
     FontPath /usr/share/fonts/100dpi
     FontPath /usr/share/fonts/75dpi
 fi
-synclient TapButton1=1
 
-# Set wallpaper
-[ -f ~/.fehbg ] && ~/.fehbg & 
+# NB do not need to start gpg-agent explicitly any more
+# as now automatically started by gpg
+#eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
 
-# Disable tap to click on trackpad
-synclient TapButton1=1
-
-#/sbin/lspci | grep -q GeForce && xrandr --setprovideroutputsource modesetting NVIDIA-0
-#/sbin/lspci | grep -q GeForce && xrandr --auto
 exec /usr/bin/i3 -V -d all >> ~/.i3.log
