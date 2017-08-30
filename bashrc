@@ -295,3 +295,7 @@ env_var_for_pid() {
     xargs --null --max-args=1 echo < /proc/${_pid}/environ | awk -F= "/^${_var}=/ {print \$2}"
 }
 
+##################################
+# Define SSH agent socket location
+##################################
+export SSH_AUTH_SOCK DEFAULT="${XDG_RUNTIME_DIR}/ssh-agent.socket"
