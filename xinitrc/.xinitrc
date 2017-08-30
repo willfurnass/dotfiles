@@ -20,3 +20,4 @@ synclient TapButton1=1
 
 #/sbin/lspci | grep -q GeForce && xrandr --setprovideroutputsource modesetting NVIDIA-0
 #/sbin/lspci | grep -q GeForce && xrandr --auto
+exec /usr/bin/i3 -V -d all >> ~/.i3.log
