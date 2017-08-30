@@ -10,6 +10,7 @@ elif [ -d /usr/share/fonts/100dpi ]; then
     FontPath /usr/share/fonts/100dpi
     FontPath /usr/share/fonts/75dpi
 fi
+synclient TapButton1=1
 
 # Set wallpaper
 [ -f ~/.fehbg ] && ~/.fehbg & 
