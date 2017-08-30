@@ -11,7 +11,7 @@ client_secret_filename: ~/.goobook_client_secret_persgm.json
 
 cache_filename: ~/.goobook_cache_persgm
 ;cache_expiry_hours: 24
-;filter_groupless_contacts: yes
+filter_groupless_contacts: no
 
 # New contacts will be added to this group in addition to "My Contacts"
 # Note that the group has to already exist on google or an error will occur.
