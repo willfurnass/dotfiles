@@ -47,6 +47,7 @@ mutt:
 	stow mutt
 	stow extract_url
 newsbeuter:
+	mkdir -m 700 -p ${HOME}/.newsbeuter
 	stow newsbeuter
 R:
 	stow R
