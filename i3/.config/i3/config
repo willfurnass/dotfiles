@@ -187,6 +187,7 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --star
 # Sync clipboard and primary selection
 exec --no-startup-id autocutsel
 exec --no-startup-id autocutsel -selection PRIMARY
+exec --no-startup-id /usr/bin/udiskie --smart-tray &
 
 # Set resolution and position of displays
 exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96
