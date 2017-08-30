@@ -179,10 +179,10 @@ bindsym XF86AudioNext exec playerctl next && exec notify-send 'Next track'
 bindsym XF86AudioPrev exec playerctl previous && exec notify-send 'Previous track'
 
 # Startup apps
-exec --no-startup-id dropbox-cli start
 exec --no-startup-id dunst -config /home/will/.config/dunst/dunstrc
 exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet 
+exec --no-startup-id "command -v dropbox-cli >/dev/null 2>&1 dropbox-cli start || dropbox start"
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --start --components=gpg,pkcs11,secrets,ssh
 # Sync clipboard and primary selection
 exec --no-startup-id autocutsel
