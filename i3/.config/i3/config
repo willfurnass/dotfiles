@@ -183,13 +183,25 @@ exec --no-startup-id autocutsel
 exec --no-startup-id autocutsel -selection PRIMARY
 exec --no-startup-id /usr/bin/udiskie --smart-tray &
 
-# Set resolution and position of displays
-exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96
-exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 1920x0 --dpi 96
+# Binding mode to set resolution and change monitor positions (using xrandr)
+mode "xrandr" {
+        # HDMI monitor on left of laptop monitor
+        bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output eDP1 --mode 1920x1080 --pos 1920x0 --dpi 96
+        # HDMI monitor above laptop monitor
+        bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x1080 --dpi 96 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 
+        # No HDMI monitor 
+        bindsym j exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --dpi 96 --output HDMI1 --off
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+x mode "xrandr"
+
 # Set wallpaper
 exec --no-startup-id test -f ~/.fehbg && exec ~/.fehbg & 
 # Disable tap to click on trackpad
 exec --no-startup-id synclient TapButton1=1
 
-# Ensure KeePassX 2 is always floating
-for_window [class="Keepassx2" instance="keepassx2"] floating enable
+# Ensure KeePassX 2 is on specific workspace
+assign [class="Keepassx2" instance="keepassx2"] 9
