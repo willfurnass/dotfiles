@@ -162,15 +162,15 @@ bar {
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && exec notify-send 'Increased volume'
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && exec notify-send 'Decreased volume'
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && exec notify-send 'Toggle mute'
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && notify-send 'Increased volume'
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && notify-send 'Decreased volume'
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && notify-send 'Toggle mute'
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play && exec notify-send 'Play'
-bindsym XF86AudioPause exec playerctl pause && exec notify-send 'Pause'
-bindsym XF86AudioNext exec playerctl next && exec notify-send 'Next track'
-bindsym XF86AudioPrev exec playerctl previous && exec notify-send 'Previous track'
+bindsym XF86AudioPlay exec playerctl play && notify-send 'Play'
+bindsym XF86AudioPause exec playerctl pause && notify-send 'Pause'
+bindsym XF86AudioNext exec playerctl next && notify-send 'Next track'
+bindsym XF86AudioPrev exec playerctl previous && notify-send 'Previous track'
 
 # Startup apps
 exec --no-startup-id dunst -config /home/will/.config/dunst/dunstrc
@@ -198,9 +198,9 @@ mode "xrandrxps" {
 }
 mode "xrandrthinkpad" {
         # HDMI monitor on left of laptop monitor
-        bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output LVDS1 --mode 1366x768 --pos 1920x0 && exec --no-startup-id test -f ~/.fehbg && exec ~/.fehbg
+        bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output LVDS1 --mode 1366x768 --pos 1920x0 && test -f ~/.fehbg && ~/.fehbg
         # HDMI monitor above laptop monitor
-        bindsym k exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x1080 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 && exec --no-startup-id test -f ~/.fehbg && exec ~/.fehbg
+        bindsym k exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x1080 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
         # No HDMI monitor
         bindsym j exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --output HDMI1 --off 
         # back to normal: Enter or Escape
@@ -211,7 +211,7 @@ bindsym $mod+x mode "xrandrxps"
 bindsym $mod+t mode "xrandrthinkpad"
 
 # Set wallpaper
-exec --no-startup-id test -f ~/.fehbg && exec ~/.fehbg &
+exec --no-startup-id test -f ~/.fehbg && ~/.fehbg
 # Disable tap to click on trackpad
 exec --no-startup-id synclient TapButton1=1
 
