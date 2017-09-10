@@ -11,7 +11,7 @@ general {
         interval = 5
 }
 
-order += "taskwarrior"
+#order += "taskwarrior"
 order += "wireless _first_"
 order += "sysdata"
 order += "load"
@@ -22,9 +22,9 @@ order += "battery all"
 #order += "pomodoro"
 order += "tztime local"
 
-taskwarrior {
-        format = "TW: {task}"
-}
+#taskwarrior {
+#        format = "TW: {task}"
+#}
 
 wireless _first_ {
         format_up = "W: (%quality at %essid) %ip"
