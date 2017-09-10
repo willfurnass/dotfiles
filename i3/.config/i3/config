@@ -184,7 +184,7 @@ exec --no-startup-id autocutsel -selection PRIMARY
 exec --no-startup-id /usr/bin/udiskie --smart-tray &
 
 # Binding mode to set resolution and change monitor positions (using xrandr)
-mode "xrandr_xps" {
+mode "xrandrxps" {
         # HDMI monitor on left of laptop monitor
         bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output eDP1 --mode 1920x1080 --pos 1920x0 --dpi 96
         # HDMI monitor above laptop monitor
