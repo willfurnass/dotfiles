@@ -51,6 +51,9 @@ newsbeuter:
 	stow newsbeuter
 R:
 	stow R
+ranger:
+	mkdir -m 0700 -p ${HOME}/.config/ranger
+	stow ranger
 ssh-agent:
 	#stow ssh-agent
 	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
