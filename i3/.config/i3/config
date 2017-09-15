@@ -183,6 +183,8 @@ exec --no-startup-id /usr/bin/udiskie --smart-tray &
 mode "xrandrxps" {
         # HDMI monitor on left of laptop monitor
         bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output eDP1 --mode 1920x1080 --pos 1920x0 --dpi 96
+        # HDMI monitor on right of laptop monitor
+        bindsym l exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --dpi 96 --output HDMI1 --mode 1920x1080 --pos 1920x0 --dpi 96
         # HDMI monitor above laptop monitor
         bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x1080 --dpi 96 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96
         # No HDMI monitor
