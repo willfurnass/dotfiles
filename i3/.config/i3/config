@@ -239,5 +239,5 @@ exec --no-startup-id test -f ~/.fehbg && ~/.fehbg
 # Disable tap to click on trackpad
 exec --no-startup-id synclient TapButton1=1
 
-# Ensure KeePassX 2 is on specific workspace
-assign [class="Keepassx2" instance="keepassx2"] 9
+# Ensure KeePassXC is on specific workspace
+assign [class="keepassxc"] 9
