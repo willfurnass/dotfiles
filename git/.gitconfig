@@ -20,7 +20,7 @@
     ci = commit
     fpa = fetch --prune --all --tags
     mffo = merge --ff-only
-    new = git log master..upstream/master
+    new = log master..upstream/master
 
 [diff "zip"]
     textconv = unzip -c -a
