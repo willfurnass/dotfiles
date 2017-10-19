@@ -19,6 +19,14 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
+"""""""""""""""""""""""""""""""""""""
+" Generate/format markdown/rst tables
+"""""""""""""""""""""""""""""""""""""
+Plug 'dhruvasagar/vim-table-mode'
+" leader tm (:TableModeToggle) - start creating table
+" leader tt (:Tableize) - (re)format as table
+" Much more functionality documented at https://github.com/dhruvasagar/vim-table-mode
+
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Status/tabline that supports many other plugins
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -53,6 +61,17 @@ Plug 'tpope/vim-rhubarb'
 """"""""""""""""""""
 Plug 'mhinz/vim-signify'
 
+""""""""""""""""""
+" reStructuredText
+""""""""""""""""""
+Plug 'Rykka/InstantRst'
+" Inside a rst buffer:
+" :InstantRst[!]   Preview current buffer. Add ! to preview ALL rst buffer.
+" :StopInstantRst[!]   Stop Preview current buffer Add ! to stop preview ALL rst buffer. 
+
+" .rst settings for vim-table-mode plugin
+autocmd FileType rst letlocal g:table_mode_corner_corner='+' g:table_mode_header_fillchar='='
+
 """"""""""
 " Markdown
 """"""""""
@@ -66,6 +85,9 @@ autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent
 
 " Support for highlighting Github-style Markdown's fenced code blocks
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+"
+" .md settings for vim-table-mode plugin
+autocmd FileType rst letlocal g:table_mode_corner_corner='|'
 
 " Folding in Markdown; disable by default
 autocmd FileType markdown setlocal nofoldenable
