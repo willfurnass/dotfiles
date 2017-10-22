@@ -50,7 +50,11 @@ URxvt.keysym.C-A-V:   perl:clipboard:paste_escaped
 !                    ~Meta Shift Ctrl <Key>V:    insert-selection(CLIPBOARD) \n\
 !                    ~Meta Shift Ctrl <Key>C:    select-end(CLIPBOARD, CUT_BUFFER1) 
 
+!Xterm escapes, word by word movement
+URxvt.keysym.Control-Left:    \033[1;5D
+URxvt.keysym.Control-Right:    \033[1;5C
+
 ! By default the distance between characters can feel too wide. The spacing can be reduced by one pixel as such:
-URxvt.letterSpace: -1
+!URxvt.letterSpace: -1
 
 #include ".Xresources.d/colours"
