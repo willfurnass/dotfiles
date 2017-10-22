@@ -18,7 +18,7 @@ Config files for:
 * `mimeapps`
 * `mpd` (music playing daemon)
 * `mutt` (mail client)
-* `newsbeuter` (feed reader)
+* `newsboat` (feed reader)
 * `ranger` file manager (with w3m-powered image previews)
 * `R`
 * `ssh-agent`

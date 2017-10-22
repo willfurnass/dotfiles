@@ -46,9 +46,9 @@ mutt:
 	mkdir -m 700 -p ${HOME}/.mutt/cache/workgm/bodies
 	stow mutt
 	stow extract_url
-newsbeuter:
-	mkdir -m 700 -p ${HOME}/.newsbeuter
-	stow newsbeuter
+newsboat:
+	mkdir -m 700 -p ${HOME}/.config
+	stow newsboat
 R:
 	stow R
 ranger:
