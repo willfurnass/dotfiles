@@ -278,9 +278,15 @@ function drill_rdns () {
 ##############
 # Mutt aliases
 ##############
+if is_prog_on_path neomutt; then
+    mutt_prog=neomutt
+else
+    mutt_prog=mmutt
+fi
 for acc in persgm workgm; do 
-    alias ${acc}="mutt -F ${HOME}/.mutt/muttrc.${acc}"
+    alias ${acc}="${mutt_prog} -F ${HOME}/.mutt/muttrc.${acc}"
 done
+unset mutt_prog
 
 ######################################
 # Get env var value for particular PID
