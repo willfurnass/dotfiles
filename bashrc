@@ -161,7 +161,7 @@ alias ctags='ctags --c-kinds=cdfgmnstu'
 # RUBY
 ######
 # Add RVM (for managing ruby versions) to path
-[[ -d $HOME/.rvm/bin ]] && export PATH=$PATH:$HOME/.rvm/bin
+[[ -s $HOME/.rvm/scripts/rvm ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Aliases for writing to / reading from clipboard
 if is_prog_on_path xclip; then 
