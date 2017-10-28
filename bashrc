@@ -160,8 +160,14 @@ alias ctags='ctags --c-kinds=cdfgmnstu'
 ######
 # RUBY
 ######
-# Add RVM (for managing ruby versions) to path
-[[ -s $HOME/.rvm/scripts/rvm ]] && source "$HOME/.rvm/scripts/rvm"
+function rvmenable () {
+    # Add RVM (for managing ruby versions) to path
+    [[ -s $HOME/.rvm/scripts/rvm ]] && source "$HOME/.rvm/scripts/rvm"
+    # RVM bash completion
+    [[ -r $HOME/.rvm/scripts/completion ]] && source "$HOME/.rvm/scripts/completion" 
+    ## Display the current RVM ruby selection
+    [[ -r $HOME/.rvm/bin/rvm-prompt ]] && export PS1="\$($HOME/.rvm/bin/rvm-prompt) $PS1"
+}
 
 # Aliases for writing to / reading from clipboard
 if is_prog_on_path xclip; then 
