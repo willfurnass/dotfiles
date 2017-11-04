@@ -311,3 +311,8 @@ env_var_for_pid() {
 # Define SSH agent socket location
 ##################################
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+###############################
+# Set GPG Agent socket location
+###############################
+export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
