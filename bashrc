@@ -287,7 +287,7 @@ function drill_rdns () {
 if is_prog_on_path neomutt; then
     mutt_prog=neomutt
 else
-    mutt_prog=mmutt
+    mutt_prog=mutt
 fi
 for acc in persgm workgm; do 
     alias ${acc}="${mutt_prog} -F ${HOME}/.mutt/muttrc.${acc}"
