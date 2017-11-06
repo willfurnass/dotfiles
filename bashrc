@@ -307,6 +307,11 @@ env_var_for_pid() {
     xargs --null --max-args=1 echo < /proc/${_pid}/environ | awk -F= "/^${_var}=/ {print \$2}"
 }
 
+find-non-ascii() {
+    grep --color='auto' -P -n "[\x80-\xFF]" "$1"
+}
+
+
 ##################################
 # Define SSH agent socket location
 ##################################
