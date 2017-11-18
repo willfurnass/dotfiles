@@ -19,6 +19,11 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
+"""""""""""""""""""
+" Async Lint Engine
+"""""""""""""""""""
+Plug 'w0rp/ale'
+
 """""""""""""""""""""""""""""""""""""
 " Generate/format markdown/rst tables
 """""""""""""""""""""""""""""""""""""
