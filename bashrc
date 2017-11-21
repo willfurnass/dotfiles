@@ -315,7 +315,9 @@ find-non-ascii() {
 ##################################
 # Define SSH agent socket location
 ##################################
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+if [ -n "${XDG_RUNTIME_DIR}" ]; then
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi
 
 ###############################
 # Set GPG Agent socket location
