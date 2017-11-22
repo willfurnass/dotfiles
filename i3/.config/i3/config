@@ -197,6 +197,8 @@ mode "xrandrxps" {
 mode "xrandrthinkpad" {
         # HDMI monitor on left of laptop monitor
         bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output LVDS1 --mode 1366x768 --pos 1920x0 && test -f ~/.fehbg && ~/.fehbg
+        # HDMI monitor on right of laptop monitor
+        bindsym l exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --output HDMI1 --mode 1920x1080 --pos 1366x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
         # HDMI monitor above laptop monitor
         bindsym k exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x1080 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
         # No HDMI monitor
