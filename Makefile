@@ -37,6 +37,8 @@ matplotlib:
 	stow matplotlib
 mimeapps:
 	stow mimeapps
+mksh:
+	stow mksh
 mpd:
 	stow mpd
 mutt:
