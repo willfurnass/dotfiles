@@ -21,6 +21,13 @@ export TERM='xterm-256color'
 [[ -d $HOME/lib ]] && export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 [[ -d $HOME/Dropbox/bin  ]] && export PATH=$HOME/Dropbox/bin:$PATH
 
+####
+# GO
+####
+export GOPATH=$HOME/dev/go
+[[ -d $GOPATH/bin ]] || mkdir -p $GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
+
 ########
 # EDITOR
 ########
