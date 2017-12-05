@@ -330,3 +330,8 @@ fi
 # Set GPG Agent socket location
 ###############################
 export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
+
+#######
+# Emacs
+#######
+alias emacs='emacs -nw'
