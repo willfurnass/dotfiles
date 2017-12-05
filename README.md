@@ -7,6 +7,7 @@ Config files for:
 * `beets` (music database manager)
 * `csi` (Chicken Scheme)
 * `extract_url` (used by Mutt)
+* `emacs`
 * `git`
 * `gpg-agent`
 * `i3` (window manager) 
@@ -16,6 +17,7 @@ Config files for:
 * `lyx` (key bindings for LaTeX-like editor)
 * `matplotlib` (Pyton plotting library)
 * `mimeapps`
+* `mksh`
 * `mpd` (music playing daemon)
 * `mutt` (mail client)
 * `newsboat` (feed reader)

@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ack bash beets csi git i3 i3status irssi jupyter-css matplotlib mimeapps mpd mutt rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ack bash beets csi emacs git i3 i3status irssi jupyter-css matplotlib mimeapps mksh mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 stow abcde
@@ -17,6 +17,8 @@ beets:
 	stow beets
 csi:
 	stow csi
+emacs:
+	stow emacs
 git:
 	stow git
 gpg-agent:
