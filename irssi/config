@@ -51,7 +51,9 @@ chatnets = {
 };
 
 channels = (
-  { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#gridengine"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#hpc"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#ganglia"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#sheffgeeks"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
