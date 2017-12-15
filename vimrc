@@ -45,6 +45,7 @@ Plug 'tpope/vim-commentary'
 " - or as part of a ':global' invocation like with ':g/TODO/Commentary'. 
 " - uncomments too: The above maps actually toggle, and gcgc uncomments a set of adjacent commented lines.
 
+
 """""""""""""""""""""""""""""""""""""
 " Generate/format markdown/rst tables
 """""""""""""""""""""""""""""""""""""
@@ -96,7 +97,7 @@ Plug 'Rykka/InstantRst'
 " :StopInstantRst[!]   Stop Preview current buffer Add ! to stop preview ALL rst buffer. 
 
 " .rst settings for vim-table-mode plugin
-autocmd FileType rst letlocal g:table_mode_corner_corner='+' g:table_mode_header_fillchar='='
+"autocmd FileType rst let table_mode_corner_corner='+' table_mode_header_fillchar='='
 
 """"""""""
 " Markdown
@@ -113,7 +114,7 @@ autocmd FileType markdown setlocal autoindent formatoptions-=or nocindent
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 "
 " .md settings for vim-table-mode plugin
-autocmd FileType rst letlocal g:table_mode_corner_corner='|'
+"autocmd FileType md letlocal g:table_mode_corner_corner='|'
 
 " Folding in Markdown; disable by default
 autocmd FileType markdown setlocal nofoldenable
