@@ -1,4 +1,4 @@
-backend      : Qt4Agg
+#backend      : Qt4Agg
 #backend      : GTKAgg
 #backend.qt4  : PySide
 
