@@ -374,6 +374,28 @@ Plug 'vim-scripts/matchit.zip'
 " Automatic => alignment (can disable with let g:puppet_align_hashes = 0)
 Plug 'rodjek/vim-puppet'
 
+""""""""
+" vim-go
+""""""""
+Plug 'fatih/vim-go'
+" Compile your package with :GoBuild, install it with :GoInstall or test it with :GoTest. Run a single tests with :GoTestFunc).
+" Quickly execute your current file(s) with :GoRun.
+" Improved syntax highlighting and folding.
+" Completion support via gocode.
+" gofmt or goimports on save keeps the cursor position and undo history.
+" Go to symbol/declaration with :GoDef.
+" Look up documentation with :GoDoc or :GoDocBrowser.
+" Easily import packages via :GoImport, remove them via :GoDrop.
+" Automatic GOPATH detection which works with gb and godep. Change or display GOPATH with :GoPath.
+" See which code is covered by tests with :GoCoverage.
+" Add or remove tags on struct fields with :GoAddTags and :GoRemoveTags.
+" Call gometalinter with :GoMetaLinter to invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put the result in the quickfix or location list.
+" Lint your code with :GoLint, run your code through :GoVet to catch static errors, or make sure errors are checked with :GoErrCheck.
+" Advanced source analysis tools utilizing guru, such as :GoImplements, :GoCallees, and :GoReferrers.
+" Precise type-safe renaming of identifiers with :GoRename.
+" ... and many more! Please see doc/vim-go.txt for more information.
+
+
 " Add plugins to &runtimepath
 call plug#end()
 
