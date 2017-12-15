@@ -399,6 +399,11 @@ Plug 'fatih/vim-go'
 " Add plugins to &runtimepath
 call plug#end()
 
+"""""""""""""""""""""""""""""""""
+" Disable expandtab for Makefiles
+"""""""""""""""""""""""""""""""""
+autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
+
 """"""""""""""""
 " Line numbering
 """"""""""""""""
