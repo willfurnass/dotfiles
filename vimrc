@@ -177,6 +177,10 @@ Plug 'jmcantrell/vim-virtualenv'
 " Syntax file for cython
 Plug 'tshirtman/vim-cython'
 
+" Syntax highlighting for Pweave
+Plug 'coyotebush/vim-pweave'
+" Only .texw and .rstw file extensions supported at the mo.
+
 """"""""
 " Matlab
 """"""""
