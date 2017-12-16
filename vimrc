@@ -45,7 +45,6 @@ Plug 'tpope/vim-commentary'
 " - or as part of a ':global' invocation like with ':g/TODO/Commentary'. 
 " - uncomments too: The above maps actually toggle, and gcgc uncomments a set of adjacent commented lines.
 
-
 """""""""""""""""""""""""""""""""""""
 " Generate/format markdown/rst tables
 """""""""""""""""""""""""""""""""""""
