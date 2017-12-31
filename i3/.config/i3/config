@@ -30,7 +30,7 @@ font pango:DejaVu Sans Mono 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -174,9 +174,6 @@ exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet
 exec --no-startup-id "command -v dropbox-cli >/dev/null 2>&1 dropbox-cli start || dropbox start"
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --start --components=gpg,pkcs11,secrets,ssh
-# Sync clipboard and primary selection
-exec --no-startup-id autocutsel
-exec --no-startup-id autocutsel -selection PRIMARY
 exec --no-startup-id /usr/bin/udiskie --smart-tray &
 
 # Binding mode to set resolution and change monitor positions (using xrandr)
