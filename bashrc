@@ -180,20 +180,6 @@ export PROJECT_HOME=$HOME/dev
 # Reduce console noise when generating PySide figs using matplotlib
 export QT_ACCESSIBILITY=0 
 
-# Make easier to add/remove conda bin directory from path
-function condaenable {
-    CONDAPATH="${HOME}/miniconda3/bin"
-    if [[ -d ${CONDAPATH} && ! (${PATH} == *${CONDAPATH}*) ]]; then 
-        PATH="$CONDAPATH:$PATH"
-    fi
-}
-function condadisable {
-    CONDAPATH="${HOME}/miniconda3/bin"
-    if [[ -d ${CONDAPATH} && ${PATH} == *${CONDAPATH}* ]]; then 
-        #source "${CONDAPATH}/deactivate"
-        PATH=$(python -c 'from __future__ import print_function; import os; print(":".join((p for p in os.environ["PATH"].split(":") if not "miniconda" in p)))')
-    fi
-}
 # Activate / deactivate conda envs
 alias cae='. activate'
 alias cde='. deactivate'
