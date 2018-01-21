@@ -47,6 +47,14 @@ fi
 alias emacs='emacs -nw'
 
 
+####
+# ls
+####
+# Disable coloured output in HPC environments to reduce stat calls on Lustre filesystems
+if [[ -n $SGE_ROOT ]]; then
+    alias ls='ls --color=never'
+fi
+
 ######
 # Grep
 ######
