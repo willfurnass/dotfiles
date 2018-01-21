@@ -170,6 +170,7 @@ bindsym XF86AudioPrev exec playerctl previous && notify-send 'Previous track'
 
 # Startup apps
 exec --no-startup-id dunst -config /home/will/.config/dunst/dunstrc
+exec --no-startup-id xrdb -merge /home/will/.Xresources
 exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet
 exec --no-startup-id "command -v dropbox-cli >/dev/null 2>&1 dropbox-cli start || dropbox start"
