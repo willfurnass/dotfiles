@@ -55,10 +55,13 @@ set certificate_file = ~/.mutt/certificates
 # Gmail-friendly navigation:
 macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 #macro index,pager d "<save-message>=[Gmail]/Bin<enter><enter>" "Trash"
+# Suppress warning re rebinding
+bind index g noop
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index gt "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mail"
 
 # Account-specific address book using goobook; first need to 
 # $ goobook -c ~/.mutt/goobookrc_workgm authenticate
