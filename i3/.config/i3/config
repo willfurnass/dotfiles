@@ -339,8 +339,8 @@ assign [class="keepassxc"] 9
 # Pointer:     Left-click, Middle-click, Right-click, Scroll-up, Scroll-down, Scroll-left, Scroll-right, Scroll-click, 9
 #
 # Button remapping
-xinput set-button-map "Logitech USB Trackball" 1 8 3 4 5 6 7 2 2
+exec --no-startup-id xinput set-button-map "Logitech USB Trackball" 1 8 3 4 5 6 7 2 2
 # Enable click to scroll
-xinput set-int-prop    "Logitech USB Trackball" "libinput Scroll Method Enabled" 8 0 0 1
-xinput set-int-prop  "Logitech USB Trackball" "libinput Middle Emulation Enabled" 8 1
+exec --no-startup-id xinput set-int-prop    "Logitech USB Trackball" "libinput Scroll Method Enabled" 8 0 0 1
+exec --no-startup-id xinput set-int-prop  "Logitech USB Trackball" "libinput Middle Emulation Enabled" 8 1
 
