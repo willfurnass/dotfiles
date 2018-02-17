@@ -15,6 +15,12 @@
 # Set $mod to the 'Windows' ('super') key
 set $mod Mod4
 
+############
+# XRESOURCES
+############
+# Fonts, resolutions, URXVT terminal settings etc
+exec --no-startup-id xrdb -merge /home/will/.Xresources
+
 #######
 # FONTS
 #######
@@ -208,12 +214,6 @@ bindsym $mod+m exec --no-startup-id pavucontrol
 # NOTIFICATION SYSTEM
 #####################
 exec --no-startup-id dunst -config /home/will/.config/dunst/dunstrc
-
-############
-# XRESOURCES
-############
-# Fonts, resolutions, URXVT terminal settings etc
-exec --no-startup-id xrdb -merge /home/will/.Xresources
 
 ############
 # NUMLOCK ON
