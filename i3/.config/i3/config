@@ -315,6 +315,12 @@ exec --no-startup-id test -f ~/.fehbg && ~/.fehbg
 # Disable! Why would anyone want this?
 exec --no-startup-id synclient TapButton1=1
 
+##########
+# CALENDAR
+##########
+# Copy selected date to clipboard
+bindsym $mod+c exec zenity --calendar --date-format='%Y-%m-%d' | xclip -selection c
+
 ##################
 # PASSWORD MANAGER
 ##################
