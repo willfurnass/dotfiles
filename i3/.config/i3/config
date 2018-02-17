@@ -51,11 +51,11 @@ bindsym $mod+Shift+q kill
 # Use rofi (e.g. instead of dmenu) to launch applications
 #
 # Find and run a command-line program
-bindsym $mod+Shift+a exec rofi -show run    -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym $mod+Shift+a exec rofi -show run  -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 # Find and run a desktop program
-bindsym $mod+Shift+d exec rofi -show drun   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym $mod+Shift+d exec rofi -show drun -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 # Find a window (like alt-tab in other desktop environments)
-bindsym Mod1+Tab exec rofi -show window -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+bindsym Mod1+Tab exec rofi -show window   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 
 ##########################
 # CHANGE FOCUSED CONTAINER
@@ -334,9 +334,9 @@ assign [class="keepassxc"] 9
 # LOGITECH MARBLE MOUSE CONFIG
 ##############################
 exec --no-startup-id xinput set-button-map "Logitech USB Trackball" 1 2 3 4 5 6 7 8 9
-exec --no-startup-id xinput set-int-prop "Logitech USB Trackball" "Evdev Wheel Emulation Button" 8 8
-exec --no-startup-id input set-int-prop "Logitech USB Trackball" "Evdev Wheel Emulation" 8 1
-exec --no-startup-id input set-int-prop "Logitech USB Trackball" "Evdev Wheel Emulation Axes" 8 6 7 4 5
-exec --no-startup-id input set-int-prop "Logitech USB Trackball" "Evdev Wheel Emulation X Axis" 8 6
-exec --no-startup-id input set-int-prop "Logitech USB Trackball" "Evdev Drag Lock Buttons" 8 9
+exec --no-startup-id xinput set-int-prop   "Logitech USB Trackball" "Evdev Wheel Emulation Button" 8 8
+exec --no-startup-id input set-int-prop    "Logitech USB Trackball" "Evdev Wheel Emulation" 8 1
+exec --no-startup-id input set-int-prop    "Logitech USB Trackball" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+exec --no-startup-id input set-int-prop    "Logitech USB Trackball" "Evdev Wheel Emulation X Axis" 8 6
+exec --no-startup-id input set-int-prop    "Logitech USB Trackball" "Evdev Drag Lock Buttons" 8 9
 
