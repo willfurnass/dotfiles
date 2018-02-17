@@ -245,32 +245,36 @@ exec --no-startup-id /usr/bin/udiskie --smart-tray
 ###########################################
 # Binding mode to set resolution and change monitor positions (using xrandr).
 #
-# Settings for Dell XPS 9550 with/without external HD monitor
+# Settings for Dell XPS 9550 with/without external HD HDMI monitor
 # NB forcing HD resolution on the laptop's 4K display for simplicity
 mode "xrandrxps" {
+    set $owndisp eDP1
+    set $extdisp HDMI1
     # HDMI monitor on left of laptop monitor
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output eDP1 --mode 1920x1080 --pos 1920x0 --dpi 96
+    bindsym h exec --no-startup-id xrandr --output $extdisp --mode 1920x1080 --pos 0x0 --dpi 96 --output $owndisp --mode 1920x1080 --pos 1920x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
     # HDMI monitor on right of laptop monitor
-    bindsym l exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --dpi 96 --output HDMI1 --mode 1920x1080 --pos 1920x0 --dpi 96
+    bindsym l exec --no-startup-id xrandr --output $owndisp --mode 1920x1080 --pos 0x0 --dpi 96 --output $extdisp --mode 1920x1080 --pos 1920x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
     # HDMI monitor above laptop monitor
-    bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x1080 --dpi 96 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96
+    bindsym k exec --no-startup-id xrandr --output $owndisp --mode 1920x1080 --pos 0x1080 --dpi 96 --output $extdisp --mode 1920x1080 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
     # No HDMI monitor
-    bindsym j exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --dpi 96 --output HDMI1 --off
+    bindsym j exec --no-startup-id xrandr --output $owndisp --mode 1920x1080 --pos 0x0 --dpi 96 --output $extdisp --off && test -f ~/.fehbg && ~/.fehbg
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-# Settings for Lenovo Thinkpad E520 with/without external HD monitor
+# Settings for Lenovo Thinkpad E520 with/without external HD HDMI monitor
 mode "xrandrthinkpad" {
+    set $owndisp LVDS1
+    set $extdisp HDMI1
     # HDMI monitor on left of laptop monitor
-    bindsym h exec --no-startup-id xrandr --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 --output LVDS1 --mode 1366x768 --pos 1920x0 && test -f ~/.fehbg && ~/.fehbg
+    bindsym h exec --no-startup-id xrandr --output $extdisp --mode 1920x1080 --pos 0x0 --dpi 96 --output $owndisp --mode 1366x768 --pos 1920x0 && test -f ~/.fehbg && ~/.fehbg
     # HDMI monitor on right of laptop monitor
-    bindsym l exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --output HDMI1 --mode 1920x1080 --pos 1366x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
+    bindsym l exec --no-startup-id xrandr --output $owndisp --mode 1366x768 --pos 0x0 --output $extdisp --mode 1920x1080 --pos 1366x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
     # HDMI monitor above laptop monitor
-    bindsym k exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x1080 --output HDMI1 --mode 1920x1080 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
+    bindsym k exec --no-startup-id xrandr --output $owndisp --mode 1366x768 --pos 0x1080 --output $extdisp --mode 1920x1080 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg
     # No HDMI monitor
-    bindsym j exec --no-startup-id xrandr --output LVDS1 --mode 1366x768 --pos 0x0 --output HDMI1 --off 
+    bindsym j exec --no-startup-id xrandr --output $owndisp --mode 1366x768 --pos 0x0 --output $extdisp --off && test -f ~/.fehbg && ~/.fehbg
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
