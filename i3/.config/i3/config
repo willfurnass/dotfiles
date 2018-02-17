@@ -238,7 +238,7 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --star
 ###########################
 # AUTOMOUNT REMOVABLE MEDIA
 ###########################
-exec --no-startup-id /usr/bin/udiskie --smart-tray &
+exec --no-startup-id /usr/bin/udiskie --smart-tray
 
 ###########################################
 # DISPLAY RESOLUTIONS AND MONITOR POSITIONS
