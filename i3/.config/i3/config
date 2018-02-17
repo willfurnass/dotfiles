@@ -321,26 +321,3 @@ exec --no-startup-id synclient TapButton1=1
 # Ensure KeePassXC is on specific workspace
 assign [class="keepassxc"] 9
 
-##############################
-# LOGITECH MARBLE MOUSE CONFIG
-##############################
-# OLD STUFF THAT DOESN'T WORK
-#exec --no-startup-id xinput set-button-map "Logitech USB Trackball" 1 2 3 4 5 6 7 8 9
-#exec --no-startup-id xinput set-int-prop   "Logitech USB Trackball" "Evdev Wheel Emulation Button" 8 8
-#exec --no-startup-id xinput set-int-prop    "Logitech USB Trackball" "Evdev Wheel Emulation" 8 1
-#exec --no-startup-id xinput set-int-prop    "Logitech USB Trackball" "Evdev Wheel Emulation Axes" 8 6 7 4 5
-#exec --no-startup-id xinput set-int-prop    "Logitech USB Trackball" "Evdev Wheel Emulation X Axis" 8 6
-#exec --no-startup-id xinput set-int-prop    "Logitech USB Trackball" "Evdev Drag Lock Buttons" 8 9
-#
-# Info about Logitech Marble mouse:
-#
-# Mouse Big:   1 3
-# Mouse Small: 8 9
-# Pointer:     Left-click, Middle-click, Right-click, Scroll-up, Scroll-down, Scroll-left, Scroll-right, Scroll-click, 9
-#
-# Button remapping
-exec --no-startup-id xinput set-button-map "Logitech USB Trackball" 1 8 3 4 5 6 7 2 2
-# Enable click to scroll
-exec --no-startup-id xinput set-int-prop    "Logitech USB Trackball" "libinput Scroll Method Enabled" 8 0 0 1
-exec --no-startup-id xinput set-int-prop  "Logitech USB Trackball" "libinput Middle Emulation Enabled" 8 1
-
