@@ -1,10 +1,14 @@
+(require 'package)
+
 ; list the packages you want
-(setq package-list '(evil org-evil))
+;(setq package-list '(evil org-evil))
+(setq package-list '(evil))
 
 ; list the repositories containing them
 ;(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
 ;                         ("gnu" . "http://elpa.gnu.org/packages/")
 ;                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)

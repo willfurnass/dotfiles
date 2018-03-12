@@ -85,7 +85,7 @@ vim:
 	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
-	type -f pip |> /dev/null && pip list --user | grep -q neovim || pip install --user neovim
+	#type -f pip |> /dev/null && pip list --user | grep -q neovim || pip install --user neovim
 weechat:
 	stow weechat
 xinitrc:
@@ -97,6 +97,4 @@ Xresources:
 
 # TO ADD:
 #bashrc
-#50-synaptics.conf
-#99-nozap.conf
 #lyx_user.bind

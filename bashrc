@@ -47,7 +47,22 @@ fi
 alias emacs='emacs -nw'
 
 
-####
+#########
+# Browser
+#########
+if [ -n "$DISPLAY" ]; then
+    if is_prog_on_path firefox; then
+        export BROWSER=firefox
+    fi
+else 
+    if is_prog_on_path w3m; then
+        export BROWSER=firefox
+    elif is_prog_on_path elinks; then
+        export BROWSER=elinks
+    fi
+fi
+
+
 # ls
 ####
 # Disable coloured output in HPC environments to reduce stat calls on Lustre filesystems

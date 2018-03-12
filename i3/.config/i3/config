@@ -30,7 +30,7 @@ exec --no-startup-id xrdb -merge /home/will/.Xresources
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12
+#font pango:DejaVu Sans Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -38,6 +38,8 @@ font pango:DejaVu Sans Mono 12
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
+
+font pango:Century Gothic 12
 
 ##########
 # TERMINAL
@@ -196,10 +198,10 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ###############
 # AUDIO CONTROL
 ###############
-# Pulse Audio controls (for the on-board audio only)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5% && notify-send 'Increased volume'
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5% && notify-send 'Decreased volume'
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle && notify-send 'Toggle mute'
+# Pulse Audio controls 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl list sinks short | tac | awk '/RUNNING/ {print $2}' | tail -1) +5% && notify-send 'Increased volume'
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list sinks short | tac | awk '/RUNNING/ {print $2}' | tail -1) -5% && notify-send 'Decreased volume'
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pactl list sinks short | tac | awk '/RUNNING/ {print $2}' | tail -1) toggle && notify-send 'Toggle mute'
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play && notify-send 'Play'
@@ -330,3 +332,9 @@ bindsym $mod+c exec zenity --calendar --date-format='%Y-%m-%d' | xclip -selectio
 # Ensure KeePassXC is on specific workspace
 assign [class="keepassxc"] 9
 
+#############
+# WEB BROWSER
+#############
+# Bah - doesn't work (yet)
+#set $browser exec --no-startup-id echo "$BROWSER"
+#bindsym $mod+b exec --no-startup-id $browser
