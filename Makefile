@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ack bash beets csi emacs git i3 i3status irssi jupyter-css matplotlib mimeapps mksh mpd mutt rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ack bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd mutt rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 stow abcde
@@ -24,9 +24,10 @@ git:
 gpg-agent:
 	stow gpg-agent
 i3: 
+	# Install i3, dunst, polybar and i3status config (i3status not really needed now that using polybar)
 	stow i3
-i3status: 
-	stow i3status
+	# Make sure polybar launch script is executable
+	chmod 0700 `pwd`/i3/.config/polybar/launch.sh
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;

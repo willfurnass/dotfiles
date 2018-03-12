@@ -185,10 +185,13 @@ bindsym $mod+Shift+r restart
 ############
 # STATUS BAR
 ############
-# Using py3status (rather than e.g. i3status) as has more plugins
-bar {
-    status_command py3status
-}
+# Previously used py3status rather than the default i3status as it has more plugins:
+#bar {
+#    #status_command i3status
+#    status_command py3status
+#}
+# Now using polybar instead
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ###############
 # AUDIO CONTROL
