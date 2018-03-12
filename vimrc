@@ -26,12 +26,15 @@ Plug 'w0rp/ale'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  let g:deoplete#enable_at_startup = 1
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  if v:version >= 800
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+      let g:deoplete#enable_at_startup = 1
+  endif
 endif
-let g:deoplete#enable_at_startup = 1
 
 """"""""""""
 " Commenting
@@ -397,6 +400,8 @@ Plug 'fatih/vim-go'
 " Advanced source analysis tools utilizing guru, such as :GoImplements, :GoCallees, and :GoReferrers.
 " Precise type-safe renaming of identifiers with :GoRename.
 " ... and many more! Please see doc/vim-go.txt for more information.
+" Silence warnings about vim being too old (needed on ShARC/Iceberg)
+let g:go_version_warning = 0
 
 
 " Add plugins to &runtimepath
