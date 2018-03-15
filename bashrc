@@ -386,3 +386,61 @@ function memalloc () {
     local -r n_MB=$1
     yes | tr \\n x | head -c $(($n_MB * 1024 * 1024)) | grep n
 }
+
+function clang-format-custom () {
+    # (from https://matt.sh/howto-c)
+    # clang-format is the best automatic C formatter as of 2016: best defaults and actively developed
+    # 
+    # Run using cleanup-format-custom -i *.{c,h,cc,cpp,hpp,cxx}
+    # 
+    # NB -i overwrites existing files in place with formatting changes instead of writing to new files or creating backup files.
+    clang-format -style="{BasedOnStyle: llvm, IndentWidth: 4, AllowShortFunctionsOnASingleLine: None, KeepEmptyLinesAtTheStartOfBlocks: false}" "$@"
+}
+
+function clang-tidy-custom () {
+    # (from https://matt.sh/howto-c)
+    # This function is a policy driven code refactoring tool. The options above
+    # enable two fixups:
+    # 
+    # 1. Readability-braces-around-statements — force all if/while/for
+    #    statement bodies to be enclosed in braces.  It's an accident of history
+    #    for C to allow "brace optional" single statements after loop constructs
+    #    and conditionals. It is inexcusable to write modern code without braces
+    #    enforced on every loop and every conditional. Trying to argue "but, the
+    #    compiler accepts it!" has nothing to do with the readability,
+    #    maintainability, understandability, or skimability of code. You aren't
+    #    programming to please your compiler, you are programming to please future
+    #    people who have to maintain your current brain state years after
+    #    everybody has forgotten why anything exists in the first place.
+    # 2. misc-macro-parentheses — automatically add parens around all parameters
+    #    used in macro bodies
+    # 
+    # NB clang-tidy is great when it works, but for some complex code bases it
+    #    can get stuck. Also, clang-tidy doesn't format, so you need to run
+    #    clang-format after you tidy to align new braces and reflow macros.
+    # 
+    # NB Only accepts one file at a time, but we can run it parallel against
+    #    disjoint collections at once e.g. 
+    #
+    #     find . \( -name \*.c -or -name \*.cpp -or -name \*.cc \) |xargs -n1 -P4 cleanup-tidy
+    #
+    clang-tidy \
+    -fix \
+    -fix-errors \
+    -header-filter=.* \
+    --checks=readability-braces-around-statements,misc-macro-parentheses \
+    $1 \
+    -- -I.
+}
+
+#If you have many files, you can recursively process an entire source tree in parallel:
+#
+##!/usr/bin/env bash
+#
+## note: clang-tidy only accepts one file at a time, but we can run it
+##       parallel against disjoint collections at once.
+#find . \( -name \*.c -or -name \*.cpp -or -name \*.cc \) |xargs -n1 -P4 clang-tidy-custom
+#
+## clang-format accepts multiple files during one run, but let's limit it to 12
+## here so we (hopefully) avoid excessive memory usage.
+#find . \( -name \*.c -or -name \*.cpp -or -name \*.cc -or -name \*.h \) |xargs -n12 -P4 clang-format-custom -i
