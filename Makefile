@@ -76,6 +76,11 @@ tmux:
 	${HOME}/.tmux/plugins/tpm/bin/install_plugins
 	${HOME}/.tmux/plugins/tpm/bin/update_plugins all
 vim:
+	mkdir -p ~/.venvs
+	test -f ~/.venvs/neovim2/bin/python || python3 -m venv -p python2 ~/.venvs/neovim2
+	test -f ~/.venvs/neovim3/bin/python || python3 -m venv -p python3 ~/.venvs/neovim3
+	~/.venvs/neovim2/bin/python -m pip freeze | grep -q neovim || ~/.venvs/neovim2/bin/python -m pip install neovim
+	~/.venvs/neovim3/bin/python -m pip freeze | grep -q neovim || ~/.venvs/neovim3/bin/python -m pip install neovim
 	$(SYM) `pwd`/vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
 	$(SYM) `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
@@ -85,7 +90,6 @@ vim:
 	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
-	#type -f pip |> /dev/null && pip list --user | grep -q neovim || pip install --user neovim
 weechat:
 	stow weechat
 xinitrc:

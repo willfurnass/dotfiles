@@ -9,7 +9,13 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-let g:python_host_prog='/usr/bin/python3'
+""""""""""""""""""""""""""""""""""""""""""
+" Select python intepreters we wish to use
+""""""""""""""""""""""""""""""""""""""""""
+" The 'neovim' python package should have been installed into both of the
+" following virtualenvs
+let g:python3_host_prog = '/home/will/.venvs/neovim3/bin/python3'
+let g:python_host_prog = '/home/will/.venvs/neovim2/bin/python'
 
 """""""""""""""""
 " Vim plug config
@@ -528,5 +534,3 @@ augroup END
 
 let g:notmuch_sendmail = 'msmtp'
 let g:notmuch_date_format = '%y-%m-%d'
-
-
