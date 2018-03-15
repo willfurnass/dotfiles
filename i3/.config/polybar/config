@@ -19,8 +19,10 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-monitor = HDMI1
-monitor-fallback = eDP1
+# NB we _could_ explicitly state which are the primary and fall-back monitors...
+#monitor = HDMI1
+#monitor-fallback = eDP1
+# but then this config file would be less transferable between machines.
 monitor-strict = false
 bottom = true
 width = 100%
