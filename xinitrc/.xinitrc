@@ -11,8 +11,7 @@ elif [ -d /usr/share/fonts/100dpi ]; then
     FontPath /usr/share/fonts/75dpi
 fi
 
-# NB do not need to start gpg-agent explicitly any more
-# as now automatically started by gpg
-#eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
+# Make the capslock key behave like the escape key
+setxkbmap -option caps:escape
 
 exec /usr/bin/i3 -V -d all >> ~/.i3.log
