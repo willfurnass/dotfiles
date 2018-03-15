@@ -515,5 +515,18 @@ set wildmenu
 " Useful if using format=flowed (RFC 3676) in vim
 au BufRead /tmp/mutt-* set fo+=w
 
+"""""""""""""
+" XML folding
+"""""""""""""
+augroup XML
+    autocmd!
+    autocmd FileType xml let g:xml_syntax_folding=1
+    autocmd FileType xml setlocal foldmethod=syntax
+    autocmd FileType xml :syntax on
+    autocmd FileType xml :%foldopen!
+augroup END
+
 let g:notmuch_sendmail = 'msmtp'
 let g:notmuch_date_format = '%y-%m-%d'
+
+
