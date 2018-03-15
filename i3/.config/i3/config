@@ -291,7 +291,7 @@ bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 # (see https://wiki.archlinux.org/index.php/i3)
 
 # Convenient alias for screen locking
-set $Locker i3lock -c 051205 -t -i /home/will/Downloads/charts.png && sleep 1
+set $Locker i3lock -c 051205 -t && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
