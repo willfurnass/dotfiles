@@ -15,6 +15,11 @@
 # Set $mod to the 'Windows' ('super') key
 set $mod Mod4
 
+#############################
+# FOCUS DOES NOT FOLLOW MOUSE
+#############################
+focus_follows_mouse no
+
 ############
 # XRESOURCES
 ############
