@@ -273,12 +273,6 @@ nnoremap <F4> :TlistToggle<cr>
 " Binding to regenerate ctags file
 nnoremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-"""""""""""""""
-" Colour scheme
-"""""""""""""""
-"Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
-Plug 'altercation/vim-colors-solarized'
-
 """"""""""""""""""
 " Todo.txt support
 """"""""""""""""""
@@ -413,6 +407,12 @@ Plug 'fatih/vim-go'
 " Silence warnings about vim being too old (needed on ShARC/Iceberg)
 let g:go_version_warning = 0
 
+"""""""""""""""
+" Color schemes
+"""""""""""""""
+" NB configured after plug#end()
+Plug 'romainl/Apprentice'
+Plug 'altercation/vim-colors-solarized'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -437,10 +437,17 @@ set ruler " Display the cursor position on the last line of the screen or in
           " the status line of a window
 set showmode " Show the mode that vim is in (Insert, Replace, Visual)
 set hlsearch " Highlight searches
-set bg=dark " Set background to dark
-if has('gui_running') " Set GUI font and colorscheme
-  set guifont=Hack\ 10,OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
+if &diff
+  " A dark, low-contrast, Vim colorscheme. http://romainl.github.io/Apprentice/
+  colorscheme apprentice
+else
+  " Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
+  "
   colorscheme solarized
+  set bg=dark " Set background to dark
+endif
+if has('gui_running') " Set GUI font
+  set guifont=Hack\ 10,OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
 endif
 
 """""""""""""""""""""""""""""""""""""
@@ -534,3 +541,4 @@ augroup END
 
 let g:notmuch_sendmail = 'msmtp'
 let g:notmuch_date_format = '%y-%m-%d'
+
