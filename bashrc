@@ -104,7 +104,7 @@ alias info='info --vi-keys'
 # SSH
 #####
 # Define agent socket location
-if [ -n "${XDG_RUNTIME_DIR}" ]; then
+if [ -n "${XDG_RUNTIME_DIR}" ] && [ -z "$SSH_AUTH_SOCK" ]; then
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
 
