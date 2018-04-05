@@ -539,6 +539,11 @@ augroup XML
     autocmd FileType xml :%foldopen!
 augroup END
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Better syntax highlighting colors for bad spellings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+hi clear SpellBad
+hi SpellBad cterm=underline,bold
+
 let g:notmuch_sendmail = 'msmtp'
 let g:notmuch_date_format = '%y-%m-%d'
-
