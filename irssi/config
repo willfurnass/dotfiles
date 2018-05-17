@@ -32,17 +32,11 @@ servers = (
     ssl_cert = "~/.irssi/certs/freenode.pem";
     ssl_capath = "/etc/ssl/certs/";
     autoconnect = "yes";
-  },
-  #{ 
-  #  address = "localhost"; 
-  #  chatnet = "bitlbee"; 
-  #  autoconnect = "yes"; 
-  #}
+  }
 );
 
 chatnets = {
-  freenode = { type = "IRC"; nick = "will_f"; },
-  #bitlbee = { type = "IRC"; };
+  freenode = { type = "IRC"; nick = "will_f"; }
 };
 
 channels = (

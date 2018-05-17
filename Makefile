@@ -54,7 +54,7 @@ mutt:
 newsboat:
 	mkdir -m 700 -p ${HOME}/.config
 	stow newsboat
-R:
+rprofile:
 	stow R
 ranger:
 	mkdir -m 0700 -p ${HOME}/.config/ranger
