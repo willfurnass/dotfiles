@@ -12,6 +12,15 @@ syntax on
 """"""""""""""""""""""""""""""""""""""""""
 " Select python intepreters we wish to use
 """"""""""""""""""""""""""""""""""""""""""
+" Required to get ALE working in vim8:
+if !has('nvim')
+    if has('python3')
+       set pyxversion=3
+    else
+       set pyxversion=2
+    endif
+endif
+
 " The 'neovim' python package should have been installed into both of the
 " following virtualenvs
 let g:python3_host_prog = '/home/will/.venvs/neovim3/bin/python3'
@@ -27,11 +36,16 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 call plug#begin()
 
-"""""""""""""""""""
-" Async Lint Engine
-"""""""""""""""""""
+""""""""""""""""""""""""
+" ALE: Async Lint Engine
+""""""""""""""""""""""""
 Plug 'w0rp/ale'
+" Only run the linters when the buffer is saved
+let g:ale_lint_on_text_changed = 'never'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Deoplete: asynchronous completion framework for neovim/Vim8
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
