@@ -455,10 +455,10 @@ if &diff
   " A dark, low-contrast, Vim colorscheme. http://romainl.github.io/Apprentice/
   colorscheme apprentice
 else
-  " Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
-  "
-  colorscheme solarized
   set bg=dark " Set background to dark
+  let g:solarized_termtrans = 1 " This gets rid of the grey background
+  " Well-designed 16-color palette (see http://ethanschoonover.com/solarized)
+  colorscheme solarized
 endif
 if has('gui_running') " Set GUI font
   set guifont=Hack\ 10,OpenDyslexicMono\ 9,Ubuntu\ Mono\ 12,Courier_New:h10:cANSI
