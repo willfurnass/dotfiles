@@ -13,7 +13,7 @@ syntax on
 " Select python intepreters we wish to use
 """"""""""""""""""""""""""""""""""""""""""
 " Required to get ALE working in vim8:
-if !has('nvim')
+if !has('nvim') && v:version >= 800
     if has('python3')
        set pyxversion=3
     else
