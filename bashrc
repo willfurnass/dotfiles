@@ -360,7 +360,7 @@ function env-var-for-pid() {
 # Reverse DNS using drill
 function drill-rdns () {
     if [[ $# -ne 1 ]]; then
-        echo "Reverse DNS lookup using drill.  Usage: drill-rns some_ip_address" >2
+        echo "Reverse DNS lookup using drill.  Usage: drill-rns some_ip_address" 1>&2
         return -1
     fi
     local -r _ipaddr=$1
@@ -379,7 +379,7 @@ function grepb () {
 # Is port open? (pure bash)
 function is-port-open () {
     if [[ $# -ne 2 ]]; then
-        echo "Check if a port is open using: is-port-open hostname port" >2
+        echo "Check if a port is open using: is-port-open hostname port" 1>&2
         return -1
     fi
     local -r _host=$1 
@@ -390,8 +390,9 @@ function is-port-open () {
 # Allocate and use x MB of RAM
 # (inspired by http://unix.stackexchange.com/a/254976)
 function memalloc () {
+    echo $#
     if [[ $# -ne 1 ]]; then
-        echo "usage: memalloc X, where X is the number of MB to allocate" >2
+        echo "usage: memalloc X, where X is the number of MB to allocate" 1>&2
         return -1
     fi
     local -r n_MB=$1
