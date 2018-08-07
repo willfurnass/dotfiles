@@ -3,7 +3,7 @@
 #backend.qt4  : PySide
 
 savefig.format      : svg      # png, ps, pdf, svg
-nbagg.transparent : False
+#nbagg.transparent : False  # deprecated
 figure.facecolor : (1, 1, 1)  # white background behind figures (for when using dark Notebook themes)
 
 #keymap.fullscreen : f               # toggling
