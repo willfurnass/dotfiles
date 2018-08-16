@@ -347,3 +347,10 @@ assign [class="keepassxc"] 9
 # Bah - doesn't work (yet)
 #set $browser exec --no-startup-id echo "$BROWSER"
 #bindsym $mod+b exec --no-startup-id $browser
+
+#################
+# EMPTY CONTAINER
+#################
+# In case you want to create an empty container so you can then tile it with a
+# window that you only want to fill half the screen
+bindsym $mod+o open
