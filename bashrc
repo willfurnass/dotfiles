@@ -63,12 +63,14 @@ else
 fi
 
 
+####
 # ls
 ####
 # Disable coloured output in HPC environments to reduce stat calls on Lustre filesystems
 if [[ -n $SGE_ROOT ]]; then
     alias ls='ls --color=never'
 fi
+
 
 ######
 # Grep
@@ -358,17 +360,26 @@ function env-var-for-pid() {
 # Reverse DNS using drill
 function drill-rdns () {
     if [[ $# -ne 1 ]]; then
-        echo "Reverse DNS lookup using drill.  Usage: drill-rns some_ip_address" >2
+        echo "Reverse DNS lookup using drill.  Usage: drill-rns some_ip_address" 1>&2
         return -1
     fi
     local -r _ipaddr=$1
     drill -x $_ipaddr | grep PTR | tac | head -n 1 | cut -d '' -f5
 }
 
+# grep backwards
+function grepb () {
+    if [[ $# -ne 2 ]]; then
+        echo "Grep backwards (without buffering).  Usage: grepb somepattern somefile" 1>&2
+        return -1
+    fi
+    tac $2 | stdbuf -o0 grep $1
+}
+
 # Is port open? (pure bash)
 function is-port-open () {
     if [[ $# -ne 2 ]]; then
-        echo "Check if a port is open using: is-port-open hostname port" >2
+        echo "Check if a port is open using: is-port-open hostname port" 1>&2
         return -1
     fi
     local -r _host=$1 
@@ -379,8 +390,9 @@ function is-port-open () {
 # Allocate and use x MB of RAM
 # (inspired by http://unix.stackexchange.com/a/254976)
 function memalloc () {
+    echo $#
     if [[ $# -ne 1 ]]; then
-        echo "usage: memalloc X, where X is the number of MB to allocate" >2
+        echo "usage: memalloc X, where X is the number of MB to allocate" 1>&2
         return -1
     fi
     local -r n_MB=$1
