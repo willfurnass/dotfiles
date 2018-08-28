@@ -49,12 +49,14 @@ let g:ale_lint_on_text_changed = 'never'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
+  Plug 'zchee/deoplete-jedi'
 else
   if v:version >= 800
       Plug 'Shougo/deoplete.nvim'
       Plug 'roxma/nvim-yarp'
       Plug 'roxma/vim-hug-neovim-rpc'
       let g:deoplete#enable_at_startup = 1
+      Plug 'zchee/deoplete-jedi'
   endif
 endif
 
