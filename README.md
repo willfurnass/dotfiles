@@ -29,6 +29,7 @@ Config files for:
 * `weechat` (IRC client)
 * `xinitrc`
 * `Xresources`
+* `zathura` (PDF reader)
 
 ## Installation
 

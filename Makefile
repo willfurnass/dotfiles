@@ -97,8 +97,6 @@ xinitrc:
 Xresources:
 	mkdir ${HOME}/.Xresources.d
 	stow Xresources
-
-
-# TO ADD:
-#bashrc
-#lyx_user.bind
+zathura:
+	mkdir -p ${HOME}/.config/
+	$(SYM) `pwd`/zathura ${HOME}/.config/zathura
