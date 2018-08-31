@@ -456,3 +456,11 @@ function clang-tidy-custom () {
 ## clang-format accepts multiple files during one run, but let's limit it to 12
 ## here so we (hopefully) avoid excessive memory usage.
 #find . \( -name \*.c -or -name \*.cpp -or -name \*.cc -or -name \*.h \) |xargs -n12 -P4 clang-format-custom -i
+
+
+
+
+
+
+# Reduce noise re " dbind-WARNING **: 00:08:52.242: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken."
+export NO_AT_BRIDGE=1
