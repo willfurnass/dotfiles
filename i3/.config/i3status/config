@@ -11,20 +11,21 @@ general {
         interval = 5
 }
 
-order += "taskwarrior"
+#order += "taskwarrior"
 order += "wireless _first_"
+order += "ethernet _first_"
 order += "sysdata"
 order += "load"
-#order += "disk /"
-#order += "disk /home"
+order += "disk /"
+order += "disk /home"
 order += "battery all"
-#order += "xrandr"
+order += "xrandr"
 #order += "pomodoro"
 order += "tztime local"
 
-taskwarrior {
-        format = "TW: {task}"
-}
+#taskwarrior {
+#        format = "TW: {task}"
+#}
 
 wireless _first_ {
 #format_up = "W: (%quality at %essid) %ip"
