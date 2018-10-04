@@ -345,12 +345,6 @@ Plug 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
-"""""""""""""""""""
-" Buffer management
-"""""""""""""""""""
-" Simple buffer overview
-Plug 'weynhamz/vim-plugin-minibufexpl'
-
 " Enable hidden buffers so can switch buffers without saving
 set hidden
 
