@@ -417,6 +417,12 @@ let g:go_version_warning = 0
 Plug 'romainl/Apprentice'
 Plug 'altercation/vim-colors-solarized'
 
+""""""""""""""""""""""""""""""""
+" FZF (fuzzy search tool support
+""""""""""""""""""""""""""""""""
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 " Add plugins to &runtimepath
 call plug#end()
 
