@@ -345,13 +345,6 @@ Plug 'embear/vim-foldsearch'
 " :Fd Decrement context by one line.
 " :Fe Set modified fold options to their previous value and end foldsearch.
 
-" Enable hidden buffers so can switch buffers without saving
-set hidden
-
-" Enable fast buffer switching
-nnoremap <leader>n :bn<cr>
-nnoremap <leader>p :bp<cr>
-
 """"""""""""""""""""""""
 " Recovery of swap files
 """"""""""""""""""""""""
@@ -426,6 +419,20 @@ Plug 'altercation/vim-colors-solarized'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+"""""""""""""""""""
+" Buffer management
+"""""""""""""""""""
+
+" Enable hidden buffers so can switch buffers without saving
+set hidden
+
+" Enable fast buffer switching
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+
+" Tab-completion of buffers
+set wildchar=<Tab> wildmenu wildmode=full
 
 """""""""""""""""""""""""""""""""
 " Disable expandtab for Makefiles
