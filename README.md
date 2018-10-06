@@ -9,7 +9,7 @@ Config files for:
 * `extract_url` (used by Mutt)
 * `emacs`
 * `git`
-* `gpg-agent`
+* `gnupg`
 * `i3` window manager plus associated utilities
 * `irssi` (IRC client)
 * `jupyter` (custom CSS)

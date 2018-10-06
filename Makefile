@@ -21,8 +21,9 @@ emacs:
 	stow emacs
 git:
 	stow git
-gpg-agent:
-	stow gpg-agent
+gnupg:
+	make -p -m 700 ${HOME}/.gnupg
+	stow gnupg
 i3: 
 	# Install i3, dunst, polybar and i3status config (i3status not really needed now that using polybar)
 	stow i3
