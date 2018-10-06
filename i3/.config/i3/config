@@ -277,8 +277,8 @@ mode "xrandrthinkpad" {
     bindsym h exec --no-startup-id xrandr --output HDMI-1 --mode 1680x1050 --pos 0x0 --dpi 96 --output LVDS-1 --mode 1366x768 --pos 1680x0 && test -f ~/.fehbg && ~/.fehbg, mode "default"
     # HD monitor on right of laptop monitor
     bindsym l exec --no-startup-id xrandr --output LVDS-1 --mode 1366x768 --pos 0x0 --output HDMI-1 --mode 1920x1080 --pos 1366x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    # 1680x1050 monitor HD monitor above laptop monitor
-    bindsym k exec --no-startup-id xrandr --output LVDS-1 --mode 1366x768 --pos 0x1080 --output HDMI-1 --mode 1680x1050 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg, mode "default"
+    # HD monitor above laptop monitor
+    bindsym k exec --no-startup-id xrandr --output LVDS-1 --mode 1366x768 --pos 0x1080 --output HDMI-1 --mode 1920x1080 --pos 0x0 --dpi 96 && test -f ~/.fehbg && ~/.fehbg, mode "default"
     # No external monitor
     bindsym j exec --no-startup-id xrandr --output LVDS-1 --mode 1366x768 --pos 0x0 --output HDMI-1 --off && test -f ~/.fehbg && ~/.fehbg, mode "default"
 }

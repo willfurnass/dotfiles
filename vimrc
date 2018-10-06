@@ -423,6 +423,13 @@ Plug 'altercation/vim-colors-solarized'
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
+"""""""""""""
+" GPG support
+"""""""""""""
+Plug 'jamessan/vim-gnupg'
+let g:GPGPreferSymmetric = 1
+let g:GPGExecutable = "gpg2"
+
 " Add plugins to &runtimepath
 call plug#end()
 
