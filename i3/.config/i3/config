@@ -193,15 +193,15 @@ bindsym $mod+Shift+r restart
 # STATUS BAR
 ############
 # Uncomment to enable i3status instead
-#bar {
-#    #status_command i3status
-#}
+bar {
+    status_command i3status
+}
 # Uncomment to enable py3status instead
 #bar {
 #    status_command py3status
 #}
 # Uncomment to enable polybar instead
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ###############
 # AUDIO CONTROL
