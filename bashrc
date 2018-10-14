@@ -62,6 +62,8 @@ else
     fi
 fi
 
+export WWW_HOME='https://duckduckgo.com'
+
 
 ####
 # ls
@@ -69,18 +71,20 @@ fi
 # Disable coloured output in HPC environments to reduce stat calls on Lustre filesystems
 if [[ -n $SGE_ROOT ]]; then
     alias ls='ls --color=never'
+else
+    alias ls='ls --color=auto'
 fi
 
 
 ######
-# Grep
+# grep
 ######
 # Enable coloured output
 alias grep='grep --color=auto'
 
 
 ######
-# Diff
+# diff
 ######
 # Enable coloured output
 grep -iq arch /etc/issue && alias diff='diff --color=auto'
@@ -134,7 +138,7 @@ fi
 # Modules
 #########
 # Define some convenient aliases if we're using Modules but don't have Lmod
-if [[ -n $MODULESHOME ]] && $(module --version 2>&1 | grep -qEiv '\Wlua\W'); then
+if [[ -n ${MODULESHOME+x} ]] && $(module --version 2>&1 | grep -iwq lua); then
     alias ma='module avail -t 2>&1'
     alias ml='module load'
     alias mu='module unload'
@@ -147,11 +151,9 @@ fi
 # Clipboard
 ###########
 # Aliases for writing to / reading from clipboard
-if [[ -n ${DISPLAY+x} ]]; then
-    if is_prog_on_path xclip; then 
-        alias getclip='xclip -selection clipboard -in'
-        alias setclip='xclip -selection clipboard -out'
-    fi
+if [[ -n ${DISPLAY+x} ]] && is_prog_on_path xclip; then 
+    alias getclip='xclip -selection clipboard -in'
+    alias setclip='xclip -selection clipboard -out'
 fi
 
 
@@ -177,18 +179,15 @@ fi
 #####
 # Add git status info to bash prompt using
 GIT_PROMPT_DIR="${HOME}/.bash-git-prompt/"
-if [[ ! -d ${GIT_PROMPT_DIR} ]]; then
-    git clone https://github.com/magicmonty/bash-git-prompt.git ${GIT_PROMPT_DIR}
-fi 
+[[ -d ${GIT_PROMPT_DIR} ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${GIT_PROMPT_DIR}
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
 GIT_PROMPT_START=$(hostname)    # uncomment for custom prompt start sequence
 # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
 source "${GIT_PROMPT_DIR}/gitprompt.sh"
+
 GIT_SUBREPO_DIR="${HOME}/.git_subrepo_dir/"
-if [[ ! -d ${GIT_SUBREPO_DIR} ]]; then
-    git clone https://github.com/ingydotnet/git-subrepo  ${GIT_SUBREPO_DIR}
-fi 
+[[ -d ${GIT_SUBREPO_DIR} ]] || git clone https://github.com/ingydotnet/git-subrepo  ${GIT_SUBREPO_DIR}
 source "${GIT_SUBREPO_DIR}/.rc"
 
 # Use 'hub' (https://github.com/github/hub) for interacting with GitHub from command-line
@@ -199,7 +198,7 @@ is_prog_on_path hub && eval $(hub alias -s)
 # Python
 ########
 # Env vars for virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
+export WORKON_HOME=$HOME/.venvs
 export PROJECT_HOME=$HOME/dev
 
 # Reduce console noise when generating PySide figs using matplotlib
@@ -245,12 +244,18 @@ alias ctags='ctags --c-kinds=cdfgmnstu'
 is_prog_on_path rbenv && eval "$(rbenv init -)"
 
 
+##################
+# FZF fuzzy finder
+##################
+[[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
+
+
 #########
 # Haskell
 #########
 # Use user-installed cabal in preference to system cabal
 CABALDIR="$HOME/.cabal/bin"
-[[ -d $CABALDIR ]] &&  export PATH=$CABALDIR:$PATH
+[[ -d $CABALDIR ]] && export PATH=$CABALDIR:$PATH
 
 
 #########
@@ -287,12 +292,6 @@ alias mp3bitrate='mp3info -r a -p "%f %r\n"'
 
 
 #########
-# Browser
-#########
-export WWW_HOME='https://duckduckgo.com'
-
-
-#########
 # Ansible
 #########
 # Disable Ansible's use of cowsay
@@ -318,18 +317,20 @@ export KRITA_HIDPI=ON
 alias firefox-hidpi='GDK_SCALE=2 GDK_DPI_SCALE=1 firefox'
 
 
-######
+#######
+# Email
+#######
 # Mutt
-######
 if is_prog_on_path neomutt; then
     mutt_prog=neomutt
 else
     mutt_prog=mutt
 fi
-for acc in persgm workgm; do 
-    alias ${acc}="${mutt_prog} -F ${HOME}/.mutt/muttrc.${acc}"
-done
+[[ -n ${mutt_prog+x} ]] && alias persgm="${mutt_prog} -F ${HOME}/.mutt/muttrc.persgm"
 unset mutt_prog
+
+# Vim config for standalone reading/writing of email content
+alias vimail='vi -c "set spell spelllang=en" -c "set tw=72" -c "set filetype=mail"'
 
 
 #################
@@ -340,7 +341,7 @@ unset mutt_prog
 function find-non-ascii() {
     if [[ $# -ne 1 ]]; then
         echo "Bash function usage: find-non-ascii <some-file>  # find non-ascii chars in a file" 1>&2
-        return -1
+        return 1
     fi
     local -r _fname=$1
     grep --color='auto' -P -n "[\x80-\xFF]" "${_fname}"
@@ -350,7 +351,7 @@ function find-non-ascii() {
 function env-var-for-pid() {
     if [[ $# -ne 2 ]]; then
         echo "Get value of env var defined for process when process started; usage: env-var-for-pid <process_id> <env_var_name>" 1>&2
-        return -1
+        return 1
     fi
     local -r _pid=$1
     local -r _var=$2
@@ -361,7 +362,7 @@ function env-var-for-pid() {
 function drill-rdns () {
     if [[ $# -ne 1 ]]; then
         echo "Reverse DNS lookup using drill.  Usage: drill-rns some_ip_address" 1>&2
-        return -1
+        return 1
     fi
     local -r _ipaddr=$1
     drill -x $_ipaddr | grep PTR | tac | head -n 1 | cut -d '' -f5
@@ -371,7 +372,7 @@ function drill-rdns () {
 function grepb () {
     if [[ $# -ne 2 ]]; then
         echo "Grep backwards (without buffering).  Usage: grepb somepattern somefile" 1>&2
-        return -1
+        return 1
     fi
     tac $2 | stdbuf -o0 grep $1
 }
@@ -456,10 +457,6 @@ function clang-tidy-custom () {
 ## clang-format accepts multiple files during one run, but let's limit it to 12
 ## here so we (hopefully) avoid excessive memory usage.
 #find . \( -name \*.c -or -name \*.cpp -or -name \*.cc -or -name \*.h \) |xargs -n12 -P4 clang-format-custom -i
-
-
-
-
 
 
 # Reduce noise re " dbind-WARNING **: 00:08:52.242: Couldn't register with accessibility bus: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken."
