@@ -110,16 +110,24 @@ alias info='info --vi-keys'
 # SSH
 #####
 # Define agent socket location
-if [ -n "${XDG_RUNTIME_DIR}" ] && [ -z "$SSH_AUTH_SOCK" ]; then
-    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
-fi
+#if [ -n "${XDG_RUNTIME_DIR}" ] && [ -z "$SSH_AUTH_SOCK" ]; then
+#    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+#fi
 
 
 #####
 # GPG 
 #####
 # Set Agent socket location
-export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent
+unset SSH_AGENT_PID
+if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+#export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent  # NOT USING ANYMORE NOW THAT ENABLED STABLE PORT AND SSH IN GPG-AGENT.CONF
+export GPG_AGENT_INFO="${SSH_AUTH_SOCK}"
+# Set the GPG_TTY and refresh the TTY in case user has switched into an X session as stated in gpg-agent(1):
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 
 ########################
