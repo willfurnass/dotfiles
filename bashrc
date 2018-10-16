@@ -44,7 +44,11 @@ elif is_prog_on_path vim; then
 else
     export EDITOR=vi
 fi
+
+# Emacs without GUI
 alias emacs='emacs -nw'
+# vim without any user config
+alias vimc='\vim -u NONE -U NONE -N -i NONE'
 
 
 #########
