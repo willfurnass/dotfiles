@@ -427,11 +427,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " GPG support
 """""""""""""
 Plug 'jamessan/vim-gnupg'
-let g:GPGPreferSymmetric = 1
+let g:GPGPreferSymmetric = 0
 let g:GPGExecutable = "gpg2"
 
 " Add plugins to &runtimepath
 call plug#end()
+
+"""""""""""""""""""""
+" Trailing whitespace
+"""""""""""""""""""""
+nnoremap <leader>s :%s/\s\+$//e<cr>
 
 """""""""""""""""""
 " Buffer management
