@@ -40,8 +40,10 @@ call plug#begin()
 " ALE: Async Lint Engine
 """"""""""""""""""""""""
 Plug 'w0rp/ale'
-" Only run the linters when the buffer is saved
+" Only run the linters when the buffer is saved 
 let g:ale_lint_on_text_changed = 'never'
+
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Deoplete: asynchronous completion framework for neovim/Vim8
