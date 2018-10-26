@@ -48,7 +48,7 @@ fi
 # Emacs without GUI
 alias emacs='emacs -nw'
 # vim without any user config
-alias vimc='\vim -u NONE -U NONE -N -i NONE'
+alias vimc="\vim -u NONE -U NONE -N -i NONE -c 'syntax on'"
 
 
 #########
