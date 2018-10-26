@@ -69,6 +69,10 @@ bindsym $mod+Shift+a exec rofi -show run  -fg "#f1f1f1" -bg "#333333" -hlfg "#ff
 bindsym $mod+Shift+d exec rofi -show drun -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 # Find a window (like alt-tab in other desktop environments)
 bindsym Mod1+Tab exec rofi -show window   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
+# Unix Pass
+bindsym $mod+Shift+p exec passmenu -l 10
+# TESTING dmenu
+bindsym $mod+Shift+m exec dmenu_run -l 10
 
 ##########################
 # CHANGE FOCUSED CONTAINER
