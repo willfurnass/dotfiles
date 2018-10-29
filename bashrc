@@ -122,16 +122,19 @@ alias info='info --vi-keys'
 #####
 # GPG 
 #####
-# Set Agent socket location
-unset SSH_AGENT_PID
-if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+# If our TTY is not controlled by SSH i.e. is local:
+if [ -z ${SSH_TTY+x} ] && [ -z ${SSH_CLIENT+x} ] ; then
+    # Want to use gpg-agent instead of OpenSSH agent as ssh agent
+    unset SSH_AGENT_PID
+    # Determine the ssh-agent socket
+    if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
+        export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+    fi
+    export GPG_AGENT_INFO="${SSH_AUTH_SOCK}"
+    # Set the GPG_TTY and refresh the TTY in case user has switched into an X session as stated in gpg-agent(1):
+    export GPG_TTY=$(tty)
+    gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
-#export GPG_AGENT_INFO=$HOME/.gnupg/S.gpg-agent  # NOT USING ANYMORE NOW THAT ENABLED STABLE PORT AND SSH IN GPG-AGENT.CONF
-export GPG_AGENT_INFO="${SSH_AUTH_SOCK}"
-# Set the GPG_TTY and refresh the TTY in case user has switched into an X session as stated in gpg-agent(1):
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
 
 
 ########################
