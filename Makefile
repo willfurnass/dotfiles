@@ -29,6 +29,8 @@ i3:
 	stow i3
 	# Make sure polybar launch script is executable
 	chmod 0700 `pwd`/i3/.config/polybar/launch.sh
+inputrc:
+	stow inputrc
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;

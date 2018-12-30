@@ -11,6 +11,7 @@ Config files for:
 * `git`
 * `gnupg`
 * `i3` window manager plus associated utilities
+* `inputrc`
 * `irssi` (IRC client)
 * `jupyter` (custom CSS)
 * `lyx` (key bindings for LaTeX-like editor)
