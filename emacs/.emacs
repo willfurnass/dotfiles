@@ -33,20 +33,13 @@
 ;  (from https://orgmode.org/worg/org-tutorials/orgtutorial_dto.html)
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
+;(setq org-log-done t)
+(setq org-agenda-files (list "~/Dropbox/org/"))
+; Save the clock history across Emacs sessions:
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
+; NB can use 'orgzly' app on Android to interact with org-mode files shared via Dropbox
 
 ;; Enable evil mode
 (evil-mode 1)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (use-package markdown-mode evil))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
