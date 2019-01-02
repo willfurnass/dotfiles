@@ -1,27 +1,52 @@
+;; Ensure use-package package loader is installed and available
 (require 'package)
-
-; list the packages you want
-;(setq package-list '(evil org-evil))
-(setq package-list '(evil))
-
-; list the repositories containing them
-;(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-;                         ("gnu" . "http://elpa.gnu.org/packages/")
-;                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+;  Enable the MELPA package repository
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
-; activate all the packages (in particular autoloads)
+;  Activate all the packages (in particular autoloads)
 (package-initialize)
-
-; fetch the list of packages available 
+;  Fetch the list of packages available 
 (unless package-archive-contents
   (package-refresh-contents))
-
-; install the missing packages
+;  Install the missing packages
+(setq package-list '(use-package))
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+;  (require 'use-package) - REDUNDANT?
+;  The following is only needed once
+(eval-when-compile
+  (require 'use-package))
 
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
+;; Install evil-org package
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
+;; Org mode config
+;  (from https://orgmode.org/worg/org-tutorials/orgtutorial_dto.html)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+;; Enable evil mode
 (evil-mode 1)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (use-package markdown-mode evil))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
