@@ -42,8 +42,13 @@ call plug#begin()
 Plug 'w0rp/ale'
 " Only run the linters when the buffer is saved 
 let g:ale_lint_on_text_changed = 'never'
-
+"Or just expliclty turn on ALE when needed with :ALEEnable
+"let b:ale_enabled=0
+" ALE warning/error msg format
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" Jump to next/prev ALE warning/error
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Deoplete: asynchronous completion framework for neovim/Vim8
