@@ -43,6 +43,16 @@
 (use-package magit
   :ensure t)
 
+;;;;;;;;;;;;;;;;;;;
+;; Markdown support
+;;;;;;;;;;;;;;;;;;;
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 ;;;;;;;;;;;;;;;;;
 ;; Python support
 ;;;;;;;;;;;;;;;;;
@@ -70,10 +80,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org-mode and evil-org-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Ensure that tab works in evil org mode
-; (https://stackoverflow.com/a/22922161)
-(setq evil-want-C-i-jump nil)
 
+;; Install evil-org package
 (use-package evil-org
   :ensure t
   :after org
@@ -93,6 +101,7 @@
 
 ; Save the clock history across Emacs sessions:
 (setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
 
 ; Hide DONE tasks in agenda view
 (setq org-agenda-skip-scheduled-if-done t)
@@ -104,6 +113,10 @@
   ;(setq org-startup-indented t) ; Enable `org-indent-mode' by default
   (add-hook 'org-mode-hook #'visual-line-mode))
 ; NB can use 'orgzly' app on Android to interact with org-mode files shared via Dropbox
+
+; Ensure that tab works in evil org mode
+; (https://stackoverflow.com/a/22922161)
+(setq evil-want-C-i-jump nil)
 
 ;; Enable evil mode
 (evil-mode 1)
