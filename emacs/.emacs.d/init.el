@@ -28,8 +28,8 @@
 (use-package better-defaults
   :ensure t)
 
-;; Disable line numbers globally
-(global-linum-mode f)
+;; Enable/disable line numbers globally
+;(global-linum-mode t)
 
 ;; More attractive theme
 (use-package material-theme
@@ -81,6 +81,10 @@
 ;; org-mode and evil-org-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; Ensure that tab works in evil org mode
+; (https://stackoverflow.com/a/22922161)
+(setq evil-want-C-i-jump nil)
+
 ;; Install evil-org package
 (use-package evil-org
   :ensure t
@@ -113,10 +117,6 @@
   ;(setq org-startup-indented t) ; Enable `org-indent-mode' by default
   (add-hook 'org-mode-hook #'visual-line-mode))
 ; NB can use 'orgzly' app on Android to interact with org-mode files shared via Dropbox
-
-; Ensure that tab works in evil org mode
-; (https://stackoverflow.com/a/22922161)
-(setq evil-want-C-i-jump nil)
 
 ;; Enable evil mode
 (evil-mode 1)
