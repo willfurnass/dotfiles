@@ -18,6 +18,7 @@ beets:
 csi:
 	stow csi
 emacs:
+	make -p -m 700 ${HOME}/.emacs.d
 	stow emacs
 git:
 	stow git
