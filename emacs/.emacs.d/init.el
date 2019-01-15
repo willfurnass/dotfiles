@@ -40,7 +40,7 @@
 ;;;;;;;;;;;;;;
 ;; Git support
 ;;;;;;;;;;;;;;
-(use-package magit
+(use-package evil-magit
   :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;
