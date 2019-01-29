@@ -40,7 +40,7 @@
 ;;;;;;;;;;;;;;
 ;; Git support
 ;;;;;;;;;;;;;;
-(use-package magit
+(use-package evil-magit
   :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;
@@ -53,6 +53,7 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
 ;;;;;;;;;;;;;;;;;
 ;; Python support
 ;;;;;;;;;;;;;;;;;
@@ -63,6 +64,12 @@
   :ensure t)
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;;;;;;;;;;;;;;;;;;
+;; Haskell support
+;;;;;;;;;;;;;;;;;;
+(use-package haskell-mode
+  :ensure t)
 
 ;;;;;;;;;;;;;;;;;;
 ;; Syntax checking
@@ -214,7 +221,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (material-theme elpy better-defaults use-package markdown-mode evil-org))))
+    (haskell-mode material-theme elpy better-defaults use-package markdown-mode evil-org))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
