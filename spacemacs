@@ -48,7 +48,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
+     spell-checking  ;; Note that I need aspell-en installed
      syntax-checking
      version-control
      )
