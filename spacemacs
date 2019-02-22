@@ -325,6 +325,10 @@ you should place your code here."
   (org-clock-persistence-insinuate)
   (setq org-default-notes-file (concat org-directory "/capture.org"))
 
+  (defadvice markdown-preview (around markdown-preview-in-chromium activate compile)
+    (let ((browse-url-browser-function #'browse-url-firefox))
+      ad-do-it))
+
   ;; use mu4e for e-mail in emacs
   (setq mail-user-agent 'mu4e-user-agent)
   ;; mu4e mail client (requires mu and mu4e to be installed separately)
