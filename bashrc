@@ -345,7 +345,7 @@ fi
 unset mutt_prog
 
 # Vim config for standalone reading/writing of email content
-alias vimail='vi -c "set spell spelllang=en" -c "set tw=72" -c "set filetype=mail"'
+alias vimail='vi -c "set spell spelllang=en" -c "set filetype=mail"' #-c "set tw=72" 
 
 
 #################
