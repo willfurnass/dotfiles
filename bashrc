@@ -45,10 +45,11 @@ else
     export EDITOR=vi
 fi
 
-# Emacs without GUI
-alias emacs='emacs -nw'
 # vim without any user config
-alias vimc="\vim -u NONE -U NONE -N -i NONE -c 'syntax on'"
+alias vout="\vim -u NONE -U NONE -N -i NONE -c 'syntax on'"
+
+# Emacs without GUI
+#alias emacs='emacs -nw'
 
 
 #########
