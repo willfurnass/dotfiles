@@ -205,6 +205,10 @@ source "${GIT_PROMPT_DIR}/gitprompt.sh"
 GIT_SUBREPO_DIR="${HOME}/.git_subrepo_dir/"
 [[ -d ${GIT_SUBREPO_DIR} ]] || git clone https://github.com/ingydotnet/git-subrepo  ${GIT_SUBREPO_DIR}
 source "${GIT_SUBREPO_DIR}/.rc"
+if [[ -n ${SGE_ROOT+x} ]]; then
+    # Disable git bash prompt on HPC cluster(s) as NFS and Lustre fs are slow to trawl
+    export GIT_PROMPT_DISABLE=1
+fi
 
 # Use 'hub' (https://github.com/github/hub) for interacting with GitHub from command-line
 is_prog_on_path hub && eval $(hub alias -s)
@@ -220,10 +224,6 @@ export PROJECT_HOME=$HOME/dev
 # Reduce console noise when generating PySide figs using matplotlib
 export QT_ACCESSIBILITY=0 
 
-# Activate / deactivate conda envs
-alias cae='. activate'
-alias cde='. deactivate'
-
 # Dir for storing Python wheels (packages)
 if [[ -f /etc/lsb-release ]]; then
     source /etc/lsb-release
@@ -235,6 +235,15 @@ export PYSPARK_PYTHON=python3
 export PYSPARK_DRIVER_PYTHON=ipython 
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
+# Activate / deactivate conda envs
+alias cae='. activate'
+alias cde='. deactivate'
+
+if [[ -n $SGE_CLUSTER_NAME ]] && [[ -f "$HOME/.condarc-${SGE_CLUSTER_NAME}.yml" ]]; then
+    export CONDARC="$HOME/.condarc-${SGE_CLUSTER_NAME}.yml"
+    # Redundant now that I have the above line
+    # export CONDA_ENVS_DIRS="/data/$USER/.conda-${SGE_CLUSTER_NAME}:${CONDA_ENVS_DIRS}"
+fi
 
 ####
 # Go
@@ -285,7 +294,7 @@ fi
 ###########
 # Passwords
 ###########
-alias mypwgen='pwgen -BcnyC 12 10'
+alias mypwgen='pwgen -BcnyC 20'
 
 
 ##########
@@ -294,7 +303,7 @@ alias mypwgen='pwgen -BcnyC 12 10'
 # (largely redundant now migrated to taskwarrior)
 alias t="$EDITOR $HOME/Dropbox/todotxt/{todo.txt,waiting.txt,parked.txt,sdm.txt,done.txt}"
 # completion for todo.sh (todo.txt cli)
-complete -F _todo t  
+#complete -F _todo t  
 
 
 #######
@@ -414,6 +423,15 @@ function memalloc () {
     fi
     local -r n_MB=$1
     yes | tr \\n x | head -c $(($n_MB * 1024 * 1024)) | grep n
+}
+
+latest-file-in-directory () {
+    find "${@:-.}" -maxdepth 1 -type f -printf '%T@.%p\0' | \
+            sort -znr -t. -k1,2 | \
+            while IFS= read -r -d '' -r record ; do
+                    printf '%s' "$record" | cut -d. -f3-
+                    break
+            done
 }
 
 function clang-format-custom () {
