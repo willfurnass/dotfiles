@@ -153,7 +153,7 @@ fi
 # Modules
 #########
 # Define some convenient aliases if we're using Modules but don't have Lmod
-if [[ -n ${MODULESHOME+x} ]] && $(module --version 2>&1 | grep -iwq lua); then
+if [[ -n ${MODULESHOME+x} ]] && ! $(module --version 2>&1 | grep -wq Lua); then 
     alias ma='module avail -t 2>&1'
     alias ml='module load'
     alias mu='module unload'
