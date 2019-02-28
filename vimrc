@@ -130,9 +130,7 @@ Plug 'Rykka/InstantRst'
 " :StopInstantRst[!]   Stop Preview current buffer Add ! to stop preview ALL rst buffer. 
 
 " .rst settings for vim-table-mode plugin
-" autocmd FileType rst setlocal  ???
-let g:table_mode_corner_corner='+' 
-let g:table_mode_header_fillchar='='
+autocmd Filetype rst let b:table_mode_corner_corner='+' let g:table_mode_header_fillchar='='
 
 """"""""""
 " Markdown
