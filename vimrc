@@ -579,6 +579,13 @@ augroup XML
     autocmd FileType xml :%foldopen!
 augroup END
 
+
+"""""""""""""
+" Javascript folding
+"""""""""""""
+autocmd FileType javascript,js,javaScript setlocal foldmethod=syntax foldcolumn=1 foldlevelstart=99
+let javaScript_fold=1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Better syntax highlighting colors for bad spellings
 """""""""""""""""""""""""""""""""""""""""""""""""""""
