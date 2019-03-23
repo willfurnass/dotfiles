@@ -14,6 +14,7 @@
 [alias]
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     tree = log --graph --pretty=oneline --abbrev-commit  
+    logdrj = log --decorate --oneline --graph --all
     unstage = reset HEAD --
     last = log -1 HEAD
     co = checkout
