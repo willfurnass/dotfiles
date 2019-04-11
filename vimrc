@@ -131,6 +131,9 @@ Plug 'Rykka/InstantRst'
 
 " .rst settings for vim-table-mode plugin
 autocmd Filetype rst let b:table_mode_corner_corner='+' let g:table_mode_header_fillchar='='
+"
+" Enable spell checking for .rst by default
+autocmd FileType rst setlocal spell
 
 """"""""""
 " Markdown
@@ -151,6 +154,9 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 " Folding in Markdown; disable by default
 autocmd FileType markdown setlocal nofoldenable
+
+" Enable spell checking for markdown by default
+autocmd FileType markdown setlocal spell 
 
 " Vim plugin for Godown Markdown Previewer
 Plug 'davinche/godown-vim', { 'for': 'markdown' }
@@ -525,11 +531,18 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d %H:%M")<CR>
 nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 
-"""""""""""""""""""""""""""""""""
-" Toggle automatic spell checking
-"""""""""""""""""""""""""""""""""
-nnoremap <F7> :setlocal spell! spelllang=en_gb<CR>
-inoremap <F7> <Esc>:setlocal spell! spelllang=en_gb<CR>a
+""""""""""""""""
+" Spell checking
+""""""""""""""""
+set spelllang=en_gb
+
+" Toggle with F7
+nnoremap <F7> :setlocal spell!<CR>
+inoremap <F7> <Esc>:setlocal spell!<CR>a
+
+" Better syntax highlighting colors for bad spellings
+hi clear SpellBad
+hi SpellBad cterm=underline,bold
 
 """"""""""""""""""""""""""
 " Browse to links using gx
@@ -585,12 +598,6 @@ augroup END
 """""""""""""
 autocmd FileType javascript,js,javaScript setlocal foldmethod=syntax foldcolumn=1 foldlevelstart=99
 let javaScript_fold=1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Better syntax highlighting colors for bad spellings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi clear SpellBad
-hi SpellBad cterm=underline,bold
 
 let g:notmuch_sendmail = 'msmtp'
 let g:notmuch_date_format = '%y-%m-%d'
