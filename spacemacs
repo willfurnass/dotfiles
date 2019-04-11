@@ -325,6 +325,7 @@ you should place your code here."
   (setq org-clock-persist t)
   (org-clock-persistence-insinuate)
   (setq org-default-notes-file (concat org-directory "/capture.org"))
+  (setq org-startup-truncated nil)
 
   (defadvice markdown-preview (around markdown-preview-in-chromium activate compile)
     (let ((browse-url-browser-function #'browse-url-firefox))
