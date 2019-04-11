@@ -260,21 +260,23 @@ exec --no-startup-id /usr/bin/udiskie --smart-tray
 ###########################################
 # Binding mode to set resolution and change monitor positions (using xrandr).
 #
-# Settings for Dell XPS 9550 with/without external (HDMI) monitor
-# NB forcing HD resolution on the laptop's 4K display for simplicity
+# Works for 
+#  - Dell XPS 9550 with/without external (HDMI) monitor (NB forces 4K internal display to 1920x1080)
+#  - Lenovo Thinkpad T460
+# 
 # NB monitor names can be found with 'xrandr --listmonitors'
+#
 mode "xrandrxps" {
     bindsym h exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --auto --left-of eDP1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
     bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --auto --above eDP1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
     bindsym l exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --auto --right-of eDP1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
     bindsym j exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --off && test -f ~/.fehbg && ~/.fehbg, mode "default"
 }
-# Settings for Lenovo Thinkpad E520 with/without external monitor
 mode "xrandrthinkpad" {
-    bindsym h exec --no-startup-id xrandr --output LVDS-1 --auto && xrandr --output HDMI-1 --auto --left-of LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym k exec --no-startup-id xrandr --output LVDS-1 --auto && xrandr --output HDMI-1 --auto --above LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym l exec --no-startup-id xrandr --output LVDS-1 --auto && xrandr --output HDMI-1 --auto --right-of LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym j exec --no-startup-id xrandr --output LVDS-1 --auto && xrandr --output HDMI-1 --off && test -f ~/.fehbg && ~/.fehbg, mode "default"
+    bindsym h exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --auto --left-of LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
+    bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --auto --above LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
+    bindsym l exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --auto --right-of LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
+    bindsym j exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --off && test -f ~/.fehbg && ~/.fehbg, mode "default"
 }
 bindsym $mod+x mode "xrandrxps"
 bindsym $mod+t mode "xrandrthinkpad"
