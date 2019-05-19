@@ -334,8 +334,9 @@ bindsym $mod+c exec zenity --calendar --date-format='%Y-%m-%d' | xclip -selectio
 ##################
 # PASSWORD MANAGER
 ##################
-# Ensure KeePassXC is on specific workspace
+# Ensure KeePass{,XC} is on specific workspace
 assign [class="keepassxc"] 9
+assign [class="keepass"] 9
 
 #############
 # WEB BROWSER
