@@ -317,7 +317,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (require 'ox-odt)
-  (setq org-directory "~/rse/org")
+  (setq org-directory "~/org")
   (setq org-agenda-files (list org-directory))
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-deadline-if-done t)
