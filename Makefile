@@ -17,6 +17,9 @@ beets:
 	stow beets
 csi:
 	stow csi
+docker:
+	make -p -m 700 ${HOME}/.docker
+	stow docker
 emacs:
 	make -p -m 700 ${HOME}/.emacs.d
 	stow emacs

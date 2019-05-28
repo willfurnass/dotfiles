@@ -6,6 +6,7 @@ Config files for:
 * `ack` (grep-like search tool)
 * `beets` (music database manager)
 * `csi` (Chicken Scheme)
+* `docker`
 * `extract_url` (used by Mutt)
 * `emacs`
 * `git`
