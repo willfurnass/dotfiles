@@ -519,9 +519,10 @@ inoremap <left>  <nop>
 inoremap <right> <nop>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable parsing of vim modelines at the top of source files
+" Disable parsing of vim modelines at the top of source files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set modeline
+" Due to CVE-2019-12735
+set nomodeline
 
 """""""""""""""""""""""""""""""""""""""""""""
 " Insert date and time (F5) or just date (F6)
