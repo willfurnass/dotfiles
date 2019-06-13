@@ -29,6 +29,7 @@ Config files for:
 * `todotxt`
 * `vim`
 * `weechat` (IRC client)
+* `xrandr`
 * `xinitrc`
 * `Xresources`
 * `zathura` (PDF reader)

@@ -26,13 +26,11 @@ emacs:
 git:
 	stow git
 gnupg:
-	make -p -m 700 ${HOME}/.gnupg
+	mkdir -p -m 700 ${HOME}/.gnupg
 	stow gnupg
 i3: 
 	# Install i3, dunst, polybar and i3status config (i3status not really needed now that using polybar)
 	stow i3
-	# Make sure polybar launch script is executable
-	chmod 0700 `pwd`/i3/.config/polybar/launch.sh
 inputrc:
 	stow inputrc
 irssi:
@@ -101,6 +99,9 @@ weechat:
 	stow weechat
 xinitrc:
 	stow xinitrc
+xrandr:
+	mkdir -p ${HOME}/bin
+	stow xrandr
 Xresources:
 	mkdir ${HOME}/.Xresources.d
 	stow Xresources

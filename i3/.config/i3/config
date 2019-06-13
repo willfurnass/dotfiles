@@ -71,8 +71,8 @@ bindsym $mod+Shift+d exec rofi -show drun -fg "#f1f1f1" -bg "#333333" -hlfg "#ff
 bindsym Mod1+Tab exec rofi -show window   -fg "#f1f1f1" -bg "#333333" -hlfg "#ffffff" -hlbg "#336699" -o 85
 # Unix Pass
 bindsym $mod+Shift+p exec passmenu -l 10
-# TESTING dmenu
-bindsym $mod+Shift+m exec dmenu_run -l 10
+# switch arandr profiles using rofi
+bindsym $mod+Tab exec ~/bin/rofi-arandr.sh
 
 ##########################
 # CHANGE FOCUSED CONTAINER
@@ -254,32 +254,6 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --star
 # AUTOMOUNT REMOVABLE MEDIA
 ###########################
 exec --no-startup-id /usr/bin/udiskie --smart-tray
-
-###########################################
-# DISPLAY RESOLUTIONS AND MONITOR POSITIONS
-###########################################
-# Binding mode to set resolution and change monitor positions (using xrandr).
-#
-# Works for 
-#  - Dell XPS 9550 with/without external (HDMI) monitor (NB forces 4K internal display to 1920x1080)
-#  - Lenovo Thinkpad T460
-# 
-# NB monitor names can be found with 'xrandr --listmonitors'
-#
-mode "xrandrxps" {
-    bindsym h exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --auto --left-of eDP1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --auto --above eDP1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym l exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --auto --right-of eDP1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym j exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --dpi 96 && xrandr --output HDMI1 --off && test -f ~/.fehbg && ~/.fehbg, mode "default"
-}
-mode "xrandrthinkpad" {
-    bindsym h exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --auto --left-of LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym k exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --auto --above LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym l exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --auto --right-of LVDS-1 && test -f ~/.fehbg && ~/.fehbg, mode "default"
-    bindsym j exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 && xrandr --output HDMI-1 --off && test -f ~/.fehbg && ~/.fehbg, mode "default"
-}
-bindsym $mod+x mode "xrandrxps"
-bindsym $mod+t mode "xrandrthinkpad"
 
 #############
 # SCREENSHOTS
