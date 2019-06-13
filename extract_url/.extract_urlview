@@ -1,5 +1,0 @@
-SHORTCUT
-COMMAND /usr/bin/firefox %s
-HTML_TAGS a,iframe,link
-DEFAULT_VIEW context
-IGNORE_EMPTY_TAGS

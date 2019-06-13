@@ -49,13 +49,6 @@ mksh:
 	stow mksh
 mpd:
 	stow mpd
-mutt:
-	mkdir -m 700 -p ${HOME}/.mutt/cache/persgm/headers
-	mkdir -m 700 -p ${HOME}/.mutt/cache/persgm/bodies
-	mkdir -m 700 -p ${HOME}/.mutt/cache/workgm/headers
-	mkdir -m 700 -p ${HOME}/.mutt/cache/workgm/bodies
-	stow mutt
-	stow extract_url
 newsboat:
 	mkdir -m 700 -p ${HOME}/.config
 	stow newsboat

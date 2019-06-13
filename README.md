@@ -7,7 +7,6 @@ Config files for:
 * `beets` (music database manager)
 * `csi` (Chicken Scheme)
 * `docker`
-* `extract_url` (used by Mutt)
 * `emacs`
 * `git`
 * `gnupg`
@@ -20,7 +19,6 @@ Config files for:
 * `mimeapps`
 * `mksh` shell
 * `mpd` (music playing daemon)
-* `mutt` (mail client)
 * `newsboat` (feed reader)
 * `ranger` file manager (with w3m-powered image previews)
 * `R`

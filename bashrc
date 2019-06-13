@@ -345,15 +345,6 @@ alias firefox-hidpi='GDK_SCALE=2 GDK_DPI_SCALE=1 firefox'
 #######
 # Email
 #######
-# Mutt
-if is_prog_on_path neomutt; then
-    mutt_prog=neomutt
-else
-    mutt_prog=mutt
-fi
-[[ -n ${mutt_prog+x} ]] && alias persgm="${mutt_prog} -F ${HOME}/.mutt/muttrc.persgm"
-unset mutt_prog
-
 # Vim config for standalone reading/writing of email content
 alias vimail='vi -c "set spell spelllang=en" -c "set filetype=mail"' #-c "set tw=72" 
 

@@ -575,12 +575,6 @@ autocmd FileType puppet setlocal shiftwidth=2 softtabstop=2 expandtab
 set wildmode=longest,list,full
 set wildmenu
 
-""""""""""""""""""""""""""""""""""""""""""""""
-" Mutt: wrap paragraphs using soft line breaks
-""""""""""""""""""""""""""""""""""""""""""""""
-" Useful if using format=flowed (RFC 3676) in vim
-au BufRead /tmp/mutt-* set fo+=w
-
 """""""""""""
 " XML folding
 """""""""""""
@@ -598,6 +592,3 @@ augroup END
 """""""""""""
 autocmd FileType javascript,js,javaScript setlocal foldmethod=syntax foldcolumn=1 foldlevelstart=99
 let javaScript_fold=1
-
-let g:notmuch_sendmail = 'msmtp'
-let g:notmuch_date_format = '%y-%m-%d'
