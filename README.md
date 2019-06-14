@@ -22,6 +22,7 @@ Config files for:
 * `newsboat` (feed reader)
 * `ranger` file manager (with w3m-powered image previews)
 * `R`
+* `rofi`
 * `ssh-agent`
 * `tmux` (terminal multiplexer)
 * `todotxt`

@@ -57,6 +57,9 @@ rprofile:
 ranger:
 	mkdir -m 0700 -p ${HOME}/.config/ranger
 	stow ranger
+rofi:
+	mkdir -m 0700 -p ${HOME}/.config/rofi
+	stow rofi
 ssh-agent:
 	#stow ssh-agent
 	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
