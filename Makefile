@@ -29,7 +29,7 @@ gnupg:
 	mkdir -p -m 700 ${HOME}/.gnupg
 	stow gnupg
 i3: 
-	# Install i3, dunst, polybar and i3status config (i3status not really needed now that using polybar)
+	# Install i3, dunst and i3status config
 	stow i3
 inputrc:
 	stow inputrc
