@@ -1,0 +1,292 @@
+# sway config file
+# Read `man 5 sway` for a complete reference.
+
+##############
+# MAIN MOD KEY
+##############
+# Set $mod to the 'Windows' ('super') key
+set $mod Mod4
+
+#############################
+# FOCUS DOES NOT FOLLOW MOUSE
+#############################
+focus_follows_mouse no
+
+##########
+# TERMINAL
+##########
+# start a terminal
+bindsym $mod+Return exec urxvt
+
+##############
+# KILL WINDOWS
+##############
+# kill focused window
+bindsym $mod+Shift+q kill
+
+##########
+# LAUNCHER
+##########
+# Use rofi to launch applications, change windows and SSH to remote machines
+bindsym Mod1+Tab exec rofi -show 
+
+# Unix Pass
+Bindsym $mod+Shift+p exec rofi-pass
+
+##########################
+# CHANGE FOCUSED CONTAINER
+##########################
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+########################
+# MOVE FOCUSED CONTAINER
+########################
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+########################
+# RESIZE/SPLIT CONTAINER
+########################
+# Split in horizontal orientation
+bindsym $mod+z split h
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Toggle fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+    
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+##################
+# CONTAINER LAYOUT
+##################
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+############
+# WORKSPACES
+############
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Move workspace to another monitor
+bindsym $mod+Shift+period move workspace to output left
+bindsym $mod+Shift+comma move workspace to output right
+
+###################
+# i3 RELOAD/RESTART
+###################
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+###############
+# AUDIO CONTROL
+###############
+# Pulse Audio controls 
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pactl list sinks short | tac | awk '/RUNNING/ {print $2}' | tail -1) +5% && notify-send 'Increased volume'
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pactl list sinks short | tac | awk '/RUNNING/ {print $2}' | tail -1) -5% && notify-send 'Decreased volume'
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pactl list sinks short | tac | awk '/RUNNING/ {print $2}' | tail -1) toggle && notify-send 'Toggle mute'
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play && notify-send 'Play'
+bindsym XF86AudioPause exec playerctl pause && notify-send 'Pause'
+bindsym XF86AudioNext exec playerctl next && notify-send 'Next track'
+bindsym XF86AudioPrev exec playerctl previous && notify-send 'Previous track'
+
+# Volume control in status bar
+exec --no-startup-id volumeicon
+
+# Binding to quickly bring up the graphical PulseAudio mixer
+bindsym $mod+m exec --no-startup-id pavucontrol
+
+#####################
+# NOTIFICATION SYSTEM
+#####################
+exec --no-startup-id dunst -config /home/will/.config/dunst/dunstrc
+
+############
+# NUMLOCK ON
+############
+exec --no-startup-id numlockx on
+
+#######################
+# NETWORKMANAGER APPLET
+#######################
+exec --no-startup-id nm-applet
+
+################
+# DROPBOX APPLET
+################
+exec --no-startup-id "command -v dropbox-cli >/dev/null 2>&1 dropbox-cli start || dropbox start"
+
+#######################
+# GNOME SETTINGS DAEMON
+#######################
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon --start --components=gpg,pkcs11,secrets,ssh
+
+###########################
+# AUTOMOUNT REMOVABLE MEDIA
+###########################
+exec --no-startup-id /usr/bin/udiskie --smart-tray
+
+#############
+# SCREENSHOTS
+#############
+# Take a screenshot of the root window with scrot then open it in gimp for editing
+#bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+# Take a screenshot of a user-selected window/rectangle with scrot then open it in gimp for editing
+#bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+
+##############################################################
+# SHUTDOWN/REBOOT/SUSPEND/HIBERNATE, LOGOUT AND SCREEN LOCKING
+##############################################################
+# Define a binding mode to handle all the above
+# (see https://wiki.archlinux.org/index.php/i3)
+
+# Convenient alias for screen locking
+set $Locker swaylock -c 051205 -t && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Escape mode "$mode_system"
+
+##########
+# CALENDAR
+##########
+# Copy selected date to clipboard
+bindsym $mod+c exec zenity --calendar --date-format='%Y-%m-%d' | xclip -selection c
+
+##################
+# PASSWORD MANAGER
+##################
+# Ensure KeePass{,XC} is on specific workspace
+assign [class="keepassxc"] 9
+assign [class="keepass"] 9
+
+#############
+# WEB BROWSER
+#############
+# Bah - doesn't work (yet)
+#set $browser exec --no-startup-id echo "$BROWSER"
+#bindsym $mod+b exec --no-startup-id $browser
+
+#################
+# EMPTY CONTAINER
+#################
+# In case you want to create an empty container so you can then tile it with a
+# window that you only want to fill half the screen
+bindsym $mod+o open
+
+
+
+
+#############
+# SWAY CONFIG
+#############
+output "*" bg /home/will/Pictures/lindesfarne.jpg fill
+set $laptopdisp eDP-1
+bindswitch lid:on output $laptopdisp disable
+bindswitch lid:off output $laptopdisp enable
+output $laptopdisp scale 2
+input * xkb_layout "gb"
+#input * xkb_options caps:swapescape
+bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
+input "2:1:PS/2_Synaptics_TouchPad" tap disabled
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+    position bottom
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}

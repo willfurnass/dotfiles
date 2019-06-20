@@ -65,6 +65,10 @@ ssh-agent:
 	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
 	#systemctl --user daemon-reload
 	systemctl --user start ssh-agent.service
+sway: Xresources rofi
+	# Install sway config
+	mkdir -p ~/.config/sway
+	stow sway
 todotxt:
 	stow todotxt
 tmux:
@@ -99,8 +103,9 @@ xrandr:
 	mkdir -p ${HOME}/bin
 	stow xrandr
 Xresources:
-	mkdir ${HOME}/.Xresources.d
+	mkdir -p ${HOME}/.Xresources.d
 	stow Xresources
+	ln -s ~/.Xresources ~/.Xdefaults
 zathura:
 	mkdir -p ${HOME}/.config/
 	$(SYM) `pwd`/zathura ${HOME}/.config/zathura

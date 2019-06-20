@@ -24,6 +24,7 @@ Config files for:
 * `R`
 * `rofi`
 * `ssh-agent`
+* `sway`
 * `tmux` (terminal multiplexer)
 * `todotxt`
 * `vim`
