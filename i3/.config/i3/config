@@ -193,7 +193,7 @@ bindsym $mod+Shift+r restart
 ############
 bar {
     status_command i3status
-    font pango:DejaVu Sans Mono, Font Awesome 10
+    font pango:DejaVu Sans Mono, Font Awesome 10, Icons 10
 }
 
 ###############

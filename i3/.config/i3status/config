@@ -7,39 +7,59 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
+  colors = true
+  interval = 1
+  colors = true
+  color_good = "#36E592"
+  color_degraded = "#CE9726"
+  color_bad = "#CE4B4F"
+  color_separator = "#B3BEFF"
+  interval = 5
 }
 
-#order += "taskwarrior"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "path_exists VPN"
 order += "sysdata"
 order += "load"
+order += "cpu_usage"
 order += "disk /"
 order += "disk /home"
 order += "battery all"
-order += "xrandr"
-#order += "pomodoro"
 order += "tztime local"
+order += "volume master"
 
-#taskwarrior {
-#        format = "TW: {task}"
-#}
+path_exists VPN {
+     path = "/proc/sys/net/ipv4/conf/tun0"
+}
 
 wireless _first_ {
-        format_up   = " %quality %essid %ip"
-        format_down = " -"
+        format_up = " wless   %quality  %essid  %bitrate  %ip"
+        format_down = " wired"
 }
 
 ethernet _first_ {
-        # if you use %speed, i3status requires root privileges
-        format_up   = " %ip (%speed)"
-        format_down = " -"
+        format_up = " wired   %quality  %essid  %bitrate  %ip"
+        format_down = " wired"
+}
+
+load {
+        format = "%1min"
+}
+
+cpu_usage {
+        format = " %usage"
+}
+
+disk "/" {
+        format = "√ %avail"
+}
+
+disk "/home" {
+        format = " %avail"
 }
 
 battery all {
-#format = "P: %status %percentage %remaining"
         format = " %status %percentage"
 }
 
@@ -47,14 +67,10 @@ tztime local {
         format = " %Y-%m-%d %H:%M"
 }
 
-load {
-        format = "%1min"
-}
-
-disk "/" {
-        format = "√⛀ %avail"
-}
-
-disk "/home" {
-        format = "⛀ %avail"
+volume master {
+  format = " %volume"
+  format_muted = " %volume"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
 }
