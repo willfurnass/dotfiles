@@ -21,10 +21,9 @@ if !has('nvim') && v:version >= 800
     endif
 endif
 
-" The 'neovim' python package should have been installed into both of the
-" following virtualenvs
+" The 'neovim' python package should have been installed into the
+" following virtualenv
 let g:python3_host_prog = '/home/will/.venvs/neovim3/bin/python3'
-let g:python_host_prog = '/home/will/.venvs/neovim2/bin/python'
 
 """""""""""""""""
 " Vim plug config

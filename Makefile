@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ack bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd mutt rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ack bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile todotxt tmux vim weechat xinitrc 
 
 abcde:
 	 stow abcde
@@ -82,9 +82,7 @@ tmux:
 	${HOME}/.tmux/plugins/tpm/bin/update_plugins all
 vim:
 	mkdir -p ~/.venvs
-	test -f ~/.venvs/neovim2/bin/python || python3 -m venv -p python2 ~/.venvs/neovim2
-	test -f ~/.venvs/neovim3/bin/python || python3 -m venv -p python3 ~/.venvs/neovim3
-	~/.venvs/neovim2/bin/python -m pip freeze | grep -q neovim || ~/.venvs/neovim2/bin/python -m pip install neovim
+	test -f ~/.venvs/neovim3/bin/python || python3 -m venv ~/.venvs/neovim3
 	~/.venvs/neovim3/bin/python -m pip freeze | grep -q neovim || ~/.venvs/neovim3/bin/python -m pip install neovim
 	$(SYM) `pwd`/vimrc ${HOME}/.vimrc
 	mkdir -p ${HOME}/.vim
