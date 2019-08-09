@@ -397,6 +397,11 @@ Plug 'vim-scripts/matchit.zip'
 " Automatic => alignment (can disable with let g:puppet_align_hashes = 0)
 Plug 'rodjek/vim-puppet'
 
+"""""""""""""""""""""
+" Jenkinsfile support
+"""""""""""""""""""""
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 """"""""
 " vim-go
 """"""""
