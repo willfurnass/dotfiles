@@ -154,13 +154,11 @@ fi
 # Modules
 #########
 # Define some convenient aliases if we're using Modules but don't have Lmod
-if [[ -n ${MODULESHOME+x} ]] && ! $(module --version 2>&1 | grep -wq Lua); then 
-    alias ma='module avail -t 2>&1'
-    alias ml='module load'
-    alias mu='module unload'
-    alias ms='module show'
-    alias mp='module purge'
-fi
+[[ $(type -t ma) == 'function' ]] || [[ $(type -t ma) == 'alias' ]] || alias ma='module avail -t 2>&1'
+[[ $(type -t ml) == 'function' ]] || [[ $(type -t ml) == 'alias' ]] || alias ml='module load'
+[[ $(type -t mu) == 'function' ]] || [[ $(type -t mu) == 'alias' ]] || alias mu='module unload'
+[[ $(type -t ms) == 'function' ]] || [[ $(type -t ms) == 'alias' ]] || alias ms='module show'
+[[ $(type -t mp) == 'function' ]] || [[ $(type -t mp) == 'alias' ]] || alias mp='module purge'
 
 
 ###########
