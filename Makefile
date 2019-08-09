@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ack bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile todotxt tmux vim weechat xinitrc 
+all: abcde ack bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile todotxt tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
@@ -80,6 +80,8 @@ tmux:
 	    && popd
 	${HOME}/.tmux/plugins/tpm/bin/install_plugins
 	${HOME}/.tmux/plugins/tpm/bin/update_plugins all
+vi:
+	stow vi
 vim:
 	mkdir -p ~/.venvs
 	test -f ~/.venvs/neovim3/bin/python || python3 -m venv ~/.venvs/neovim3

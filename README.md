@@ -27,6 +27,7 @@ Config files for:
 * `sway`
 * `tmux` (terminal multiplexer)
 * `todotxt`
+* `vi` (`.exrc`)
 * `vim`
 * `weechat` (IRC client)
 * `xrandr`
