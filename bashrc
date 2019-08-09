@@ -35,12 +35,9 @@ PROMPT_DIRTRIM=3
 ########
 if is_prog_on_path nvim; then
     export EDITOR=nvim
-    alias vi=nvim
     alias vimdiff='nvim -d'
 elif is_prog_on_path vim; then
     export EDITOR=vim
-    alias vi=vim
-    alias vmi=vim
 else
     export EDITOR=vi
 fi
