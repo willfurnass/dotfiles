@@ -3,7 +3,6 @@
 Config files for:
 
 * `abcde` (CD ripper)
-* `ack` (grep-like search tool)
 * `beets` (music database manager)
 * `csi` (Chicken Scheme)
 * `docker`
@@ -26,7 +25,6 @@ Config files for:
 * `ssh-agent`
 * `sway`
 * `tmux` (terminal multiplexer)
-* `todotxt`
 * `vi` (`.exrc`)
 * `vim`
 * `weechat` (IRC client)

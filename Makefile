@@ -1,12 +1,10 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde ack bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile todotxt tmux vi vim weechat xinitrc
+all: abcde bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
-ack:
-	 stow ack
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/ ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
 	pushd ${HOME}/.bash-git-prompt/ \
@@ -69,8 +67,6 @@ sway: Xresources rofi
 	# Install sway config
 	mkdir -p ~/.config/sway
 	stow sway
-todotxt:
-	stow todotxt
 tmux:
 	stow tmux
 	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
