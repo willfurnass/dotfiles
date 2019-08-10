@@ -69,13 +69,6 @@ sway: Xresources rofi
 	stow sway
 tmux:
 	stow tmux
-	[ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	pushd ~/.tmux/plugins/tpm \
-	    && git fetch --prune --all \
-	    && git merge --ff-only origin/master \
-	    && popd
-	${HOME}/.tmux/plugins/tpm/bin/install_plugins
-	${HOME}/.tmux/plugins/tpm/bin/update_plugins all
 vi:
 	stow vi
 vim:
