@@ -328,6 +328,11 @@ you should place your code here."
   ;;(setq org-startup-truncated nil)
   (setq org-todo-keywords
 	 '((sequence "TODO" "NEXT" "DONE")))
+  (setq org-agenda-sorting-strategy '(
+   (agenda habit-down todo-state-down time-up priority-down category-keep)
+   (todo priority-down category-keep)
+   (tags priority-down category-keep)
+   (search category-keep)))
 
   (defadvice markdown-preview (around markdown-preview-in-chromium activate compile)
     (let ((browse-url-browser-function #'browse-url-firefox))
