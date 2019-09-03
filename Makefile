@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde bash beets csi emacs git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile tmux vi vim weechat xinitrc
+all: abcde bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
@@ -18,9 +18,9 @@ csi:
 docker:
 	make -p -m 700 ${HOME}/.docker
 	stow docker
-emacs:
+spacemacs:
 	(pushd ~/.emacs.d >/dev/null && git remote -v | grep -qE "origin\s+https://github.com/syl20bnr/spacemacs\s+\(fetch\)" && popd >/dev/null) || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	stow emacs
+	stow spacemacs
 	systemctl --user enable emacs.service
 	systemctl --user start emacs.service
 git:

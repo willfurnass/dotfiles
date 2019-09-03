@@ -6,7 +6,6 @@ Config files for:
 * `beets` (music database manager)
 * `csi` (Chicken Scheme)
 * `docker`
-* `emacs`
 * `git`
 * `gnupg`
 * `i3` window manager plus associated utilities
@@ -22,6 +21,7 @@ Config files for:
 * `ranger` file manager (with w3m-powered image previews)
 * `R`
 * `rofi`
+* `spacemacs`
 * `ssh-agent`
 * `sway`
 * `tmux` (terminal multiplexer)
