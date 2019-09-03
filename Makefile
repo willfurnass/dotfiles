@@ -1,22 +1,23 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all: abcde bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+all:    abcde bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+.PHONY: abcde bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
 bash:
-	[[ -d ${HOME}/.bash-git-prompt/ ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
+	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
 	pushd ${HOME}/.bash-git-prompt/ \
-	    && git fetch --prune --all \
-	    && git merge --ff-only origin/master \
-	    && popd
+	&& git fetch --prune --all \
+	&& git merge --ff-only origin/master \
+	&& popd
 beets:
 	stow beets
 csi:
 	stow csi
 docker:
-	make -p -m 700 ${HOME}/.docker
+	mkdir -p -m 700 ${HOME}/.docker
 	stow docker
 spacemacs:
 	(pushd ~/.emacs.d >/dev/null && git remote -v | grep -qE "origin\s+https://github.com/syl20bnr/spacemacs\s+\(fetch\)" && popd >/dev/null) || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
