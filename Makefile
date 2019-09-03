@@ -19,8 +19,10 @@ docker:
 	make -p -m 700 ${HOME}/.docker
 	stow docker
 emacs:
-	make -p -m 700 ${HOME}/.emacs.d
+	(pushd ~/.emacs.d >/dev/null && git remote -v | grep -qE "origin\s+https://github.com/syl20bnr/spacemacs\s+\(fetch\)" && popd >/dev/null) || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	stow emacs
+	systemctl --user enable emacs.service
+	systemctl --user start emacs.service
 git:
 	stow git
 gnupg:
