@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -45,9 +46,23 @@ values."
      markdown
      mu4e
      org
+     go
+     ;; which requires
+     ;;  go get -u -v github.com/mdempsky/gocode
+     ;;  go get -u -v github.com/rogpeppe/godef
+     ;;  go get -u -v golang.org/x/tools/cmd/guru
+     ;;  go get -u -v golang.org/x/tools/cmd/gorename
+     ;;  go get -u -v golang.org/x/tools/cmd/goimports
+     ;;  go get -u -v github.com/zmb3/gogetdoc
+     ;;  go get -u -v github.com/cweill/gotests/...
+     ;;  go get -u github.com/haya14busa/gopkgs/cmd/gopkgs
+     ;;  go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
+     ;;  go get -u github.com/josharian/impl
+
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
+     ranger
      spell-checking  ;; Note that I need aspell-en installed
      syntax-checking
      version-control
@@ -335,8 +350,7 @@ you should place your code here."
    (search category-keep)))
 
   (defadvice markdown-preview (around markdown-preview-in-chromium activate compile)
-    (let ((browse-url-browser-function #'browse-url-firefox))
-      ad-do-it))
+   (let ((browse-url-browser-function #'browse-url-firefox)) ad-do-it))
 
   ;; use mu4e for e-mail in emacs
   (setq mail-user-agent 'mu4e-user-agent)
@@ -357,6 +371,9 @@ you should place your code here."
   (setq mu4e-compose-signature-auto-include nil)
   (setq mu4e-view-show-images t)
   (setq mu4e-view-show-addresses t)
+
+  ;; ranger config
+  (setq ranger-show-preview t)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
