@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    abcde bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
-.PHONY: abcde bash beets csi git i3 irssi jupyter-css matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+all:    abcde bash beets csi git i3 irssi jupyter-css lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+.PHONY: abcde bash beets csi git i3 irssi jupyter-css lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
@@ -40,6 +40,9 @@ irssi:
 	find `pwd`/irssi/config -type d -exec chmod 700 {} \;
 	$(SYM) `pwd`/irssi/config ${HOME}/.irssi/config
 	$(SYM) `pwd`/irssi/default.theme ${HOME}/.irssi/default.theme
+lyx:
+	mkdir -p -m 0700 ~/.lyx/bind
+	stow lyx
 jupyter-css:
 	stow jupyter-css
 matplotlib:
