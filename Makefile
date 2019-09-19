@@ -90,6 +90,8 @@ vim:
 	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
+vscode: 
+	stow vscode
 weechat:
 	stow weechat
 xinitrc:

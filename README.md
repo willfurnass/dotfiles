@@ -27,6 +27,7 @@ Config files for:
 * `tmux` (terminal multiplexer)
 * `vi` (`.exrc`)
 * `vim`
+* `vscode`
 * `weechat` (IRC client)
 * `xrandr`
 * `xinitrc`
