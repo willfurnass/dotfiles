@@ -12,6 +12,7 @@ Config files for:
 * `inputrc`
 * `irssi` (IRC client)
 * `jupyter` (custom CSS)
+* `kanshi` (auto-config for sway displays)
 * `lyx` (key bindings for LaTeX-like editor)
 * `matplotlib` (Pyton plotting library)
 * `mimeapps`

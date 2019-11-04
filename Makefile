@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    abcde bash beets csi git i3 irssi jupyter-css lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
-.PHONY: abcde bash beets csi git i3 irssi jupyter-css lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+all:    abcde bash beets csi git i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+.PHONY: abcde bash beets csi git i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
@@ -19,11 +19,6 @@ csi:
 docker:
 	mkdir -p -m 700 ${HOME}/.docker
 	stow docker
-spacemacs:
-	(pushd ~/.emacs.d >/dev/null && git remote -v | grep -qE "origin\s+https://github.com/syl20bnr/spacemacs\s+\(fetch\)" && popd >/dev/null) || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-	stow spacemacs
-	systemctl --user enable emacs.service
-	systemctl --user start emacs.service
 git:
 	stow git
 gnupg:
@@ -40,11 +35,14 @@ irssi:
 	find `pwd`/irssi/config -type d -exec chmod 700 {} \;
 	$(SYM) `pwd`/irssi/config ${HOME}/.irssi/config
 	$(SYM) `pwd`/irssi/default.theme ${HOME}/.irssi/default.theme
+jupyter-css:
+	stow jupyter-css
+kanshi:
+	mkdir -m 700 -p ${HOME}/.config/kanshi
+	stow kanshi
 lyx:
 	mkdir -p -m 0700 ~/.lyx/bind
 	stow lyx
-jupyter-css:
-	stow jupyter-css
 matplotlib:
 	stow matplotlib
 mimeapps:
@@ -64,6 +62,11 @@ ranger:
 rofi:
 	mkdir -m 0700 -p ${HOME}/.config/rofi
 	stow rofi
+spacemacs:
+	(pushd ~/.emacs.d >/dev/null && git remote -v | grep -qE "origin\s+https://github.com/syl20bnr/spacemacs\s+\(fetch\)" && popd >/dev/null) || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+	stow spacemacs
+	systemctl --user enable emacs.service
+	systemctl --user start emacs.service
 ssh-agent:
 	#stow ssh-agent
 	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
