@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash i3 irssi  kanshi lyx matplotlib mimeapps mpd spacemacs vim weechat xinitrc
-.PHONY: bash i3 irssi  kanshi lyx matplotlib mimeapps mpd spacemacs vim weechat xinitrc
+all:    bash i3 irssi  kanshi mpd spacemacs vim weechat
+.PHONY: bash i3 irssi  kanshi mpd spacemacs vim weechat 
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -10,17 +10,12 @@ bash:
 	&& git fetch --prune --all \
 	&& git merge --ff-only origin/master \
 	&& popd
-docker:
-	mkdir -p -m 700 ${HOME}/.docker
-	stow docker
 gnupg:
 	mkdir -p -m 700 ${HOME}/.gnupg
 	stow gnupg
 i3: 
 	# Install i3, dunst and i3status config
 	stow i3
-inputrc:
-	stow inputrc
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;
@@ -30,18 +25,8 @@ irssi:
 kanshi:
 	mkdir -m 700 -p ${HOME}/.config/kanshi
 	stow kanshi
-lyx:
-	mkdir -p -m 0700 ~/.lyx/bind
-	stow lyx
-matplotlib:
-	stow matplotlib
-mimeapps:
-	stow mimeapps
 mpd:
 	stow mpd
-rofi:
-	mkdir -m 0700 -p ${HOME}/.config/rofi
-	stow rofi
 spacemacs:
 	(pushd ~/.emacs.d >/dev/null && git remote -v | grep -qE "origin\s+https://github.com/syl20bnr/spacemacs\s+\(fetch\)" && popd >/dev/null) || git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	stow spacemacs
@@ -69,8 +54,6 @@ vim:
 	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
-vscode: 
-	stow vscode
 weechat:
 	stow weechat
 xrandr:

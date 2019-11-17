@@ -2,22 +2,15 @@
 
 Config files for:
 
-* `docker`
 * `gnupg`
 * `i3` window manager plus associated utilities
-* `inputrc`
 * `irssi` (IRC client)
 * `kanshi` (auto-config for sway displays)
-* `lyx` (key bindings for LaTeX-like editor)
-* `matplotlib` (Pyton plotting library)
-* `mimeapps`
 * `mpd` (music playing daemon)
-* `rofi`
 * `spacemacs`
 * `ssh-agent`
 * `sway`
 * `vim`
-* `vscode`
 * `weechat` (IRC client)
 * `xrandr`
 
