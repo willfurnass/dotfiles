@@ -2,7 +2,6 @@
 
 Config files for:
 
-* `beets` (music database manager)
 * `docker`
 * `gnupg`
 * `i3` window manager plus associated utilities
