@@ -43,9 +43,6 @@ mksh:
 	stow mksh
 mpd:
 	stow mpd
-newsboat:
-	mkdir -m 700 -p ${HOME}/.config
-	stow newsboat
 rprofile:
 	stow R
 ranger:

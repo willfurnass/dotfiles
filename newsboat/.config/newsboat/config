@@ -1,6 +1,0 @@
-datetime-format "%F" 
-browser "firefox %u" 
-color info white cyan bold
-color listfocus white magenta bold
-color listfocus_unread white magenta bold
-#html-renderer "w3m -dump -T text/html" 
