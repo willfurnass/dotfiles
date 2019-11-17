@@ -2,9 +2,7 @@
 
 Config files for:
 
-* `abcde` (CD ripper)
 * `beets` (music database manager)
-* `csi` (Chicken Scheme)
 * `docker`
 * `gnupg`
 * `i3` window manager plus associated utilities

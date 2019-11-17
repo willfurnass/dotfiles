@@ -1,11 +1,9 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    abcde bash beets csi i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
-.PHONY: abcde bash beets csi i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+all:    bash beets i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+.PHONY: bash beets i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
 
-abcde:
-	 stow abcde
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
 	pushd ${HOME}/.bash-git-prompt/ \
@@ -14,8 +12,6 @@ bash:
 	&& popd
 beets:
 	stow beets
-csi:
-	stow csi
 docker:
 	mkdir -p -m 700 ${HOME}/.docker
 	stow docker
