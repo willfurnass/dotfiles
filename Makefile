@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    abcde bash beets csi git i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
-.PHONY: abcde bash beets csi git i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+all:    abcde bash beets csi i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+.PHONY: abcde bash beets csi i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
 
 abcde:
 	 stow abcde
@@ -19,8 +19,6 @@ csi:
 docker:
 	mkdir -p -m 700 ${HOME}/.docker
 	stow docker
-git:
-	stow git
 gnupg:
 	mkdir -p -m 700 ${HOME}/.gnupg
 	stow gnupg

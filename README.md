@@ -6,7 +6,6 @@ Config files for:
 * `beets` (music database manager)
 * `csi` (Chicken Scheme)
 * `docker`
-* `git`
 * `gnupg`
 * `i3` window manager plus associated utilities
 * `inputrc`
