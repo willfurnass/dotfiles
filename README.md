@@ -28,7 +28,6 @@ Config files for:
 * `vscode`
 * `weechat` (IRC client)
 * `xrandr`
-* `xinitrc`
 
 ## Installation
 

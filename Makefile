@@ -91,8 +91,6 @@ vscode:
 	stow vscode
 weechat:
 	stow weechat
-xinitrc:
-	stow xinitrc
 xrandr:
 	mkdir -p ${HOME}/bin
 	stow xrandr
