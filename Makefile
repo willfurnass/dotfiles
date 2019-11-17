@@ -40,6 +40,3 @@ vim:
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
 weechat:
 	stow weechat
-xrandr:
-	mkdir -p ${HOME}/bin
-	stow xrandr

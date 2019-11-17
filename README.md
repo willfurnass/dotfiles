@@ -8,7 +8,6 @@ Config files for:
 * `ssh-agent`
 * `vim`
 * `weechat` (IRC client)
-* `xrandr`
 
 ## Installation
 
