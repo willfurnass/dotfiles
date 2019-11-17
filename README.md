@@ -4,7 +4,6 @@ Config files for:
 
 * `kanshi` (auto-config for sway displays)
 * `mpd` (music playing daemon)
-* `ssh-agent`
 
 ## Installation
 

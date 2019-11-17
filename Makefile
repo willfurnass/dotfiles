@@ -15,8 +15,3 @@ kanshi:
 	stow kanshi
 mpd:
 	stow mpd
-ssh-agent:
-	#stow ssh-agent
-	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
-	#systemctl --user daemon-reload
-	systemctl --user start ssh-agent.service
