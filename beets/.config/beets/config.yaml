@@ -1,7 +1,8 @@
-directory: ~/Music
-library: ~/Music/beets_library.blb
+directory: ~/Music_beets
+library: ~/Music_beets/library.db
 import:
-  copy: no
+  copy: yes
+  move: no
   write: no
 plugins: fetchart web 
 paths:

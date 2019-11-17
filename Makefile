@@ -96,7 +96,3 @@ xinitrc:
 xrandr:
 	mkdir -p ${HOME}/bin
 	stow xrandr
-Xresources:
-	mkdir -p ${HOME}/.Xresources.d
-	stow Xresources
-	ln -s ~/.Xresources ~/.Xdefaults

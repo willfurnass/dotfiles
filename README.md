@@ -29,7 +29,6 @@ Config files for:
 * `weechat` (IRC client)
 * `xrandr`
 * `xinitrc`
-* `Xresources`
 
 ## Installation
 

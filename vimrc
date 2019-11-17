@@ -20,10 +20,7 @@ if !has('nvim') && v:version >= 800
        set pyxversion=2
     endif
 endif
-
-" The 'neovim' python package should have been installed into the
-" following virtualenv
-let g:python3_host_prog = '/home/will/.venvs/neovim3/bin/python3'
+" NB require that neovim python package installed globally
 
 """""""""""""""""
 " Vim plug config
@@ -46,8 +43,11 @@ let g:ale_lint_on_text_changed = 'never'
 " ALE warning/error msg format
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " Jump to next/prev ALE warning/error
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_error)
+nmap <silent> <C-j> <Plug>(ale_next_error)
+let g:ale_python_flake8_args = '--ignore=E501'
+let g:ale_python_flake8_executable = 'flake8'
+let g:ale_python_flake8_options = '--ignore=E501'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Deoplete: asynchronous completion framework for neovim/Vim8
@@ -55,7 +55,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   let g:deoplete#enable_at_startup = 1
-  Plug 'zchee/deoplete-jedi'
+  "Plug 'zchee/deoplete-jedi'
+  Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 else
   if v:version >= 800
       Plug 'Shougo/deoplete.nvim'
@@ -63,8 +64,10 @@ else
       Plug 'roxma/vim-hug-neovim-rpc'
       let g:deoplete#enable_at_startup = 1
       Plug 'zchee/deoplete-jedi'
+      Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
   endif
 endif
+
 
 """"""""""""
 " Commenting
@@ -118,7 +121,7 @@ Plug 'tpope/vim-rhubarb'
 """"""""""""""""""""
 "Git per-line status
 """"""""""""""""""""
-Plug 'mhinz/vim-signify'
+"Plug 'mhinz/vim-signify'
 
 """"""""""""""""""
 " reStructuredText
@@ -403,10 +406,15 @@ Plug 'rodjek/vim-puppet'
 """""""""""""""""""""
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
+""""""""""""""
+" TOML support
+""""""""""""""
+Plug 'cespare/vim-toml'
+
 """"""""
 " vim-go
 """"""""
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 " Compile your package with :GoBuild, install it with :GoInstall or test it with :GoTest. Run a single tests with :GoTestFunc).
 " Quickly execute your current file(s) with :GoRun.
 " Improved syntax highlighting and folding.
@@ -425,6 +433,7 @@ Plug 'fatih/vim-go'
 " ... and many more! Please see doc/vim-go.txt for more information.
 " Silence warnings about vim being too old (needed on ShARC/Iceberg)
 let g:go_version_warning = 0
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
 """""""""""""""
 " Color schemes
@@ -448,6 +457,8 @@ let g:GPGExecutable = "gpg2"
 
 " Add plugins to &runtimepath
 call plug#end()
+
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 """""""""""""""""""""
 " Trailing whitespace

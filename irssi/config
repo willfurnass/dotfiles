@@ -25,26 +25,42 @@
 servers = (
   {
     address = "irc.freenode.net";
+    #address = "spud.lan";
     chatnet = "freenode";
     port = "6697";
+    #port = "8008";
     use_ssl = "yes";
     ssl_verify = "yes";
     ssl_cert = "~/.irssi/certs/freenode.pem";
     ssl_capath = "/etc/ssl/certs/";
     autoconnect = "yes";
+  },
+  {
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+    autoconnect = "yes";
   }
 );
 
 chatnets = {
-  freenode = { type = "IRC"; nick = "will_f"; }
+  freenode = {
+    type = "IRC";
+    nick = "will_f";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "will_f";
+    sasl_password = "wood_boat_sack_part";
+  };
 };
 
-channels = (
-  { name = "#gridengine"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#hpc"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#ganglia"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#sheffgeeks"; chatnet = "freenode"; autojoin = "Yes"; }
-);
+#channels = (
+#  { name = "#gridengine"; chatnet = "freenode"; autojoin = "Yes"; },
+#  { name = "#hpc"; chatnet = "freenode"; autojoin = "Yes"; },
+#  { name = "#ganglia"; chatnet = "freenode"; autojoin = "Yes"; },
+#  { name = "#sheffgeeks"; chatnet = "freenode"; autojoin = "Yes"; }
+#);
 
 #aliases = {
 #  J = "join";

@@ -35,9 +35,11 @@ PROMPT_DIRTRIM=3
 ########
 if is_prog_on_path nvim; then
     export EDITOR=nvim
+    alias vi='nvim'
     alias vimdiff='nvim -d'
 elif is_prog_on_path vim; then
     export EDITOR=vim
+    alias vi='vim'
 else
     export EDITOR=vi
 fi
@@ -121,18 +123,18 @@ alias info='info --vi-keys'
 # GPG 
 #####
 # If our TTY is not controlled by SSH i.e. is local:
-if [ -z ${SSH_TTY+x} ] && [ -z ${SSH_CLIENT+x} ] ; then
-    # Want to use gpg-agent instead of OpenSSH agent as ssh agent
-    unset SSH_AGENT_PID
-    # Determine the ssh-agent socket
-    if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
-        export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-    fi
-    export GPG_AGENT_INFO="${SSH_AUTH_SOCK}"
-    # Set the GPG_TTY and refresh the TTY in case user has switched into an X session as stated in gpg-agent(1):
-    export GPG_TTY=$(tty)
-    gpg-connect-agent updatestartuptty /bye >/dev/null
-fi
+#if [ -z ${SSH_TTY+x} ] && [ -z ${SSH_CLIENT+x} ] ; then
+#    # Want to use gpg-agent instead of OpenSSH agent as ssh agent
+#    unset SSH_AGENT_PID
+#    # Determine the ssh-agent socket
+#    if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then
+#        export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+#    fi
+#    export GPG_AGENT_INFO="${SSH_AUTH_SOCK}"
+#    # Set the GPG_TTY and refresh the TTY in case user has switched into an X session as stated in gpg-agent(1):
+#    export GPG_TTY=$(tty)
+#    gpg-connect-agent updatestartuptty /bye >/dev/null
+#fi
 
 
 ########################
