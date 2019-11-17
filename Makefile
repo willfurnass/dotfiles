@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash beets i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
-.PHONY: bash beets i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs tmux vi vim weechat xinitrc
+all:    bash beets i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs vim weechat xinitrc
+.PHONY: bash beets i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs vim weechat xinitrc
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -70,10 +70,6 @@ sway: Xresources rofi
 	# Install sway config
 	mkdir -p ~/.config/sway
 	stow sway
-tmux:
-	stow tmux
-vi:
-	stow vi
 vim:
 	mkdir -p ~/.venvs
 	test -f ~/.venvs/neovim3/bin/python || python3 -m venv ~/.venvs/neovim3

@@ -22,8 +22,6 @@ Config files for:
 * `spacemacs`
 * `ssh-agent`
 * `sway`
-* `tmux` (terminal multiplexer)
-* `vi` (`.exrc`)
 * `vim`
 * `vscode`
 * `weechat` (IRC client)
