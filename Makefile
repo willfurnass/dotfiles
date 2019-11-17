@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash mpd 
-.PHONY: bash mpd
+all:    bash
+.PHONY: bash
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -10,5 +10,3 @@ bash:
 	&& git fetch --prune --all \
 	&& git merge --ff-only origin/master \
 	&& popd
-mpd:
-	stow mpd
