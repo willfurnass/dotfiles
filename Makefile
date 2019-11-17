@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash irssi  kanshi mpd spacemacs vim weechat
-.PHONY: bash irssi  kanshi mpd spacemacs vim weechat 
+all:    bash kanshi mpd spacemacs vim weechat
+.PHONY: bash kanshi mpd spacemacs vim weechat 
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -10,12 +10,6 @@ bash:
 	&& git fetch --prune --all \
 	&& git merge --ff-only origin/master \
 	&& popd
-irssi:
-	mkdir -m 700 -p ${HOME}/.irssi/certs
-	find `pwd`/irssi/config -type f -exec chmod 600 {} \;
-	find `pwd`/irssi/config -type d -exec chmod 700 {} \;
-	$(SYM) `pwd`/irssi/config ${HOME}/.irssi/config
-	$(SYM) `pwd`/irssi/default.theme ${HOME}/.irssi/default.theme
 kanshi:
 	mkdir -m 700 -p ${HOME}/.config/kanshi
 	stow kanshi
