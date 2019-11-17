@@ -6,7 +6,6 @@ Config files for:
 * `mpd` (music playing daemon)
 * `spacemacs`
 * `ssh-agent`
-* `vim`
 
 ## Installation
 

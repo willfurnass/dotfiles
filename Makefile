@@ -25,16 +25,3 @@ ssh-agent:
 	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
 	#systemctl --user daemon-reload
 	systemctl --user start ssh-agent.service
-vim:
-	mkdir -p ~/.venvs
-	test -f ~/.venvs/neovim3/bin/python || python3 -m venv ~/.venvs/neovim3
-	~/.venvs/neovim3/bin/python -m pip freeze | grep -q neovim || ~/.venvs/neovim3/bin/python -m pip install neovim
-	$(SYM) `pwd`/vimrc ${HOME}/.vimrc
-	mkdir -p ${HOME}/.vim
-	$(SYM) `pwd`/vim-ftplugin ${HOME}/.vim/ftplugin
-	$(SYM) `pwd`/vim-syntax ${HOME}/.vim/syntax
-	$(SYM) `pwd`/vim-after ${HOME}/.vim/after
-	$(SYM) `pwd`/vim-autoload ${HOME}/.vim/autoload
-	mkdir -p ${HOME}/.config
-	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
-	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
