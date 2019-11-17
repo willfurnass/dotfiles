@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash kanshi mpd spacemacs vim weechat
-.PHONY: bash kanshi mpd spacemacs vim weechat 
+all:    bash kanshi mpd spacemacs vim 
+.PHONY: bash kanshi mpd spacemacs vim  
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -38,5 +38,3 @@ vim:
 	mkdir -p ${HOME}/.config
 	$(SYM) ${HOME}/.vim ${HOME}/.config/nvim
 	$(SYM) ${HOME}/.vimrc ${HOME}/.config/nvim/init.vim
-weechat:
-	stow weechat

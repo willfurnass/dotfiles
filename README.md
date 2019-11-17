@@ -7,7 +7,6 @@ Config files for:
 * `spacemacs`
 * `ssh-agent`
 * `vim`
-* `weechat` (IRC client)
 
 ## Installation
 
