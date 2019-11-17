@@ -30,7 +30,6 @@ Config files for:
 * `xrandr`
 * `xinitrc`
 * `Xresources`
-* `zathura` (PDF reader)
 
 ## Installation
 

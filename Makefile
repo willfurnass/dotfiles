@@ -100,6 +100,3 @@ Xresources:
 	mkdir -p ${HOME}/.Xresources.d
 	stow Xresources
 	ln -s ~/.Xresources ~/.Xdefaults
-zathura:
-	mkdir -p ${HOME}/.config/
-	$(SYM) `pwd`/zathura ${HOME}/.config/zathura

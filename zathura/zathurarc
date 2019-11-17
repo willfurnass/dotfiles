@@ -1,7 +1,0 @@
-set selection-clipboard clipboard
-set default-bg "#000000"
-set recolor true
-set recolor-lightcolor "#EECCCC"
-set recolor-darkcolor "#000000"
-set window-title-page true
-set guioptions "svh"
