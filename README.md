@@ -3,7 +3,6 @@
 Config files for:
 
 * `gnupg`
-* `i3` window manager plus associated utilities
 * `irssi` (IRC client)
 * `kanshi` (auto-config for sway displays)
 * `mpd` (music playing daemon)

@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash i3 irssi  kanshi mpd spacemacs vim weechat
-.PHONY: bash i3 irssi  kanshi mpd spacemacs vim weechat 
+all:    bash irssi  kanshi mpd spacemacs vim weechat
+.PHONY: bash irssi  kanshi mpd spacemacs vim weechat 
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -13,9 +13,6 @@ bash:
 gnupg:
 	mkdir -p -m 700 ${HOME}/.gnupg
 	stow gnupg
-i3: 
-	# Install i3, dunst and i3status config
-	stow i3
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;
