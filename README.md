@@ -13,8 +13,6 @@ Config files for:
 * `matplotlib` (Pyton plotting library)
 * `mimeapps`
 * `mpd` (music playing daemon)
-* `ranger` file manager (with w3m-powered image previews)
-* `R`
 * `rofi`
 * `spacemacs`
 * `ssh-agent`
