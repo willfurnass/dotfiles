@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mpd spacemacs vim weechat xinitrc
-.PHONY: bash i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mpd spacemacs vim weechat xinitrc
+all:    bash i3 irssi  kanshi lyx matplotlib mimeapps mpd spacemacs vim weechat xinitrc
+.PHONY: bash i3 irssi  kanshi lyx matplotlib mimeapps mpd spacemacs vim weechat xinitrc
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -27,8 +27,6 @@ irssi:
 	find `pwd`/irssi/config -type d -exec chmod 700 {} \;
 	$(SYM) `pwd`/irssi/config ${HOME}/.irssi/config
 	$(SYM) `pwd`/irssi/default.theme ${HOME}/.irssi/default.theme
-jupyter-css:
-	stow jupyter-css
 kanshi:
 	mkdir -m 700 -p ${HOME}/.config/kanshi
 	stow kanshi
