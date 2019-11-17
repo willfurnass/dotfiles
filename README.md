@@ -12,9 +12,7 @@ Config files for:
 * `lyx` (key bindings for LaTeX-like editor)
 * `matplotlib` (Pyton plotting library)
 * `mimeapps`
-* `mksh` shell
 * `mpd` (music playing daemon)
-* `newsboat` (feed reader)
 * `ranger` file manager (with w3m-powered image previews)
 * `R`
 * `rofi`

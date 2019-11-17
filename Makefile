@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 SYM = ln --symbolic --no-target-directory --no-dereference --force --backup=numbered
 
-all:    bash i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs vim weechat xinitrc
-.PHONY: bash i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mksh mpd rprofile spacemacs vim weechat xinitrc
+all:    bash i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mpd rprofile spacemacs vim weechat xinitrc
+.PHONY: bash i3 irssi jupyter-css kanshi lyx matplotlib mimeapps mpd rprofile spacemacs vim weechat xinitrc
 
 bash:
 	[[ -d ${HOME}/.bash-git-prompt/.git ]] || git clone https://github.com/magicmonty/bash-git-prompt.git ${HOME}/.bash-git-prompt/ 
@@ -39,8 +39,6 @@ matplotlib:
 	stow matplotlib
 mimeapps:
 	stow mimeapps
-mksh:
-	stow mksh
 mpd:
 	stow mpd
 rprofile:
