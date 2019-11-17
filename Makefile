@@ -10,9 +10,6 @@ bash:
 	&& git fetch --prune --all \
 	&& git merge --ff-only origin/master \
 	&& popd
-gnupg:
-	mkdir -p -m 700 ${HOME}/.gnupg
-	stow gnupg
 irssi:
 	mkdir -m 700 -p ${HOME}/.irssi/certs
 	find `pwd`/irssi/config -type f -exec chmod 600 {} \;

@@ -2,7 +2,6 @@
 
 Config files for:
 
-* `gnupg`
 * `irssi` (IRC client)
 * `kanshi` (auto-config for sway displays)
 * `mpd` (music playing daemon)
