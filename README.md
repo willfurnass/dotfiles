@@ -9,7 +9,6 @@ Config files for:
 * `mpd` (music playing daemon)
 * `spacemacs`
 * `ssh-agent`
-* `sway`
 * `vim`
 * `weechat` (IRC client)
 * `xrandr`

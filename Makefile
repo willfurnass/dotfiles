@@ -37,10 +37,6 @@ ssh-agent:
 	systemctl --user enable ./ssh-agent/.config/systemd/user/ssh-agent.service
 	#systemctl --user daemon-reload
 	systemctl --user start ssh-agent.service
-sway: Xresources rofi
-	# Install sway config
-	mkdir -p ~/.config/sway
-	stow sway
 vim:
 	mkdir -p ~/.venvs
 	test -f ~/.venvs/neovim3/bin/python || python3 -m venv ~/.venvs/neovim3
